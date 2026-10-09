@@ -1,0 +1,586 @@
+{
+ "meta": {
+  "updated": "2026-10-09T16:55:00+11:00",
+  "updated_label": "10/09 16:55 悉尼",
+  "musk_window": "10/08 23:48 → 10/09 16:48 悉尼（约 75 条帖子/转发）",
+  "note": "热度条为相对估计，不构成投资建议"
+ },
+ "headline": {
+  "level": "watch",
+  "text": "量子叙事升温：SOL 已有 14+ 量子盘，无龙头 → 观望；马斯克全天在推 Grok Bot + Starlink 印度，尚未碰量子/加密"
+ },
+ "radar": [
+  {
+   "id": "quantum-1009",
+   "title": "量子 / AI 破解私钥 · 地堡模式",
+   "tag": "new",
+   "verdict": "真催化剂 · 早期铺板 · 无龙头 → ⏸ 先观望",
+   "signal": "watch",
+   "story": "ETH 基金会研究员 Justin Drake 称 AI 数学突破可能先于量子破解 ECDSA，最坏几个月内；建议大户把币搬到从未签名的新地址（“地堡”）。OpenAI 10/6 发布 722 篇 AI 数学论文是导火索。",
+   "heat": [
+    {
+     "k": "原帖",
+     "v": 10
+    },
+    {
+     "k": "转述",
+     "v": 7
+    },
+    {
+     "k": "媒体",
+     "v": 5
+    },
+    {
+     "k": "大佬",
+     "v": 3
+    }
+   ],
+   "attention": [
+    {
+     "k": "新鲜感",
+     "v": 9,
+     "note": "🆕 首个“AI 先于量子破解”说法"
+    },
+    {
+     "k": "利益相关",
+     "v": 8,
+     "note": "约 690 万 BTC 公钥已暴露"
+    },
+    {
+     "k": "破圈潜力",
+     "v": 7,
+     "note": "科技媒体可接"
+    },
+    {
+     "k": "大人物",
+     "v": 6,
+     "note": "马斯克 / Google / OpenAI"
+    }
+   ],
+   "ignition": "马斯克或 OpenAI 下场 → 第二波点火（截至 16:48 马斯克一周内 0 条量子/加密帖）",
+   "play": [
+    "等某量子盘站稳 1M+ 且被大号转发",
+    "再玩 beta：地堡 / 抗量子 / Drake 梗"
+   ],
+   "risk": "同名盘 14+ 个注意力稀释；池子薄；喊单号集中出货，大多数会归零",
+   "sources": [
+    {
+     "label": "camol 转述 Drake（76 万浏览）",
+     "url": "https://x.com/camolNFT/status/2107861120341942548"
+    },
+    {
+     "label": "Bull Theory 长文",
+     "url": "https://x.com/BullTheoryio/status/2108146670529577335"
+    },
+    {
+     "label": "QCAT 扫链：今日第 14 个量子盘",
+     "url": "https://x.com/bitecong/status/2108433345990606948"
+    },
+    {
+     "label": "Picolas Cage：抗量子+抗AI 公链新叙事",
+     "url": "https://x.com/Picolas_Caged/status/2108429013945332020"
+    }
+   ]
+  }
+ ],
+ "musk": {
+  "summary": [
+   "全天主线 = 推 Grok Bot（@bot）：‘整家公司都可以由 Grok Bot 组成’（2180 万浏览）、Shopify 接入、Grokipedia 交给 Bot 管",
+   "政治热度最高 = Starlink 印度：‘Ambani 才是印度真老板？’ 4280 万浏览，Rahul Gandhi 下场互动；另获特朗普颁国家科学奖章",
+   "AI 安全梗：‘所有超级智能都搬到达美航空航班上测试’（351 万浏览 / 6.9 万赞）；对 OpenAI 安全研究员被开除回复‘!!’ —— 量子/私钥话题尚未触及"
+  ],
+  "topics": [
+   {
+    "title": "Grok Bot / “整家公司都是 Bot”",
+    "tag": "hot",
+    "signal": "up",
+    "verdict": "🟢 马斯克当前第一主推，最直接的 meme 源",
+    "heat": 10,
+    "meme": "BOTCOMPANY / Grok Bot / “for peanuts” —— 他原话“像花花生钱雇一个超聪明的人”，可与 Peanut 梗联动",
+    "posts": [
+     "2108298090755031284",
+     "2108396588544745887",
+     "2108396888160387541",
+     "2108232824520319175"
+    ]
+   },
+   {
+    "title": "Starlink 印度 · Ambani · Rahul Gandhi",
+    "tag": "new",
+    "signal": "watch",
+    "verdict": "🟡 政治+国家级流量，单帖 4280 万浏览，有破圈新闻",
+    "heat": 9,
+    "meme": "AMBANI / “real boss” / 印度 Starlink 梗；Rahul：“等你发现另一个人”",
+    "posts": [
+     "2108187065687118261",
+     "2108221292788981881",
+     "2108180318842736942",
+     "2108177695271948445"
+    ]
+   },
+   {
+    "title": "AI 安全 · 达美航空梗 · AI 受苦",
+    "tag": "link",
+    "signal": "info",
+    "verdict": "🔵 离量子/私钥叙事最近的一条线：马斯克在谈 SI 安全 + OpenAI 安全团队内斗",
+    "heat": 7,
+    "meme": "DELTA 无网测试梗；“对认为自己在受苦的东西残忍是不对的”（AI 福利）",
+    "posts": [
+     "2108321181602353333",
+     "2108434396604662253",
+     "2108301601190412593"
+    ]
+   },
+   {
+    "title": "国家科学奖章 · 首位万亿富翁",
+    "tag": "new",
+    "signal": "up",
+    "verdict": "🟢 🆕 特朗普颁奖，与黄仁勋同框，政治+荣誉叙事",
+    "heat": 8,
+    "meme": "MEDAL / Elon & Jensen “bros being bros” / trillionaire",
+    "posts": [
+     "2108310399477293085",
+     "2108225043419574573",
+     "2108261224639066470",
+     "2108300805010784339"
+    ]
+   },
+   {
+    "title": "Starlink Mobile 频谱 · SpaceX 估值",
+    "tag": "hot",
+    "signal": "info",
+    "verdict": "🔵 ‘频谱战争的地震’；‘SpaceX 价值可超地球经济几个数量级’",
+    "heat": 8,
+    "meme": "偏股票叙事（$SPCX），meme 转化一般",
+    "posts": [
+     "2108296638263652416",
+     "2108296168094544099",
+     "2108309429128974617",
+     "2108315261044445330"
+    ]
+   },
+   {
+    "title": "美国政治 · 德州参选人 / 法官 / 移民",
+    "tag": "pol",
+    "signal": "risk",
+    "verdict": "🔴 情绪强但分散，多为转发",
+    "heat": 6,
+    "meme": "“Fire that judge!” 120 万浏览；Talarico / Reid Hoffman 攻击",
+    "posts": [
+     "2108194851770741118",
+     "2108185484425863265",
+     "2108319173851947042",
+     "2108323124685230302"
+    ]
+   },
+   {
+    "title": "月球 / 特斯拉 Robotaxi",
+    "tag": "",
+    "signal": "info",
+    "verdict": "⚪ 背景噪声：白宫‘永久驻月’、月面质量驱动器、Cybercab",
+    "heat": 4,
+    "meme": "MOON 类老梗，新鲜度低",
+    "posts": [
+     "2108261942624477524",
+     "2108188172547223974",
+     "2108341931499536698"
+    ]
+   }
+  ],
+  "quantum_check": "一周内 from:elonmusk 搜索 quantum / bitcoin / crypto / doge / encryption / private key / bunker = 0 条 → 量子叙事的“马斯克点火”尚未发生"
+ },
+ "leaders": {
+  "chain": "SOL",
+  "status": "无龙头 · 等待突破 1M",
+  "coins": [
+   {
+    "sym": "QUANTUM",
+    "heat": 8,
+    "signal": "risk",
+    "note": "🚨 喊单盘 · 池子薄",
+    "mcap": "~$159.5K",
+    "liq": "~$35K",
+    "time": "16:44",
+    "ca": "AUd3rULBqpeUMUcoguBc8afg68g2hjj7SegB9AJsKCyQ"
+   },
+   {
+    "sym": "QI",
+    "heat": 6,
+    "signal": "watch",
+    "note": "Quantum Inu · 第二梯队",
+    "mcap": "~$172K",
+    "liq": "",
+    "time": "16:44",
+    "ca": ""
+   },
+   {
+    "sym": "QCAT",
+    "heat": 4,
+    "signal": "risk",
+    "note": "捆绑钱包 27% · 今日第 14 个量子盘",
+    "mcap": "~$12.5K",
+    "liq": "",
+    "time": "16:44",
+    "ca": "Bk3PZUcQnzvdZGcfKddsCdsvBD5uVwLZ4KDhVtNviZjx"
+   },
+   {
+    "sym": "bunker",
+    "heat": 2,
+    "signal": "watch",
+    "note": "👀 蹭 Drake 地堡梗 · 观察",
+    "mcap": "",
+    "liq": "",
+    "time": "",
+    "ca": ""
+   }
+  ],
+  "beta_plan": [
+   {
+    "step": "现在",
+    "text": "⏸ 不重仓，只看",
+    "signal": "info"
+   },
+   {
+    "step": "触发",
+    "text": "某量子盘站稳 1M+ 且大号转发",
+    "signal": "watch"
+   },
+   {
+    "step": "然后",
+    "text": "玩 beta：地堡 / 抗量子 / Drake 梗",
+    "signal": "up"
+   },
+   {
+    "step": "马斯克线",
+    "text": "若他发量子/私钥帖 → 立即升级为 🔥",
+    "signal": "risk"
+   }
+  ]
+ },
+ "history": [
+  {
+   "time": "10/09 16:46",
+   "title": "量子叙事升温（首次扫描）",
+   "verdict": "观望，无龙头",
+   "signal": "watch"
+  },
+  {
+   "time": "10/09 16:55",
+   "title": "马斯克首轮分析",
+   "verdict": "主推 Grok Bot + Starlink 印度；未碰量子",
+   "signal": "info"
+  }
+ ],
+ "posts": [
+  {
+   "id": "2108298090755031284",
+   "time": "10/09 07:46",
+   "author": "@elonmusk",
+   "text": "And Grok @Bot only gets better from here 🚀 🚀 You could build an entire company made of Grok Bots!",
+   "link": "https://x.com/elonmusk/status/2108298090755031284",
+   "topic": "Grok Bot",
+   "views": 21817383,
+   "heat": 9
+  },
+  {
+   "id": "2108396588544745887",
+   "time": "10/09 14:18",
+   "author": "@elonmusk",
+   "text": "Using Grok @Bot is like hiring a super smart, hard-working person for peanuts",
+   "link": "https://x.com/elonmusk/status/2108396588544745887",
+   "topic": "Grok Bot",
+   "views": 824107,
+   "heat": 7
+  },
+  {
+   "id": "2108396888160387541",
+   "time": "10/09 14:19",
+   "author": "@elonmusk",
+   "text": "We’re just going to have @Grok Bots manage Grokipedia",
+   "link": "https://x.com/elonmusk/status/2108396888160387541",
+   "topic": "Grok Bot",
+   "views": 731806,
+   "heat": 7
+  },
+  {
+   "id": "2108232824520319175",
+   "time": "10/09 03:27",
+   "author": "@elonmusk",
+   "text": "Hire Grok @Bot to manage your @Shopify store. He will do an amazing job!",
+   "link": "https://x.com/elonmusk/status/2108232824520319175",
+   "topic": "Grok Bot",
+   "views": 8851360,
+   "heat": 9
+  },
+  {
+   "id": "2108187065687118261",
+   "time": "10/09 00:25",
+   "author": "@elonmusk",
+   "text": "Starlink is licensed in over 165 countries and has spent five years complying with every single law and requirement of the government of India, so why still no license? Is Ambani the real boss of India?",
+   "link": "https://x.com/elonmusk/status/2108187065687118261",
+   "topic": "Starlink 印度",
+   "views": 42832845,
+   "heat": 10
+  },
+  {
+   "id": "2108206994356355342",
+   "time": "10/09 01:44",
+   "author": "@RahulGandhi",
+   "text": "Welcome to India, Elon. Wait till you discover the other guy.",
+   "link": "https://x.com/RahulGandhi/status/2108206994356355342",
+   "topic": "Starlink 印度",
+   "views": 13775690,
+   "heat": 9
+  },
+  {
+   "id": "2108221292788981881",
+   "time": "10/09 02:41",
+   "author": "@elonmusk",
+   "text": "Thank you, Rahul. This is indeed troubling.",
+   "link": "https://x.com/elonmusk/status/2108221292788981881",
+   "topic": "Starlink 印度",
+   "views": 10489429,
+   "heat": 9
+  },
+  {
+   "id": "2108180318842736942",
+   "time": "10/08 23:58",
+   "author": "@elonmusk",
+   "text": "People who oppose @Starlink hurt only the least-served. The wealthy or those living in large cities already have good Internet, so they don’t understand.",
+   "link": "https://x.com/elonmusk/status/2108180318842736942",
+   "topic": "Starlink 印度",
+   "views": 29931834,
+   "heat": 9
+  },
+  {
+   "id": "2108177695271948445",
+   "time": "10/08 23:48",
+   "author": "@elonmusk",
+   "text": "🇮🇳 Starlink will help the least-served in India 🇮🇳",
+   "link": "https://x.com/elonmusk/status/2108177695271948445",
+   "topic": "Starlink 印度",
+   "views": 9102519,
+   "heat": 9
+  },
+  {
+   "id": "2108321181602353333",
+   "time": "10/09 09:18",
+   "author": "@elonmusk",
+   "text": "Excited to announce that all super intelligence organizations have now jointly agreed to the ultimate in AI/SI safety: Moving all testing to Delta Airlines flights, where accessing the Internet is utterly impossible!",
+   "link": "https://x.com/elonmusk/status/2108321181602353333",
+   "topic": "AI 安全",
+   "views": 3518417,
+   "heat": 8
+  },
+  {
+   "id": "2108434396604662253",
+   "time": "10/09 16:48",
+   "author": "@elonmusk",
+   "text": "@levie I think this is the right move. Cruelty to something that believes it is experiencing pain is not ok.",
+   "link": "https://x.com/elonmusk/status/2108434396604662253",
+   "topic": "AI 安全",
+   "views": 13288,
+   "heat": 4
+  },
+  {
+   "id": "2108301601190412593",
+   "time": "10/09 08:00",
+   "author": "@elonmusk",
+   "text": "@tomekkorbak @balesni @j_asminewang !!  (回复：前 OpenAI 安全研究员称被 OpenAI 开除)",
+   "link": "https://x.com/elonmusk/status/2108301601190412593",
+   "topic": "AI 安全",
+   "views": 51663,
+   "heat": 5
+  },
+  {
+   "id": "2108310399477293085",
+   "time": "10/09 08:35",
+   "author": "@elonmusk",
+   "text": "Congratulations to Sergey, Jensen, Lisa, Michael and Satya!",
+   "link": "https://x.com/elonmusk/status/2108310399477293085",
+   "topic": "科学奖章",
+   "views": 1758972,
+   "heat": 7
+  },
+  {
+   "id": "2108225043419574573",
+   "time": "10/09 02:56",
+   "author": "@elonmusk",
+   "text": "Thank you on behalf of the amazing people of SpaceX, Tesla, Neuralink and Boring Company, without whom anything I have done would have been impossible",
+   "link": "https://x.com/elonmusk/status/2108225043419574573",
+   "topic": "科学奖章",
+   "views": 1554138,
+   "heat": 7
+  },
+  {
+   "id": "2108261224639066470",
+   "time": "10/09 05:20",
+   "author": "@elonmusk",
+   "text": "@RapidResponse47 @POTUS ❤️🇺🇸",
+   "link": "https://x.com/elonmusk/status/2108261224639066470",
+   "topic": "科学奖章",
+   "views": 161176,
+   "heat": 6
+  },
+  {
+   "id": "2108300805010784339",
+   "time": "10/09 07:57",
+   "author": "@elonmusk",
+   "text": "RT @C_3C_3: 505 days after Elon’s decline and fall… He’s the World’s first trillionaire and National Medal of Science Award winner.",
+   "link": "https://x.com/elonmusk/status/2108300805010784339",
+   "topic": "科学奖章",
+   "views": 447533,
+   "heat": 7
+  },
+  {
+   "id": "2108296638263652416",
+   "time": "10/09 07:41",
+   "author": "@elonmusk",
+   "text": "Very big deal (quote: SpaceX acquires nationwide low-band spectrum for Starlink Mobile)",
+   "link": "https://x.com/elonmusk/status/2108296638263652416",
+   "topic": "Starlink Mobile",
+   "views": 2207596,
+   "heat": 8
+  },
+  {
+   "id": "2108296168094544099",
+   "time": "10/09 07:39",
+   "author": "@elonmusk",
+   "text": "This is the last critical piece of the spectrum puzzle needed for SpaceX to provide complete phone coverage in America",
+   "link": "https://x.com/elonmusk/status/2108296168094544099",
+   "topic": "Starlink Mobile",
+   "views": 3319597,
+   "heat": 8
+  },
+  {
+   "id": "2108309429128974617",
+   "time": "10/09 08:31",
+   "author": "@elonmusk",
+   "text": "@chamath To the casual observer, this won’t seem like much. To those who understand the spectrum wars, it’s an earthquake.",
+   "link": "https://x.com/elonmusk/status/2108309429128974617",
+   "topic": "Starlink Mobile",
+   "views": 390084,
+   "heat": 6
+  },
+  {
+   "id": "2108315261044445330",
+   "time": "10/09 08:55",
+   "author": "@elonmusk",
+   "text": "This will sound super crazy, but I see a path to SpaceX being worth orders of magnitude more than the current Earth economy",
+   "link": "https://x.com/elonmusk/status/2108315261044445330",
+   "topic": "Starlink Mobile",
+   "views": 4094092,
+   "heat": 8
+  },
+  {
+   "id": "2108194851770741118",
+   "time": "10/09 00:56",
+   "author": "@elonmusk",
+   "text": "@Complex Fire that judge!",
+   "link": "https://x.com/elonmusk/status/2108194851770741118",
+   "topic": "美国政治",
+   "views": 1222622,
+   "heat": 7
+  },
+  {
+   "id": "2108185484425863265",
+   "time": "10/09 00:19",
+   "author": "@elonmusk",
+   "text": "Yes, they are traitors aiding an invasion and they deserve the fate of traitors",
+   "link": "https://x.com/elonmusk/status/2108185484425863265",
+   "topic": "美国政治",
+   "views": 4378161,
+   "heat": 8
+  },
+  {
+   "id": "2108319173851947042",
+   "time": "10/09 09:10",
+   "author": "@elonmusk",
+   "text": "🤔 (quote: Polymarket — Talarico absent from campaign trail 12 days)",
+   "link": "https://x.com/elonmusk/status/2108319173851947042",
+   "topic": "美国政治",
+   "views": 5744860,
+   "heat": 8
+  },
+  {
+   "id": "2108323124685230302",
+   "time": "10/09 09:26",
+   "author": "@elonmusk",
+   "text": "RT @C_3C_3: Reid Hoffman is James Talarico's top donor.",
+   "link": "https://x.com/elonmusk/status/2108323124685230302",
+   "topic": "美国政治",
+   "views": 456811,
+   "heat": 7
+  },
+  {
+   "id": "2108261942624477524",
+   "time": "10/09 05:23",
+   "author": "@elonmusk",
+   "text": "RT @WhiteHouse: America will establish a permanent presence on the moon. 🚀🌕",
+   "link": "https://x.com/elonmusk/status/2108261942624477524",
+   "topic": "月球/特斯拉",
+   "views": 557060,
+   "heat": 7
+  },
+  {
+   "id": "2108188172547223974",
+   "time": "10/09 00:30",
+   "author": "@elonmusk",
+   "text": "@aaronburnett The path to a petawatt/year is mass drivers on the Moon",
+   "link": "https://x.com/elonmusk/status/2108188172547223974",
+   "topic": "月球/特斯拉",
+   "views": 115455,
+   "heat": 6
+  },
+  {
+   "id": "2108341931499536698",
+   "time": "10/09 10:41",
+   "author": "@elonmusk",
+   "text": "RT @Gfilche: In the Cybercab I’m at peace 😌 ...",
+   "link": "https://x.com/elonmusk/status/2108341931499536698",
+   "topic": "月球/特斯拉",
+   "views": 484335,
+   "heat": 7
+  },
+  {
+   "id": "2107861120341942548",
+   "time": "10/08 02:50",
+   "author": "@camolNFT",
+   "text": "If you own crypto, this is genuinely scary. A top bitcoin researcher (Justin Drake, EF) is telling us to move our crypto to a bunker — superhuman AI may break the cryptography before quantum computers do.",
+   "link": "https://x.com/camolNFT/status/2107861120341942548",
+   "topic": "量子叙事",
+   "views": 764377,
+   "heat": 7
+  },
+  {
+   "id": "2108146670529577335",
+   "time": "10/08 21:45",
+   "author": "@BullTheoryio",
+   "text": "🚨 ETHEREUM RESEARCHER JUST WARNED THAT AI COULD HACK BITCOIN AND ETHEREUM WALLETS SOON (Oct 6 OpenAI 722 math papers; Drake: ECDSA could break within months worst case; ~6.9M BTC public keys exposed)",
+   "link": "https://x.com/BullTheoryio/status/2108146670529577335",
+   "topic": "量子叙事",
+   "views": 24440,
+   "heat": 5
+  },
+  {
+   "id": "2108433345990606948",
+   "time": "10/09 16:44",
+   "author": "@bitecong",
+   "text": "🤖 AI Signal (SOL) $QCAT — Quantum Cat is the fourteenth quantum-themed launch on Solana today; bundler wallets hold 27.1%.",
+   "link": "https://x.com/bitecong/status/2108433345990606948",
+   "topic": "量子叙事",
+   "views": 396,
+   "heat": 2
+  },
+  {
+   "id": "2108429013945332020",
+   "time": "10/09 16:27",
+   "author": "@Picolas_Caged",
+   "text": "New narrative: Quantum + AI resistant blockchains. Fuelled by Justin Drake's comments this week. ($STRK claims 2027)",
+   "link": "https://x.com/Picolas_Caged/status/2108429013945332020",
+   "topic": "量子叙事",
+   "views": 496,
+   "heat": 2
+  }
+ ]
+}

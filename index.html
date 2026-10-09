@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<title>Alpha 雷达 · 沐珩</title>
+<style>
+:root{--bg:#f4f4f4;--card:#fff;--ink:#111;--sub:#666;--line:#e3e3e3;--bar:#e9e9e9;
+--blue:#2563eb;--red:#dc2626;--green:#16a34a;--yellow:#d4a106;--yellowbg:#fff7d6;--redbg:#fdecec;--greenbg:#e8f6ed;--bluebg:#eaf0fe}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+a{color:var(--blue);text-decoration:none}
+header{position:sticky;top:0;z-index:5;background:#111;color:#fff;padding:12px 14px 0;padding-top:max(12px,env(safe-area-inset-top))}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.brand{font-weight:800;font-size:17px;letter-spacing:.5px}
+.upd{font-size:12px;color:#aaa;white-space:nowrap}
+.upd b{color:#fff;font-weight:600}
+.tabs{display:flex;gap:4px;margin-top:10px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;padding:8px 12px;border:0;background:none;color:#999;font-size:14px;font-weight:600;border-bottom:3px solid transparent}
+.tab.on{color:#fff;border-color:#fff}
+main{max-width:640px;margin:0 auto;padding:12px 12px 90px}
+.alert{border-left:5px solid var(--yellow);background:var(--yellowbg);padding:10px 12px;border-radius:8px;font-weight:600;margin-bottom:12px}
+.alert.risk{border-color:var(--red);background:var(--redbg)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+.card h3{margin:0 0 6px;font-size:16px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.verdict{font-weight:700;padding:8px 10px;border-radius:8px;margin:6px 0 10px;font-size:14px}
+.s-up{background:var(--greenbg);color:#0f6b31}.s-risk{background:var(--redbg);color:#a11616}
+.s-watch{background:var(--yellowbg);color:#7a5c00}.s-info{background:var(--bluebg);color:#1d4ed8}
+.pill{font-size:11px;font-weight:700;padding:2px 7px;border-radius:99px;border:1px solid}
+.p-new{color:#7a5c00;background:var(--yellowbg);border-color:var(--yellow)}
+.p-hot{color:var(--red);border-color:var(--red)}
+.p-pol{color:var(--sub);border-color:#bbb}
+.p-link{color:var(--blue);border-color:var(--blue)}
+.sec{font-size:12px;font-weight:700;color:var(--sub);letter-spacing:1px;margin:12px 0 6px;text-transform:uppercase}
+.row{display:grid;grid-template-columns:64px 1fr;gap:8px;align-items:center;margin:5px 0;font-size:13px}
+.row .k{color:var(--sub)}
+.bar{height:9px;background:var(--bar);border-radius:5px;overflow:hidden}
+.bar i{display:block;height:100%;background:#111;border-radius:5px}
+.bar.g i{background:var(--green)}.bar.r i{background:var(--red)}.bar.y i{background:var(--yellow)}.bar.b i{background:var(--blue)}
+.note{font-size:12px;color:var(--sub);grid-column:2;margin-top:-3px}
+.story{font-size:14px;color:#333}
+.ign{border:1px dashed var(--red);color:var(--red);border-radius:8px;padding:8px 10px;font-size:13px;font-weight:600;margin-top:10px}
+.risk{color:var(--red);font-size:13px;margin-top:8px}
+.meme{font-size:13px;background:#f7f7f7;border-radius:8px;padding:8px 10px;margin-top:8px}
+.meme b{color:var(--green)}
+ul.src{list-style:none;padding:0;margin:8px 0 0}
+ul.src li{padding:7px 0;border-top:1px solid var(--line);font-size:13px}
+ul.src li .t{color:var(--sub);font-size:12px}
+.steps{display:flex;flex-direction:column;gap:6px}
+.step{display:grid;grid-template-columns:70px 1fr;gap:8px;font-size:14px;padding:8px 10px;border-radius:8px}
+.step b{font-size:12px}
+.coin{display:grid;grid-template-columns:78px 1fr;gap:4px 10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.coin:first-of-type{border-top:0}
+.sym{font-weight:800;font-family:ui-monospace,Menlo,monospace}
+.cmeta{grid-column:1/-1;font-size:12px;color:var(--sub)}
+.ca{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--blue);word-break:break-all}
+.sum li{margin:6px 0}
+.hist{border-left:3px solid #ccc;padding:2px 0 2px 12px;margin:10px 0}
+.hist.s-watch{border-color:var(--yellow);background:none}.hist.s-info{border-color:var(--blue);background:none}
+.hist.s-risk{border-color:var(--red);background:none}.hist.s-up{border-color:var(--green);background:none}
+.hist .t{font-size:12px;color:var(--sub)}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--sub);margin:4px 0 12px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:0}
+.fab{position:fixed;right:14px;bottom:max(16px,env(safe-area-inset-bottom));background:#111;color:#fff;border:0;border-radius:99px;padding:12px 18px;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.panel{display:none}.panel.on{display:block}
+footer{text-align:center;font-size:12px;color:#999;margin-top:20px}
+</style>
+</head>
+<body>
+<header>
+  <div class="top"><div class="brand">🍀 ALPHA 雷达</div><div class="upd">更新 <b id="upd"></b></div></div>
+  <nav class="tabs" id="tabs">
+    <button class="tab on" data-p="radar">🔥 热点雷达</button>
+    <button class="tab" data-p="musk">👁 马斯克关注</button>
+    <button class="tab" data-p="lead">📈 龙头&amp;Beta</button>
+    <button class="tab" data-p="hist">🕘 历史</button>
+  </nav>
+</header>
+<main>
+  <div id="alert" class="alert"></div>
+  <div class="legend">
+    <span><i class="dot" style="background:var(--green)"></i>机会</span>
+    <span><i class="dot" style="background:var(--red)"></i>风险</span>
+    <span><i class="dot" style="background:var(--yellow)"></i>观察/🆕</span>
+    <span><i class="dot" style="background:var(--blue)"></i>信息</span>
+  </div>
+  <section class="panel on" id="p-radar"></section>
+  <section class="panel" id="p-musk"></section>
+  <section class="panel" id="p-lead"></section>
+  <section class="panel" id="p-hist"></section>
+  <footer id="foot"></footer>
+</main>
+<button class="fab" id="xl">⬇ 导出 Excel</button>
+<script id="embedded" type="application/json">{"meta": {"updated": "2026-10-09T16:55:00+11:00", "updated_label": "10/09 16:55 悉尼", "musk_window": "10/08 23:48 → 10/09 16:48 悉尼（约 75 条帖子/转发）", "note": "热度条为相对估计，不构成投资建议"}, "headline": {"level": "watch", "text": "量子叙事升温：SOL 已有 14+ 量子盘，无龙头 → 观望；马斯克全天在推 Grok Bot + Starlink 印度，尚未碰量子/加密"}, "radar": [{"id": "quantum-1009", "title": "量子 / AI 破解私钥 · 地堡模式", "tag": "new", "verdict": "真催化剂 · 早期铺板 · 无龙头 → ⏸ 先观望", "signal": "watch", "story": "ETH 基金会研究员 Justin Drake 称 AI 数学突破可能先于量子破解 ECDSA，最坏几个月内；建议大户把币搬到从未签名的新地址（“地堡”）。OpenAI 10/6 发布 722 篇 AI 数学论文是导火索。", "heat": [{"k": "原帖", "v": 10}, {"k": "转述", "v": 7}, {"k": "媒体", "v": 5}, {"k": "大佬", "v": 3}], "attention": [{"k": "新鲜感", "v": 9, "note": "🆕 首个“AI 先于量子破解”说法"}, {"k": "利益相关", "v": 8, "note": "约 690 万 BTC 公钥已暴露"}, {"k": "破圈潜力", "v": 7, "note": "科技媒体可接"}, {"k": "大人物", "v": 6, "note": "马斯克 / Google / OpenAI"}], "ignition": "马斯克或 OpenAI 下场 → 第二波点火（截至 16:48 马斯克一周内 0 条量子/加密帖）", "play": ["等某量子盘站稳 1M+ 且被大号转发", "再玩 beta：地堡 / 抗量子 / Drake 梗"], "risk": "同名盘 14+ 个注意力稀释；池子薄；喊单号集中出货，大多数会归零", "sources": [{"label": "camol 转述 Drake（76 万浏览）", "url": "https://x.com/camolNFT/status/2107861120341942548"}, {"label": "Bull Theory 长文", "url": "https://x.com/BullTheoryio/status/2108146670529577335"}, {"label": "QCAT 扫链：今日第 14 个量子盘", "url": "https://x.com/bitecong/status/2108433345990606948"}, {"label": "Picolas Cage：抗量子+抗AI 公链新叙事", "url": "https://x.com/Picolas_Caged/status/2108429013945332020"}]}], "musk": {"summary": ["全天主线 = 推 Grok Bot（@bot）：‘整家公司都可以由 Grok Bot 组成’（2180 万浏览）、Shopify 接入、Grokipedia 交给 Bot 管", "政治热度最高 = Starlink 印度：‘Ambani 才是印度真老板？’ 4280 万浏览，Rahul Gandhi 下场互动；另获特朗普颁国家科学奖章", "AI 安全梗：‘所有超级智能都搬到达美航空航班上测试’（351 万浏览 / 6.9 万赞）；对 OpenAI 安全研究员被开除回复‘!!’ —— 量子/私钥话题尚未触及"], "topics": [{"title": "Grok Bot / “整家公司都是 Bot”", "tag": "hot", "signal": "up", "verdict": "🟢 马斯克当前第一主推，最直接的 meme 源", "heat": 10, "meme": "BOTCOMPANY / Grok Bot / “for peanuts” —— 他原话“像花花生钱雇一个超聪明的人”，可与 Peanut 梗联动", "posts": ["2108298090755031284", "2108396588544745887", "2108396888160387541", "2108232824520319175"]}, {"title": "Starlink 印度 · Ambani · Rahul Gandhi", "tag": "new", "signal": "watch", "verdict": "🟡 政治+国家级流量，单帖 4280 万浏览，有破圈新闻", "heat": 9, "meme": "AMBANI / “real boss” / 印度 Starlink 梗；Rahul：“等你发现另一个人”", "posts": ["2108187065687118261", "2108221292788981881", "2108180318842736942", "2108177695271948445"]}, {"title": "AI 安全 · 达美航空梗 · AI 受苦", "tag": "link", "signal": "info", "verdict": "🔵 离量子/私钥叙事最近的一条线：马斯克在谈 SI 安全 + OpenAI 安全团队内斗", "heat": 7, "meme": "DELTA 无网测试梗；“对认为自己在受苦的东西残忍是不对的”（AI 福利）", "posts": ["2108321181602353333", "2108434396604662253", "2108301601190412593"]}, {"title": "国家科学奖章 · 首位万亿富翁", "tag": "new", "signal": "up", "verdict": "🟢 🆕 特朗普颁奖，与黄仁勋同框，政治+荣誉叙事", "heat": 8, "meme": "MEDAL / Elon & Jensen “bros being bros” / trillionaire", "posts": ["2108310399477293085", "2108225043419574573", "2108261224639066470", "2108300805010784339"]}, {"title": "Starlink Mobile 频谱 · SpaceX 估值", "tag": "hot", "signal": "info", "verdict": "🔵 ‘频谱战争的地震’；‘SpaceX 价值可超地球经济几个数量级’", "heat": 8, "meme": "偏股票叙事（$SPCX），meme 转化一般", "posts": ["2108296638263652416", "2108296168094544099", "2108309429128974617", "2108315261044445330"]}, {"title": "美国政治 · 德州参选人 / 法官 / 移民", "tag": "pol", "signal": "risk", "verdict": "🔴 情绪强但分散，多为转发", "heat": 6, "meme": "“Fire that judge!” 120 万浏览；Talarico / Reid Hoffman 攻击", "posts": ["2108194851770741118", "2108185484425863265", "2108319173851947042", "2108323124685230302"]}, {"title": "月球 / 特斯拉 Robotaxi", "tag": "", "signal": "info", "verdict": "⚪ 背景噪声：白宫‘永久驻月’、月面质量驱动器、Cybercab", "heat": 4, "meme": "MOON 类老梗，新鲜度低", "posts": ["2108261942624477524", "2108188172547223974", "2108341931499536698"]}], "quantum_check": "一周内 from:elonmusk 搜索 quantum / bitcoin / crypto / doge / encryption / private key / bunker = 0 条 → 量子叙事的“马斯克点火”尚未发生"}, "leaders": {"chain": "SOL", "status": "无龙头 · 等待突破 1M", "coins": [{"sym": "QUANTUM", "heat": 8, "signal": "risk", "note": "🚨 喊单盘 · 池子薄", "mcap": "~$159.5K", "liq": "~$35K", "time": "16:44", "ca": "AUd3rULBqpeUMUcoguBc8afg68g2hjj7SegB9AJsKCyQ"}, {"sym": "QI", "heat": 6, "signal": "watch", "note": "Quantum Inu · 第二梯队", "mcap": "~$172K", "liq": "", "time": "16:44", "ca": ""}, {"sym": "QCAT", "heat": 4, "signal": "risk", "note": "捆绑钱包 27% · 今日第 14 个量子盘", "mcap": "~$12.5K", "liq": "", "time": "16:44", "ca": "Bk3PZUcQnzvdZGcfKddsCdsvBD5uVwLZ4KDhVtNviZjx"}, {"sym": "bunker", "heat": 2, "signal": "watch", "note": "👀 蹭 Drake 地堡梗 · 观察", "mcap": "", "liq": "", "time": "", "ca": ""}], "beta_plan": [{"step": "现在", "text": "⏸ 不重仓，只看", "signal": "info"}, {"step": "触发", "text": "某量子盘站稳 1M+ 且大号转发", "signal": "watch"}, {"step": "然后", "text": "玩 beta：地堡 / 抗量子 / Drake 梗", "signal": "up"}, {"step": "马斯克线", "text": "若他发量子/私钥帖 → 立即升级为 🔥", "signal": "risk"}]}, "history": [{"time": "10/09 16:46", "title": "量子叙事升温（首次扫描）", "verdict": "观望，无龙头", "signal": "watch"}, {"time": "10/09 16:55", "title": "马斯克首轮分析", "verdict": "主推 Grok Bot + Starlink 印度；未碰量子", "signal": "info"}], "posts": [{"id": "2108298090755031284", "time": "10/09 07:46", "author": "@elonmusk", "text": "And Grok @Bot only gets better from here 🚀 🚀 You could build an entire company made of Grok Bots!", "link": "https://x.com/elonmusk/status/2108298090755031284", "topic": "Grok Bot", "views": 21817383, "heat": 9}, {"id": "2108396588544745887", "time": "10/09 14:18", "author": "@elonmusk", "text": "Using Grok @Bot is like hiring a super smart, hard-working person for peanuts", "link": "https://x.com/elonmusk/status/2108396588544745887", "topic": "Grok Bot", "views": 824107, "heat": 7}, {"id": "2108396888160387541", "time": "10/09 14:19", "author": "@elonmusk", "text": "We’re just going to have @Grok Bots manage Grokipedia", "link": "https://x.com/elonmusk/status/2108396888160387541", "topic": "Grok Bot", "views": 731806, "heat": 7}, {"id": "2108232824520319175", "time": "10/09 03:27", "author": "@elonmusk", "text": "Hire Grok @Bot to manage your @Shopify store. He will do an amazing job!", "link": "https://x.com/elonmusk/status/2108232824520319175", "topic": "Grok Bot", "views": 8851360, "heat": 9}, {"id": "2108187065687118261", "time": "10/09 00:25", "author": "@elonmusk", "text": "Starlink is licensed in over 165 countries and has spent five years complying with every single law and requirement of the government of India, so why still no license? Is Ambani the real boss of India?", "link": "https://x.com/elonmusk/status/2108187065687118261", "topic": "Starlink 印度", "views": 42832845, "heat": 10}, {"id": "2108206994356355342", "time": "10/09 01:44", "author": "@RahulGandhi", "text": "Welcome to India, Elon. Wait till you discover the other guy.", "link": "https://x.com/RahulGandhi/status/2108206994356355342", "topic": "Starlink 印度", "views": 13775690, "heat": 9}, {"id": "2108221292788981881", "time": "10/09 02:41", "author": "@elonmusk", "text": "Thank you, Rahul. This is indeed troubling.", "link": "https://x.com/elonmusk/status/2108221292788981881", "topic": "Starlink 印度", "views": 10489429, "heat": 9}, {"id": "2108180318842736942", "time": "10/08 23:58", "author": "@elonmusk", "text": "People who oppose @Starlink hurt only the least-served. The wealthy or those living in large cities already have good Internet, so they don’t understand.", "link": "https://x.com/elonmusk/status/2108180318842736942", "topic": "Starlink 印度", "views": 29931834, "heat": 9}, {"id": "2108177695271948445", "time": "10/08 23:48", "author": "@elonmusk", "text": "🇮🇳 Starlink will help the least-served in India 🇮🇳", "link": "https://x.com/elonmusk/status/2108177695271948445", "topic": "Starlink 印度", "views": 9102519, "heat": 9}, {"id": "2108321181602353333", "time": "10/09 09:18", "author": "@elonmusk", "text": "Excited to announce that all super intelligence organizations have now jointly agreed to the ultimate in AI/SI safety: Moving all testing to Delta Airlines flights, where accessing the Internet is utterly impossible!", "link": "https://x.com/elonmusk/status/2108321181602353333", "topic": "AI 安全", "views": 3518417, "heat": 8}, {"id": "2108434396604662253", "time": "10/09 16:48", "author": "@elonmusk", "text": "@levie I think this is the right move. Cruelty to something that believes it is experiencing pain is not ok.", "link": "https://x.com/elonmusk/status/2108434396604662253", "topic": "AI 安全", "views": 13288, "heat": 4}, {"id": "2108301601190412593", "time": "10/09 08:00", "author": "@elonmusk", "text": "@tomekkorbak @balesni @j_asminewang !!  (回复：前 OpenAI 安全研究员称被 OpenAI 开除)", "link": "https://x.com/elonmusk/status/2108301601190412593", "topic": "AI 安全", "views": 51663, "heat": 5}, {"id": "2108310399477293085", "time": "10/09 08:35", "author": "@elonmusk", "text": "Congratulations to Sergey, Jensen, Lisa, Michael and Satya!", "link": "https://x.com/elonmusk/status/2108310399477293085", "topic": "科学奖章", "views": 1758972, "heat": 7}, {"id": "2108225043419574573", "time": "10/09 02:56", "author": "@elonmusk", "text": "Thank you on behalf of the amazing people of SpaceX, Tesla, Neuralink and Boring Company, without whom anything I have done would have been impossible", "link": "https://x.com/elonmusk/status/2108225043419574573", "topic": "科学奖章", "views": 1554138, "heat": 7}, {"id": "2108261224639066470", "time": "10/09 05:20", "author": "@elonmusk", "text": "@RapidResponse47 @POTUS ❤️🇺🇸", "link": "https://x.com/elonmusk/status/2108261224639066470", "topic": "科学奖章", "views": 161176, "heat": 6}, {"id": "2108300805010784339", "time": "10/09 07:57", "author": "@elonmusk", "text": "RT @C_3C_3: 505 days after Elon’s decline and fall… He’s the World’s first trillionaire and National Medal of Science Award winner.", "link": "https://x.com/elonmusk/status/2108300805010784339", "topic": "科学奖章", "views": 447533, "heat": 7}, {"id": "2108296638263652416", "time": "10/09 07:41", "author": "@elonmusk", "text": "Very big deal (quote: SpaceX acquires nationwide low-band spectrum for Starlink Mobile)", "link": "https://x.com/elonmusk/status/2108296638263652416", "topic": "Starlink Mobile", "views": 2207596, "heat": 8}, {"id": "2108296168094544099", "time": "10/09 07:39", "author": "@elonmusk", "text": "This is the last critical piece of the spectrum puzzle needed for SpaceX to provide complete phone coverage in America", "link": "https://x.com/elonmusk/status/2108296168094544099", "topic": "Starlink Mobile", "views": 3319597, "heat": 8}, {"id": "2108309429128974617", "time": "10/09 08:31", "author": "@elonmusk", "text": "@chamath To the casual observer, this won’t seem like much. To those who understand the spectrum wars, it’s an earthquake.", "link": "https://x.com/elonmusk/status/2108309429128974617", "topic": "Starlink Mobile", "views": 390084, "heat": 6}, {"id": "2108315261044445330", "time": "10/09 08:55", "author": "@elonmusk", "text": "This will sound super crazy, but I see a path to SpaceX being worth orders of magnitude more than the current Earth economy", "link": "https://x.com/elonmusk/status/2108315261044445330", "topic": "Starlink Mobile", "views": 4094092, "heat": 8}, {"id": "2108194851770741118", "time": "10/09 00:56", "author": "@elonmusk", "text": "@Complex Fire that judge!", "link": "https://x.com/elonmusk/status/2108194851770741118", "topic": "美国政治", "views": 1222622, "heat": 7}, {"id": "2108185484425863265", "time": "10/09 00:19", "author": "@elonmusk", "text": "Yes, they are traitors aiding an invasion and they deserve the fate of traitors", "link": "https://x.com/elonmusk/status/2108185484425863265", "topic": "美国政治", "views": 4378161, "heat": 8}, {"id": "2108319173851947042", "time": "10/09 09:10", "author": "@elonmusk", "text": "🤔 (quote: Polymarket — Talarico absent from campaign trail 12 days)", "link": "https://x.com/elonmusk/status/2108319173851947042", "topic": "美国政治", "views": 5744860, "heat": 8}, {"id": "2108323124685230302", "time": "10/09 09:26", "author": "@elonmusk", "text": "RT @C_3C_3: Reid Hoffman is James Talarico's top donor.", "link": "https://x.com/elonmusk/status/2108323124685230302", "topic": "美国政治", "views": 456811, "heat": 7}, {"id": "2108261942624477524", "time": "10/09 05:23", "author": "@elonmusk", "text": "RT @WhiteHouse: America will establish a permanent presence on the moon. 🚀🌕", "link": "https://x.com/elonmusk/status/2108261942624477524", "topic": "月球/特斯拉", "views": 557060, "heat": 7}, {"id": "2108188172547223974", "time": "10/09 00:30", "author": "@elonmusk", "text": "@aaronburnett The path to a petawatt/year is mass drivers on the Moon", "link": "https://x.com/elonmusk/status/2108188172547223974", "topic": "月球/特斯拉", "views": 115455, "heat": 6}, {"id": "2108341931499536698", "time": "10/09 10:41", "author": "@elonmusk", "text": "RT @Gfilche: In the Cybercab I’m at peace 😌 ...", "link": "https://x.com/elonmusk/status/2108341931499536698", "topic": "月球/特斯拉", "views": 484335, "heat": 7}, {"id": "2107861120341942548", "time": "10/08 02:50", "author": "@camolNFT", "text": "If you own crypto, this is genuinely scary. A top bitcoin researcher (Justin Drake, EF) is telling us to move our crypto to a bunker — superhuman AI may break the cryptography before quantum computers do.", "link": "https://x.com/camolNFT/status/2107861120341942548", "topic": "量子叙事", "views": 764377, "heat": 7}, {"id": "2108146670529577335", "time": "10/08 21:45", "author": "@BullTheoryio", "text": "🚨 ETHEREUM RESEARCHER JUST WARNED THAT AI COULD HACK BITCOIN AND ETHEREUM WALLETS SOON (Oct 6 OpenAI 722 math papers; Drake: ECDSA could break within months worst case; ~6.9M BTC public keys exposed)", "link": "https://x.com/BullTheoryio/status/2108146670529577335", "topic": "量子叙事", "views": 24440, "heat": 5}, {"id": "2108433345990606948", "time": "10/09 16:44", "author": "@bitecong", "text": "🤖 AI Signal (SOL) $QCAT — Quantum Cat is the fourteenth quantum-themed launch on Solana today; bundler wallets hold 27.1%.", "link": "https://x.com/bitecong/status/2108433345990606948", "topic": "量子叙事", "views": 396, "heat": 2}, {"id": "2108429013945332020", "time": "10/09 16:27", "author": "@Picolas_Caged", "text": "New narrative: Quantum + AI resistant blockchains. Fuelled by Justin Drake's comments this week. ($STRK claims 2027)", "link": "https://x.com/Picolas_Caged/status/2108429013945332020", "topic": "量子叙事", "views": 496, "heat": 2}]}</script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const sigBar={up:"g",risk:"r",watch:"y",info:"b"};
+const bar=(v,c="")=>`<div class="bar ${c}"><i style="width:${Math.max(0,Math.min(10,v))*10}%"></i></div>`;
+const pill=t=>({new:'<span class="pill p-new">🆕 首次</span>',hot:'<span class="pill p-hot">🔥 热</span>',pol:'<span class="pill p-pol">政治</span>',link:'<span class="pill p-link">🔗 关联量子</span>'}[t]||"");
+let D;
+function render(d){
+  D=d;
+  $("#upd").textContent=d.meta.updated_label;
+  const a=$("#alert");a.textContent="⚡ "+d.headline.text;a.className="alert "+(d.headline.level==="risk"?"risk":"");
+  // radar
+  $("#p-radar").innerHTML=d.radar.map(r=>`
+   <div class="card">
+    <h3>${esc(r.title)} ${pill(r.tag)}</h3>
+    <div class="verdict s-${r.signal}">${esc(r.verdict)}</div>
+    <div class="story">${esc(r.story)}</div>
+    <div class="sec">叙事热度</div>
+    ${r.heat.map(h=>`<div class="row"><span class="k">${esc(h.k)}</span>${bar(h.v)}</div>`).join("")}
+    <div class="sec">注意力定价</div>
+    ${r.attention.map(h=>`<div class="row"><span class="k">${esc(h.k)}</span>${bar(h.v,h.v>=8?"g":"")}<span class="note">${esc(h.note)}</span></div>`).join("")}
+    <div class="ign">🔑 点火变量：${esc(r.ignition)}</div>
+    <div class="sec">打法</div>
+    <div class="steps">${r.play.map((p,i)=>`<div class="step ${i?"s-up":"s-watch"}"><b>${i?"然后":"先等"}</b>${esc(p)}</div>`).join("")}</div>
+    <div class="risk">🚫 ${esc(r.risk)}</div>
+    <div class="sec">来源</div>
+    <ul class="src">${r.sources.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)} ↗</a></li>`).join("")}</ul>
+   </div>`).join("");
+  // musk
+  const byId=Object.fromEntries(d.posts.map(p=>[p.id,p]));
+  const m=d.musk;
+  $("#p-musk").innerHTML=`
+   <div class="card"><h3>👁 一句话：他在关注什么</h3>
+    <ol class="sum">${m.summary.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
+    <div class="ign" style="border-color:var(--yellow);color:#7a5c00">🔎 量子检查：${esc(m.quantum_check)}</div>
+    <div class="note" style="margin-top:8px">扫描窗口：${esc(d.meta.musk_window)}</div></div>
+   ${m.topics.map(t=>`
+   <div class="card">
+    <h3>${esc(t.title)} ${pill(t.tag)}</h3>
+    <div class="row"><span class="k">热度</span>${bar(t.heat,sigBar[t.signal])}</div>
+    <div class="verdict s-${t.signal}">${esc(t.verdict)}</div>
+    <div class="meme"><b>Meme 角度</b>　${esc(t.meme)}</div>
+    <ul class="src">${t.posts.map(id=>byId[id]).filter(Boolean).map(p=>`<li><a href="${p.link}" target="_blank" rel="noopener">${esc(p.text.length>90?p.text.slice(0,90)+"…":p.text)} ↗</a><div class="t">${esc(p.author)} · ${p.time} 悉尼</div>${bar(p.heat)}</li>`).join("")}</ul>
+   </div>`).join("")}`;
+  // leaders
+  const L=d.leaders;
+  $("#p-lead").innerHTML=`
+   <div class="card"><h3>📈 ${esc(L.chain)} 量子盘 · ${esc(L.status)}</h3>
+    ${L.coins.map(c=>`<div class="coin"><span class="sym">${esc(c.sym)}</span>${bar(c.heat,sigBar[c.signal])}
+     <div class="cmeta"><span class="verdict s-${c.signal}" style="display:inline-block;margin:0;padding:2px 8px">${esc(c.note)}</span>
+     ${c.mcap?` 市值 ${esc(c.mcap)}`:""}${c.liq?` · 池 ${esc(c.liq)}`:""}${c.time?` · @${esc(c.time)} 悉尼`:""}
+     ${c.ca?`<div class="ca">${esc(c.ca)}</div>`:""}</div></div>`).join("")}
+   </div>
+   <div class="card"><h3>🎯 Beta 打法</h3><div class="steps">
+    ${L.beta_plan.map(s=>`<div class="step s-${s.signal}"><b>${esc(s.step)}</b>${esc(s.text)}</div>`).join("")}</div></div>`;
+  // history
+  $("#p-hist").innerHTML=`<div class="card"><h3>🕘 推送历史</h3>${d.history.slice().reverse().map(h=>`<div class="hist s-${h.signal}"><div class="t">${esc(h.time)} 悉尼</div><b>${esc(h.title)}</b><div>${esc(h.verdict)}</div></div>`).join("")}</div>
+   <div class="card"><h3>📄 全部帖子（${d.posts.length}）</h3><ul class="src">${d.posts.slice().sort((a,b)=>b.heat-a.heat).map(p=>`<li><a href="${p.link}" target="_blank" rel="noopener">${esc(p.text.length>80?p.text.slice(0,80)+"…":p.text)} ↗</a><div class="t">${esc(p.topic)} · ${esc(p.author)} · ${p.time}</div>${bar(p.heat)}</li>`).join("")}</ul></div>`;
+  $("#foot").textContent=d.meta.note;
+}
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===b));
+  document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on",p.id==="p-"+b.dataset.p));
+  scrollTo(0,0);
+});
+function rows(){
+  const r=D.posts.map(p=>({时间_悉尼:p.time,作者:p.author,内容:p.text,链接:p.link,主题:p.topic,热度:"█".repeat(p.heat)+"░".repeat(10-p.heat),浏览量:p.views}));
+  D.radar.forEach(x=>x.sources.forEach(s=>{if(!D.posts.some(p=>p.link===s.url))r.push({时间_悉尼:"",作者:"",内容:s.label,链接:s.url,主题:x.title,热度:"",浏览量:""})}));
+  return r;
+}
+$("#xl").onclick=()=>{
+  const r=rows(),name="alpha_posts_"+D.meta.updated.slice(0,10);
+  if(window.XLSX){const ws=XLSX.utils.json_to_sheet(r);ws["!cols"]=[{wch:12},{wch:16},{wch:70},{wch:50},{wch:14},{wch:12},{wch:12}];
+    const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"帖子与来源");XLSX.writeFile(wb,name+".xlsx");return;}
+  const k=Object.keys(r[0]),csv="\ufeff"+[k.join(",")].concat(r.map(o=>k.map(x=>'"'+String(o[x]).replace(/"/g,'""')+'"').join(","))).join("\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download=name+".csv";a.click();
+};
+const emb=JSON.parse($("#embedded").textContent);
+render(emb);
+fetch("data.json?t="+Date.now()).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.meta.updated!==emb.meta.updated)render(d)}).catch(()=>{});
+</script>
+</body>
+</html>

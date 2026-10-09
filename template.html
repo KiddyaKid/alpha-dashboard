@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<title>Alpha 雷达 · 沐珩</title>
+<style>
+:root{--bg:#f4f4f4;--card:#fff;--ink:#111;--sub:#666;--line:#e3e3e3;--bar:#e9e9e9;
+--blue:#2563eb;--red:#dc2626;--green:#16a34a;--yellow:#d4a106;--yellowbg:#fff7d6;--redbg:#fdecec;--greenbg:#e8f6ed;--bluebg:#eaf0fe}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+a{color:var(--blue);text-decoration:none}
+header{position:sticky;top:0;z-index:5;background:#111;color:#fff;padding:12px 14px 0;padding-top:max(12px,env(safe-area-inset-top))}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.brand{font-weight:800;font-size:17px;letter-spacing:.5px}
+.upd{font-size:12px;color:#aaa;white-space:nowrap}
+.upd b{color:#fff;font-weight:600}
+.tabs{display:flex;gap:4px;margin-top:10px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;padding:8px 12px;border:0;background:none;color:#999;font-size:14px;font-weight:600;border-bottom:3px solid transparent}
+.tab.on{color:#fff;border-color:#fff}
+main{max-width:640px;margin:0 auto;padding:12px 12px 90px}
+.alert{border-left:5px solid var(--yellow);background:var(--yellowbg);padding:10px 12px;border-radius:8px;font-weight:600;margin-bottom:12px}
+.alert.risk{border-color:var(--red);background:var(--redbg)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+.card h3{margin:0 0 6px;font-size:16px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.verdict{font-weight:700;padding:8px 10px;border-radius:8px;margin:6px 0 10px;font-size:14px}
+.s-up{background:var(--greenbg);color:#0f6b31}.s-risk{background:var(--redbg);color:#a11616}
+.s-watch{background:var(--yellowbg);color:#7a5c00}.s-info{background:var(--bluebg);color:#1d4ed8}
+.pill{font-size:11px;font-weight:700;padding:2px 7px;border-radius:99px;border:1px solid}
+.p-new{color:#7a5c00;background:var(--yellowbg);border-color:var(--yellow)}
+.p-hot{color:var(--red);border-color:var(--red)}
+.p-pol{color:var(--sub);border-color:#bbb}
+.p-link{color:var(--blue);border-color:var(--blue)}
+.sec{font-size:12px;font-weight:700;color:var(--sub);letter-spacing:1px;margin:12px 0 6px;text-transform:uppercase}
+.row{display:grid;grid-template-columns:64px 1fr;gap:8px;align-items:center;margin:5px 0;font-size:13px}
+.row .k{color:var(--sub)}
+.bar{height:9px;background:var(--bar);border-radius:5px;overflow:hidden}
+.bar i{display:block;height:100%;background:#111;border-radius:5px}
+.bar.g i{background:var(--green)}.bar.r i{background:var(--red)}.bar.y i{background:var(--yellow)}.bar.b i{background:var(--blue)}
+.note{font-size:12px;color:var(--sub);grid-column:2;margin-top:-3px}
+.story{font-size:14px;color:#333}
+.ign{border:1px dashed var(--red);color:var(--red);border-radius:8px;padding:8px 10px;font-size:13px;font-weight:600;margin-top:10px}
+.risk{color:var(--red);font-size:13px;margin-top:8px}
+.meme{font-size:13px;background:#f7f7f7;border-radius:8px;padding:8px 10px;margin-top:8px}
+.meme b{color:var(--green)}
+ul.src{list-style:none;padding:0;margin:8px 0 0}
+ul.src li{padding:7px 0;border-top:1px solid var(--line);font-size:13px}
+ul.src li .t{color:var(--sub);font-size:12px}
+.steps{display:flex;flex-direction:column;gap:6px}
+.step{display:grid;grid-template-columns:70px 1fr;gap:8px;font-size:14px;padding:8px 10px;border-radius:8px}
+.step b{font-size:12px}
+.coin{display:grid;grid-template-columns:78px 1fr;gap:4px 10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.coin:first-of-type{border-top:0}
+.sym{font-weight:800;font-family:ui-monospace,Menlo,monospace}
+.cmeta{grid-column:1/-1;font-size:12px;color:var(--sub)}
+.ca{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--blue);word-break:break-all}
+.sum li{margin:6px 0}
+.hist{border-left:3px solid #ccc;padding:2px 0 2px 12px;margin:10px 0}
+.hist.s-watch{border-color:var(--yellow);background:none}.hist.s-info{border-color:var(--blue);background:none}
+.hist.s-risk{border-color:var(--red);background:none}.hist.s-up{border-color:var(--green);background:none}
+.hist .t{font-size:12px;color:var(--sub)}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--sub);margin:4px 0 12px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:0}
+.fab{position:fixed;right:14px;bottom:max(16px,env(safe-area-inset-bottom));background:#111;color:#fff;border:0;border-radius:99px;padding:12px 18px;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.panel{display:none}.panel.on{display:block}
+footer{text-align:center;font-size:12px;color:#999;margin-top:20px}
+</style>
+</head>
+<body>
+<header>
+  <div class="top"><div class="brand">🍀 ALPHA 雷达</div><div class="upd">更新 <b id="upd"></b></div></div>
+  <nav class="tabs" id="tabs">
+    <button class="tab on" data-p="radar">🔥 热点雷达</button>
+    <button class="tab" data-p="musk">👁 马斯克关注</button>
+    <button class="tab" data-p="lead">📈 龙头&amp;Beta</button>
+    <button class="tab" data-p="hist">🕘 历史</button>
+  </nav>
+</header>
+<main>
+  <div id="alert" class="alert"></div>
+  <div class="legend">
+    <span><i class="dot" style="background:var(--green)"></i>机会</span>
+    <span><i class="dot" style="background:var(--red)"></i>风险</span>
+    <span><i class="dot" style="background:var(--yellow)"></i>观察/🆕</span>
+    <span><i class="dot" style="background:var(--blue)"></i>信息</span>
+  </div>
+  <section class="panel on" id="p-radar"></section>
+  <section class="panel" id="p-musk"></section>
+  <section class="panel" id="p-lead"></section>
+  <section class="panel" id="p-hist"></section>
+  <footer id="foot"></footer>
+</main>
+<button class="fab" id="xl">⬇ 导出 Excel</button>
+<script id="embedded" type="application/json">/*DATA*/</script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const sigBar={up:"g",risk:"r",watch:"y",info:"b"};
+const bar=(v,c="")=>`<div class="bar ${c}"><i style="width:${Math.max(0,Math.min(10,v))*10}%"></i></div>`;
+const pill=t=>({new:'<span class="pill p-new">🆕 首次</span>',hot:'<span class="pill p-hot">🔥 热</span>',pol:'<span class="pill p-pol">政治</span>',link:'<span class="pill p-link">🔗 关联量子</span>'}[t]||"");
+let D;
+function render(d){
+  D=d;
+  $("#upd").textContent=d.meta.updated_label;
+  const a=$("#alert");a.textContent="⚡ "+d.headline.text;a.className="alert "+(d.headline.level==="risk"?"risk":"");
+  // radar
+  $("#p-radar").innerHTML=d.radar.map(r=>`
+   <div class="card">
+    <h3>${esc(r.title)} ${pill(r.tag)}</h3>
+    <div class="verdict s-${r.signal}">${esc(r.verdict)}</div>
+    <div class="story">${esc(r.story)}</div>
+    <div class="sec">叙事热度</div>
+    ${r.heat.map(h=>`<div class="row"><span class="k">${esc(h.k)}</span>${bar(h.v)}</div>`).join("")}
+    <div class="sec">注意力定价</div>
+    ${r.attention.map(h=>`<div class="row"><span class="k">${esc(h.k)}</span>${bar(h.v,h.v>=8?"g":"")}<span class="note">${esc(h.note)}</span></div>`).join("")}
+    <div class="ign">🔑 点火变量：${esc(r.ignition)}</div>
+    <div class="sec">打法</div>
+    <div class="steps">${r.play.map((p,i)=>`<div class="step ${i?"s-up":"s-watch"}"><b>${i?"然后":"先等"}</b>${esc(p)}</div>`).join("")}</div>
+    <div class="risk">🚫 ${esc(r.risk)}</div>
+    <div class="sec">来源</div>
+    <ul class="src">${r.sources.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)} ↗</a></li>`).join("")}</ul>
+   </div>`).join("");
+  // musk
+  const byId=Object.fromEntries(d.posts.map(p=>[p.id,p]));
+  const m=d.musk;
+  $("#p-musk").innerHTML=`
+   <div class="card"><h3>👁 一句话：他在关注什么</h3>
+    <ol class="sum">${m.summary.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
+    <div class="ign" style="border-color:var(--yellow);color:#7a5c00">🔎 量子检查：${esc(m.quantum_check)}</div>
+    <div class="note" style="margin-top:8px">扫描窗口：${esc(d.meta.musk_window)}</div></div>
+   ${m.topics.map(t=>`
+   <div class="card">
+    <h3>${esc(t.title)} ${pill(t.tag)}</h3>
+    <div class="row"><span class="k">热度</span>${bar(t.heat,sigBar[t.signal])}</div>
+    <div class="verdict s-${t.signal}">${esc(t.verdict)}</div>
+    <div class="meme"><b>Meme 角度</b>　${esc(t.meme)}</div>
+    <ul class="src">${t.posts.map(id=>byId[id]).filter(Boolean).map(p=>`<li><a href="${p.link}" target="_blank" rel="noopener">${esc(p.text.length>90?p.text.slice(0,90)+"…":p.text)} ↗</a><div class="t">${esc(p.author)} · ${p.time} 悉尼</div>${bar(p.heat)}</li>`).join("")}</ul>
+   </div>`).join("")}`;
+  // leaders
+  const L=d.leaders;
+  $("#p-lead").innerHTML=`
+   <div class="card"><h3>📈 ${esc(L.chain)} 量子盘 · ${esc(L.status)}</h3>
+    ${L.coins.map(c=>`<div class="coin"><span class="sym">${esc(c.sym)}</span>${bar(c.heat,sigBar[c.signal])}
+     <div class="cmeta"><span class="verdict s-${c.signal}" style="display:inline-block;margin:0;padding:2px 8px">${esc(c.note)}</span>
+     ${c.mcap?` 市值 ${esc(c.mcap)}`:""}${c.liq?` · 池 ${esc(c.liq)}`:""}${c.time?` · @${esc(c.time)} 悉尼`:""}
+     ${c.ca?`<div class="ca">${esc(c.ca)}</div>`:""}</div></div>`).join("")}
+   </div>
+   <div class="card"><h3>🎯 Beta 打法</h3><div class="steps">
+    ${L.beta_plan.map(s=>`<div class="step s-${s.signal}"><b>${esc(s.step)}</b>${esc(s.text)}</div>`).join("")}</div></div>`;
+  // history
+  $("#p-hist").innerHTML=`<div class="card"><h3>🕘 推送历史</h3>${d.history.slice().reverse().map(h=>`<div class="hist s-${h.signal}"><div class="t">${esc(h.time)} 悉尼</div><b>${esc(h.title)}</b><div>${esc(h.verdict)}</div></div>`).join("")}</div>
+   <div class="card"><h3>📄 全部帖子（${d.posts.length}）</h3><ul class="src">${d.posts.slice().sort((a,b)=>b.heat-a.heat).map(p=>`<li><a href="${p.link}" target="_blank" rel="noopener">${esc(p.text.length>80?p.text.slice(0,80)+"…":p.text)} ↗</a><div class="t">${esc(p.topic)} · ${esc(p.author)} · ${p.time}</div>${bar(p.heat)}</li>`).join("")}</ul></div>`;
+  $("#foot").textContent=d.meta.note;
+}
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===b));
+  document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on",p.id==="p-"+b.dataset.p));
+  scrollTo(0,0);
+});
+function rows(){
+  const r=D.posts.map(p=>({时间_悉尼:p.time,作者:p.author,内容:p.text,链接:p.link,主题:p.topic,热度:"█".repeat(p.heat)+"░".repeat(10-p.heat),浏览量:p.views}));
+  D.radar.forEach(x=>x.sources.forEach(s=>{if(!D.posts.some(p=>p.link===s.url))r.push({时间_悉尼:"",作者:"",内容:s.label,链接:s.url,主题:x.title,热度:"",浏览量:""})}));
+  return r;
+}
+$("#xl").onclick=()=>{
+  const r=rows(),name="alpha_posts_"+D.meta.updated.slice(0,10);
+  if(window.XLSX){const ws=XLSX.utils.json_to_sheet(r);ws["!cols"]=[{wch:12},{wch:16},{wch:70},{wch:50},{wch:14},{wch:12},{wch:12}];
+    const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"帖子与来源");XLSX.writeFile(wb,name+".xlsx");return;}
+  const k=Object.keys(r[0]),csv="\ufeff"+[k.join(",")].concat(r.map(o=>k.map(x=>'"'+String(o[x]).replace(/"/g,'""')+'"').join(","))).join("\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download=name+".csv";a.click();
+};
+const emb=JSON.parse($("#embedded").textContent);
+render(emb);
+fetch("data.json?t="+Date.now()).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.meta.updated!==emb.meta.updated)render(d)}).catch(()=>{});
+</script>
+</body>
+</html>
