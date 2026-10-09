@@ -1,15 +1,15 @@
 {
- "version": 2,
+ "version": 3,
  "meta": {
-  "updated": "2026-10-09T19:50+11:00",
-  "updated_label": "10/09 19:50 悉尼",
+  "updated": "2026-10-09T20:52+11:00",
+  "updated_label": "10/09 20:52 悉尼",
   "musk_window": "10/09 16:48 → 10/09 18:00 悉尼（4 条回复）",
   "note": "热度 = 讨论量(50%) + 动量(30%) + 头部帖浏览(20%)；当天按时段曲线外推（估算）。不构成投资建议",
   "day_basis": "UTC 日（悉尼 11:00 换日）"
  },
  "headline": {
   "level": "watch",
-  "text": "热度第一：🇮🇳 Starlink 印度 · Ambani（91）· 升温：Starlink 印度 · Ambani、Grok Bot · “花生钱雇天才”、量子 / AI 破解私钥 · 地堡"
+  "text": "热度第一：🇮🇳 Starlink 印度 · Ambani（91）· 升温：Starlink 印度 · Ambani、Grok Bot · 整家公司由 AI 组成、量子 / AI 破解私钥"
  },
  "topics": [
   {
@@ -30,43 +30,6 @@
     "ca": "DEW9dSN6QpWyNthphCpMmAbZP1Q4cEKR9xQXAri98WDP",
     "mcap": "~$24–31M"
    },
-   "betas": [
-    {
-     "sym": "OWL",
-     "chain": "SOL",
-     "note": "Superintelligence Owl · 吉祥物盘 · 10/4 拉盘后 -75%，10/8 反转到 ~$1.3M",
-     "ca": "68AGsjomsgTtiTaDhF6XGCeVJDnFeh415ngYYgVxGzns",
-     "mcap": "~$1.3M"
-    },
-    {
-     "sym": "SIF",
-     "chain": "Robinhood",
-     "note": "Super Inu Force · 10/5 ATH，~$20.6M",
-     "ca": "",
-     "mcap": "~$20.6M"
-    },
-    {
-     "sym": "SI",
-     "chain": "SOL",
-     "note": "Superintelligence（同名小盘）· 喊单 ~15K",
-     "ca": "Ap7R5jTGxFCZEbkFc3WNMiN3ru6nkPkn3Co5p6tbpump",
-     "mcap": "~15K"
-    },
-    {
-     "sym": "SWORDOWL",
-     "chain": "SOL",
-     "note": "owl wif sword · ~$541K · 风险高",
-     "ca": "9s6tPxbG3CGJQK1nD1SnwrmxWbYkm8jYaQ8c9vrApump",
-     "mcap": "~$541K"
-    },
-    {
-     "sym": "OWLNIGHT",
-     "chain": "SOL",
-     "note": "Owl Nighter CTO · ATH ~$600K",
-     "ca": "CmCHvr99aXrLDQB7jAtFtsBwg3DnXqq4spcTEMt7pump",
-     "mcap": ""
-    }
-   ],
    "attention": {
     "big_names": 9,
     "politics": 7,
@@ -145,34 +108,91 @@
      "grid": 16.8
     },
     "2026-10-08": {
-     "count": 693,
-     "est": 693,
+     "count": 692,
+     "est": 692,
      "grid": 17.5
     },
     "2026-10-09": {
-     "count": 190,
-     "partial_hours": 8.8,
-     "est": 667,
-     "grid": 29.8
+     "count": 212,
+     "partial_hours": 9.86,
+     "est": 663,
+     "grid": 29.6
     }
    },
-   "heat": 40,
-   "delta": -59,
+   "heat": 39,
+   "delta": -60,
    "trend": "down",
    "reach": 79,
-   "rank": 5
+   "rank": 8,
+   "coins": [
+    {
+     "sym": "SI",
+     "chain": "sol",
+     "ca": "DEW9dSN6QpWyNthphCpMmAbZP1Q4cEKR9xQXAri98WDP",
+     "blurb": "Super Inu：马斯克“SI 超级智能”梗龙头，ATH ~$69M，现在 ~$25M 横盘。",
+     "role": "leader",
+     "name": "Super Inu"
+    },
+    {
+     "sym": "SI",
+     "chain": "sol",
+     "ca": "9aqmJjCnnMQv42TXLk921ceUkN35nea2QP969n1caqjj",
+     "blurb": "Super Intelligence：同名二号 SI，9/30 上线，百万级市值。",
+     "role": "beta",
+     "name": "Super Intelligence"
+    },
+    {
+     "sym": "OWL",
+     "chain": "sol",
+     "ca": "68AGsjomsgTtiTaDhF6XGCeVJDnFeh415ngYYgVxGzns",
+     "blurb": "Superintelligence Owl：马斯克“It always was”猫头鹰封面吉祥物盘，24h 反弹 +170%。",
+     "role": "beta",
+     "name": "Superintelligence Owl"
+    },
+    {
+     "sym": "OWLNIGHT",
+     "chain": "sol",
+     "ca": "CmCHvr99aXrLDQB7jAtFtsBwg3DnXqq4spcTEMt7pump",
+     "blurb": "Owl Nighter：10/09 新猫头鹰盘，1.6 万持有人，24h 暴涨后回落一半。",
+     "role": "beta",
+     "name": "Owl Nighter"
+    },
+    {
+     "sym": "SI",
+     "chain": "sol",
+     "ca": "Ap7R5jTGxFCZEbkFc3WNMiN3ru6nkPkn3Co5p6tbpump",
+     "blurb": "Superintelligence（2024 老盘复活）：小市值同名盘，流动性薄。",
+     "role": "beta",
+     "name": "Superintelligence"
+    }
+   ],
+   "horizon": "cycle",
+   "discover": {
+    "keywords": [
+     "superintelligence",
+     "super intelligence",
+     "super inu",
+     "owl",
+     "猫头鹰"
+    ],
+    "search": [
+     "superintelligence",
+     "owl"
+    ]
+   },
+   "memes": []
   },
   {
    "id": "quantum",
-   "name": "量子 / AI 破解私钥 · 地堡",
+   "name": "量子 / AI 破解私钥",
    "emoji": "🔐",
    "chains": [
     "SOL",
     "BTC",
     "ETH"
    ],
-   "query": "(((quantum OR ECDSA OR \"private key\" OR \"private keys\") (bitcoin OR crypto OR btc OR wallet)) OR \"bunker mode\" OR $QUANTUM OR \"justin drake\") -is:retweet",
-   "verdict": "讨论量 3 天翻 2.6 倍，真催化剂，但链上 14+ 同名盘、无龙头 → 等某盘站稳 1M + 大号转发",
+   "query": "(((quantum OR ECDSA OR \"private key\" OR \"private keys\") (bitcoin OR crypto OR btc OR wallet)) OR \"bunker mode\" OR \"justin drake\") -is:retweet",
+   "verdict": "讨论量 3 天翻 2.6 倍；旧龙头 QUANTUM 已归零删除，新龙头 Quantum Inu ~$80 万。地堡/后量子玩法已拆成独立 24h 话题",
    "signal": "watch",
    "leader": {
     "sym": "QUANTUM",
@@ -181,43 +201,6 @@
     "ca": "AUd3rULBqpeUMUcoguBc8afg68g2hjj7SegB9AJsKCyQ",
     "mcap": "~$159.5K"
    },
-   "betas": [
-    {
-     "sym": "QI",
-     "chain": "SOL",
-     "note": "Quantum Inu · 第二梯队",
-     "ca": "",
-     "mcap": "~$172K"
-    },
-    {
-     "sym": "QCAT",
-     "chain": "SOL",
-     "note": "今日第 14 个量子盘 · 捆绑 27%",
-     "ca": "Bk3PZUcQnzvdZGcfKddsCdsvBD5uVwLZ4KDhVtNviZjx",
-     "mcap": "~$12.5K"
-    },
-    {
-     "sym": "bunker",
-     "chain": "SOL",
-     "note": "蹭 Drake“地堡”梗 · 观察",
-     "ca": "",
-     "mcap": ""
-    },
-    {
-     "sym": "MBTC",
-     "chain": "BTC",
-     "note": "MemeBitcoin “破解中本聪钱包”游戏 · 15 万参与（新闻摘要）",
-     "ca": "",
-     "mcap": ""
-    },
-    {
-     "sym": "STRK",
-     "chain": "Starknet",
-     "note": "“抗量子+抗AI 公链”叙事（Picolas Cage）",
-     "ca": "",
-     "mcap": ""
-    }
-   ],
    "attention": {
     "big_names": 6,
     "politics": 3,
@@ -236,10 +219,10 @@
    ],
    "ignition": "马斯克或 OpenAI 下场（截至 16:48 马斯克一周 0 条量子/加密帖）",
    "play": [
-    "等某量子盘站稳 1M+ 且大号转发",
-    "再玩 beta：地堡 / 抗量子 / Drake 梗 / 中本聪钱包"
+    "QI 站稳 $1M + 大号转发再跟",
+    "beta 看 24h 话题「后量子地堡」：PQC / BNKR"
    ],
-   "risk": "同名盘 14+ 注意力稀释；喊单号出货；Coinbase 密码学负责人称“毫无证据”",
+   "risk": "同名盘几十个、注意力稀释；喊单号出货；Coinbase 密码学负责人称“毫无证据”",
    "top_views": 764377,
    "top_post": "https://x.com/camolNFT/status/2107861120341942548",
    "sources": [
@@ -292,33 +275,72 @@
      "grid": 61.4
     },
     "2026-10-08": {
-     "count": 6374,
-     "est": 6374,
+     "count": 6372,
+     "est": 6372,
      "grid": 73.4
     },
     "2026-10-09": {
-     "count": 2170,
-     "partial_hours": 8.8,
-     "est": 6641,
-     "grid": 66.6
+     "count": 2379,
+     "partial_hours": 9.86,
+     "est": 6619,
+     "grid": 66.5
     }
    },
    "heat": 66,
    "delta": 125,
    "trend": "up",
    "reach": 64,
-   "rank": 3
+   "rank": 3,
+   "coins": [
+    {
+     "sym": "QI",
+     "chain": "sol",
+     "ca": "8TiMkgvsrat9tM2esko8zVTt99LZLpefUM4SnZaziXaQ",
+     "blurb": "Quantum Inu：10/09 新盘，量子狗，量子赛道当前市值最大的纯 meme，24h 涨幅上万 %。",
+     "role": "leader",
+     "name": "Quantum Inu"
+    },
+    {
+     "sym": "BUNKER",
+     "chain": "sol",
+     "ca": "8NCievmJCg2d9Vc2TWgz2HkE6ANeSX7kwvdq5AL7pump",
+     "blurb": "BunkerCoin（bunkercoin.io）：toly 2024 愚人节“短波电台区块链”论文的老梗盘，1 月上线，ATH ~$9.8M，量子恐慌让“地堡”梗回流。",
+     "role": "beta",
+     "name": "BunkerCoin"
+    },
+    {
+     "sym": "QCAT",
+     "chain": "sol",
+     "ca": "GmsAcJAFKEtAXDoRUroaQP5GBdmPcGwA2sRdC9Mbpump",
+     "blurb": "Quantum Cat：10/09 新量子猫，小盘高波动，捆绑 ~15%，只当彩票。",
+     "role": "beta",
+     "name": "Quantum Cat"
+    }
+   ],
+   "horizon": "cycle",
+   "discover": {
+    "keywords": [
+     "quantum",
+     "qubit",
+     "量子",
+     "ecdsa"
+    ],
+    "search": [
+     "quantum"
+    ]
+   },
+   "memes": []
   },
   {
    "id": "grokbot",
-   "name": "Grok Bot · “花生钱雇天才”",
+   "name": "Grok Bot · 整家公司由 AI 组成",
    "emoji": "🤖",
    "chains": [
     "SOL",
     "BASE"
    ],
    "query": "(\"grok bot\" OR grokbot) -is:retweet",
-   "verdict": "马斯克本周第一主推，讨论量一周 3 倍，但链上还没看到公认龙头 → 关注 BOT / Peanut 联动盘",
+   "verdict": "马斯克本周第一主推，讨论量一周 3 倍，但链上只有 <$60K 的小盘，没有像样龙头 → 只盯叙事，不追盘",
    "signal": "up",
    "leader": {
     "sym": "—",
@@ -327,22 +349,6 @@
     "ca": "",
     "mcap": ""
    },
-   "betas": [
-    {
-     "sym": "PNUT",
-     "chain": "SOL",
-     "note": "马斯克原话 “for peanuts” → Peanut 老龙头联想",
-     "ca": "",
-     "mcap": ""
-    },
-    {
-     "sym": "BOT 公司梗",
-     "chain": "—",
-     "note": "“整家公司都由 Grok Bot 组成”（2180 万浏览）",
-     "ca": "",
-     "mcap": ""
-    }
-   ],
    "attention": {
     "big_names": 10,
     "politics": 2,
@@ -360,8 +366,7 @@
    ],
    "ignition": "马斯克发某个具体名字/形象（如 Bot 头像、昵称）",
    "play": [
-    "出现带 Bot 形象的盘且被马斯克相关号转发再上",
-    "Peanut 联想只适合短打"
+    "出现带 Bot 形象的盘且被马斯克相关号转发再上"
    ],
    "risk": "产品推广≠meme，没有具体形象很难形成龙头",
    "top_views": 21817383,
@@ -372,7 +377,7 @@
      "url": "https://x.com/elonmusk/status/2108298090755031284"
     },
     {
-     "label": "马斯克：花生钱雇天才",
+     "label": "马斯克：Grok Bot 招聘帖",
      "url": "https://x.com/elonmusk/status/2108396588544745887"
     },
     {
@@ -408,22 +413,38 @@
      "grid": 77.1
     },
     "2026-10-08": {
-     "count": 20089,
-     "est": 20089,
+     "count": 20083,
+     "est": 20083,
      "grid": 85.4
     },
     "2026-10-09": {
-     "count": 4515,
-     "partial_hours": 8.8,
-     "est": 18141,
-     "grid": 72.7
+     "count": 4954,
+     "partial_hours": 9.86,
+     "est": 17798,
+     "grid": 72.2
     }
    },
    "heat": 77,
-   "delta": 125,
+   "delta": 123,
    "trend": "up",
    "reach": 96,
-   "rank": 2
+   "rank": 2,
+   "coins": [],
+   "horizon": "24h",
+   "born": "2026-10-08T12:00+11:00",
+   "discover": {
+    "keywords": [
+     "grok bot",
+     "grokbot",
+     "grok"
+    ],
+    "search": [
+     "grok bot"
+    ]
+   },
+   "memes": [
+    "“整家公司都由 Grok Bot 组成”（2180 万浏览）"
+   ]
   },
   {
    "id": "starlink_india",
@@ -442,15 +463,6 @@
     "ca": "",
     "mcap": ""
    },
-   "betas": [
-    {
-     "sym": "AMBANI 梗",
-     "chain": "—",
-     "note": "“Is Ambani the real boss of India?”（4280 万浏览）",
-     "ca": "",
-     "mcap": ""
-    }
-   ],
    "attention": {
     "big_names": 10,
     "politics": 9,
@@ -515,22 +527,36 @@
      "grid": 77.4
     },
     "2026-10-08": {
-     "count": 28890,
-     "est": 28890,
+     "count": 28872,
+     "est": 28872,
      "grid": 88.8
     },
     "2026-10-09": {
-     "count": 10090,
-     "partial_hours": 8.8,
-     "est": 30405,
-     "grid": 89.2
+     "count": 10854,
+     "partial_hours": 9.86,
+     "est": 30080,
+     "grid": 89.1
     }
    },
    "heat": 91,
-   "delta": 942,
+   "delta": 936,
    "trend": "up",
    "reach": 100,
-   "rank": 1
+   "rank": 1,
+   "coins": [],
+   "horizon": "cycle",
+   "discover": {
+    "keywords": [
+     "starlink",
+     "ambani"
+    ],
+    "search": [
+     "starlink"
+    ]
+   },
+   "memes": [
+    "“Is Ambani the real boss of India?”（4280 万浏览）"
+   ]
   },
   {
    "id": "stonk",
@@ -551,29 +577,6 @@
     "ca": "",
     "mcap": "~$150M"
    },
-   "betas": [
-    {
-     "sym": "DGUY / TEMU / BLUECHIP / IPOD / RAWR",
-     "chain": "BASE",
-     "note": "Jesse Pollak Token2049 幻灯片点名",
-     "ca": "",
-     "mcap": ""
-    },
-    {
-     "sym": "PONS",
-     "chain": "Robinhood",
-     "note": "Robinhood Chain 发射台",
-     "ca": "",
-     "mcap": ""
-    },
-    {
-     "sym": "SPX6900",
-     "chain": "ETH",
-     "note": "Murad 舞台喊“meme 将超越比特币”",
-     "ca": "",
-     "mcap": ""
-    }
-   ],
    "attention": {
     "big_names": 6,
     "politics": 2,
@@ -648,17 +651,80 @@
      "grid": 45.2
     },
     "2026-10-09": {
-     "count": 1088,
-     "partial_hours": 8.8,
-     "est": 3645,
-     "grid": 50.0
+     "count": 1242,
+     "partial_hours": 9.86,
+     "est": 3672,
+     "grid": 50.2
     }
    },
    "heat": 42,
    "delta": -25,
    "trend": "down",
    "reach": 8,
-   "rank": 4
+   "rank": 5,
+   "coins": [
+    {
+     "sym": "STONK",
+     "chain": "sol",
+     "ca": "6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx",
+     "blurb": "StonkFun 发射台币：股票 meme 龙头，30 天收入 ~$28–31M，市值 ~$1.2 亿。",
+     "role": "leader",
+     "name": "STONK"
+    },
+    {
+     "sym": "PONS",
+     "chain": "robinhood",
+     "ca": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+     "blurb": "Robinhood Chain 发射台币 Pons：10 万持有人，股票链 meme 的庄家盘。",
+     "role": "beta",
+     "name": "Pons"
+    },
+    {
+     "sym": "BLUECHIP",
+     "chain": "base",
+     "ca": "0xb200000000000000000000cfbdf64a8706a94a01",
+     "blurb": "Base 股票 meme：Jesse Pollak Token2049 幻灯片点名。",
+     "role": "beta",
+     "name": "BLUE CHIP"
+    },
+    {
+     "sym": "IPOD",
+     "chain": "base",
+     "ca": "0xa6af0cea8fbc93e1eccc00f1fdd9a0bba251fee1",
+     "blurb": "Base 苹果股票梗 iPod，Jesse 幻灯片点名。",
+     "role": "beta",
+     "name": "iPod"
+    },
+    {
+     "sym": "DGUY",
+     "chain": "base",
+     "ca": "0xe34356dcd3d7bb991248f322e4ec31b5d60bc54e",
+     "blurb": "Delivery Guy：Base 股票 meme，Jesse 幻灯片点名。",
+     "role": "beta",
+     "name": "Delivery Guy"
+    },
+    {
+     "sym": "TEMU",
+     "chain": "base",
+     "ca": "0x3c573bdd88008c94f025e5023212f28e5f39744c",
+     "blurb": "TEMU on Base：Jesse 幻灯片点名的拼多多梗。",
+     "role": "beta",
+     "name": "TEMU"
+    }
+   ],
+   "horizon": "cycle",
+   "discover": {
+    "keywords": [
+     "stonk",
+     "stonks",
+     "stock",
+     "tokenized"
+    ],
+    "search": [
+     "stonk"
+    ]
+   },
+   "memes": []
   },
   {
    "id": "reflection",
@@ -677,29 +743,6 @@
     "ca": "",
     "mcap": "~$49.7M"
    },
-   "betas": [
-    {
-     "sym": "BATON",
-     "chain": "SOL",
-     "note": "分红 PUMP · ATH ~$17–19M，回调后第二腿",
-     "ca": "",
-     "mcap": ""
-    },
-    {
-     "sym": "MCAT",
-     "chain": "SOL",
-     "note": "分红门罗币 · Cake Wallet 创始人买入",
-     "ca": "",
-     "mcap": ""
-    },
-    {
-     "sym": "PHISH",
-     "chain": "SOL",
-     "note": "ZEC 分红竞品，有人喊",
-     "ca": "",
-     "mcap": ""
-    }
-   ],
    "attention": {
     "big_names": 5,
     "politics": 2,
@@ -769,14 +812,14 @@
      "grid": 38.2
     },
     "2026-10-08": {
-     "count": 2104,
-     "est": 2104,
+     "count": 2103,
+     "est": 2103,
      "grid": 52.4
     },
     "2026-10-09": {
-     "count": 594,
-     "partial_hours": 8.8,
-     "est": 2045,
+     "count": 671,
+     "partial_hours": 9.86,
+     "est": 2047,
      "grid": 49.5
     }
    },
@@ -784,7 +827,45 @@
    "delta": 31,
    "trend": "up",
    "reach": 0,
-   "rank": 6
+   "rank": 6,
+   "coins": [
+    {
+     "sym": "ZCAT",
+     "chain": "sol",
+     "ca": "HcRLc9VDgjLeK154xDawfb1dmVJ98DoSqcwTHGqiDeJR",
+     "blurb": "Anonymous Cat：3% 交易税自动换 ZEC 分红给持有人，分红盘龙头。",
+     "role": "leader",
+     "name": "Anonymous Cat"
+    },
+    {
+     "sym": "BATON",
+     "chain": "sol",
+     "ca": "Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump",
+     "blurb": "baton：分红 PUMP 的分红盘，ATH ~$19M，回调后第二腿。",
+     "role": "beta",
+     "name": "baton"
+    },
+    {
+     "sym": "MCAT",
+     "chain": "sol",
+     "ca": "H9pPKejchJ9LCWpb1P8p4BmrjzCFARUmA7XtJK4pVhCZ",
+     "blurb": "Addicted Cat：分红门罗币 XMR，Cake Wallet 创始人买入。",
+     "role": "beta",
+     "name": "Addicted Cat"
+    }
+   ],
+   "horizon": "cycle",
+   "discover": {
+    "keywords": [
+     "zcat",
+     "baton",
+     "reflection",
+     "dividend",
+     "分红"
+    ],
+    "search": []
+   },
+   "memes": []
   },
   {
    "id": "ansem",
@@ -803,7 +884,6 @@
     "ca": "",
     "mcap": "~$142M"
    },
-   "betas": [],
    "attention": {
     "big_names": 5,
     "politics": 1,
@@ -867,17 +947,35 @@
      "grid": 43.4
     },
     "2026-10-09": {
-     "count": 634,
-     "partial_hours": 8.8,
-     "est": 1983,
-     "grid": 44.8
+     "count": 724,
+     "partial_hours": 9.86,
+     "est": 2009,
+     "grid": 45.2
     }
    },
    "heat": 40,
-   "delta": -8,
+   "delta": -7,
    "trend": "flat",
    "reach": 21,
-   "rank": 7
+   "rank": 7,
+   "coins": [
+    {
+     "sym": "ANSEM",
+     "chain": "sol",
+     "ca": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
+     "blurb": "The Black Bull：Ansem 本人梗的 SOL 老龙头，15 万持有人，前十持仓 ~65% 偏集中。",
+     "role": "leader",
+     "name": "The Black Bull"
+    }
+   ],
+   "horizon": "cycle",
+   "discover": {
+    "keywords": [
+     "ansem"
+    ],
+    "search": []
+   },
+   "memes": []
   },
   {
    "id": "eth",
@@ -896,22 +994,6 @@
     "ca": "",
     "mcap": ""
    },
-   "betas": [
-    {
-     "sym": "BURR",
-     "chain": "ETH",
-     "note": "BEARISH 从 Abstract 迁回主网，10/19 快照",
-     "ca": "",
-     "mcap": ""
-    },
-    {
-     "sym": "SPX6900",
-     "chain": "ETH",
-     "note": "Murad 叙事（见股票 meme）",
-     "ca": "",
-     "mcap": ""
-    }
-   ],
    "attention": {
     "big_names": 6,
     "politics": 1,
@@ -987,17 +1069,35 @@
      "grid": 34.7
     },
     "2026-10-09": {
-     "count": 341,
-     "partial_hours": 8.8,
-     "est": 1117,
-     "grid": 33.9
+     "count": 386,
+     "partial_hours": 9.86,
+     "est": 1123,
+     "grid": 34.0
     }
    },
    "heat": 27,
    "delta": -24,
    "trend": "down",
    "reach": 0,
-   "rank": 9
+   "rank": 10,
+   "coins": [
+    {
+     "sym": "SPX",
+     "chain": "eth",
+     "ca": "0xe0f63a424a4439cbe457d80e4f4b51ad25b2c56c",
+     "blurb": "SPX6900：Murad 舞台喊“meme 将超越比特币”的 ETH 主网 meme 龙头。",
+     "role": "leader",
+     "name": "SPX6900"
+    }
+   ],
+   "horizon": "cycle",
+   "discover": {
+    "keywords": [
+     "glamsterdam"
+    ],
+    "search": []
+   },
+   "memes": []
   },
   {
    "id": "bsc",
@@ -1016,22 +1116,6 @@
     "ca": "",
     "mcap": ""
    },
-   "betas": [
-    {
-     "sym": "龙虾 Lobster",
-     "chain": "BSC",
-     "note": "据帖 ATH ~$310M",
-     "ca": "",
-     "mcap": ""
-    },
-    {
-     "sym": "BANANAS",
-     "chain": "BSC",
-     "note": "刷屏号称“CZ 命名” · 可信度低",
-     "ca": "",
-     "mcap": ""
-    }
-   ],
    "attention": {
     "big_names": 6,
     "politics": 2,
@@ -1095,17 +1179,45 @@
      "grid": 24.7
     },
     "2026-10-09": {
-     "count": 270,
-     "partial_hours": 8.8,
-     "est": 548,
-     "grid": 41.0
+     "count": 308,
+     "partial_hours": 9.86,
+     "est": 579,
+     "grid": 42.7
     }
    },
-   "heat": 37,
-   "delta": -1,
+   "heat": 38,
+   "delta": 2,
    "trend": "flat",
    "reach": 19,
-   "rank": 8
+   "rank": 9,
+   "coins": [
+    {
+     "sym": "币安人生",
+     "chain": "bsc",
+     "ca": "0x924fa68a0fc644485b8df8abfa0a41c2e7744444",
+     "blurb": "币安人生：何一推文带火的 BSC 中文 meme 龙头，ATH ~$9 亿，现 ~$5.5 亿。",
+     "role": "leader",
+     "name": "币安人生"
+    },
+    {
+     "sym": "龙虾",
+     "chain": "bsc",
+     "ca": "0xeccbb861c0dda7efd964010085488b69317e4444",
+     "blurb": "龙虾：币安中文号推文出圈的中文盘，ATH ~$3.1 亿，现 ~$4300 万。注意今天有同名高仿盘。",
+     "role": "beta",
+     "name": "龙虾"
+    }
+   ],
+   "horizon": "cycle",
+   "discover": {
+    "keywords": [
+     "币安",
+     "binance",
+     "cz"
+    ],
+    "search": []
+   },
+   "memes": []
   },
   {
    "id": "laptop",
@@ -1124,7 +1236,6 @@
     "ca": "",
     "mcap": ""
    },
-   "betas": [],
    "attention": {
     "big_names": 6,
     "politics": 8,
@@ -1184,17 +1295,188 @@
      "grid": 46.7
     },
     "2026-10-09": {
-     "count": 91,
-     "partial_hours": 8.8,
-     "est": 393,
-     "grid": 32.5
+     "count": 100,
+     "partial_hours": 9.86,
+     "est": 384,
+     "grid": 31.8
     }
    },
-   "heat": 26,
-   "delta": 82,
+   "heat": 25,
+   "delta": 80,
    "trend": "up",
    "reach": 0,
-   "rank": 10
+   "rank": 11,
+   "coins": [
+    {
+     "sym": "LAPTOP",
+     "chain": "base",
+     "ca": "0xb095274743941e953c746f9c228da9c18bb6ec29",
+     "blurb": "Hunter Biden 本人发的“笔记本电脑”梗币，前十持仓 ~91% 极度集中。",
+     "role": "leader",
+     "name": "LAPTOP"
+    }
+   ],
+   "horizon": "cycle",
+   "discover": {
+    "keywords": [
+     "laptop",
+     "hunter"
+    ],
+    "search": []
+   },
+   "memes": []
+  },
+  {
+   "id": "pqc_bunker",
+   "name": "后量子地堡 · BNKR/PQC",
+   "emoji": "🛡",
+   "chains": [
+    "SOL"
+   ],
+   "horizon": "24h",
+   "born": "2026-10-08T13:42+11:00",
+   "query": "(bunkercoin OR \"bunker coin\" OR $BNKR OR pqcmarket OR \"pqc.market\" OR \"post-quantum memecoin\") -is:retweet",
+   "verdict": "量子恐慌的第一个“产品化”玩法：pqc.market 发射台 + 官方 BNKR。X 讨论 2 天翻 4 倍，但 BNKR 已从 $420K 回撤到 ~$180K，PQC 是母盘",
+   "signal": "watch",
+   "status": "active",
+   "history": {
+    "2026-10-03": {
+     "count": 392,
+     "est": 392,
+     "grid": 31.1
+    },
+    "2026-10-04": {
+     "count": 243,
+     "est": 243,
+     "grid": 16.4
+    },
+    "2026-10-05": {
+     "count": 303,
+     "est": 303,
+     "grid": 27.8
+    },
+    "2026-10-06": {
+     "count": 324,
+     "est": 324,
+     "grid": 30.2
+    },
+    "2026-10-07": {
+     "count": 223,
+     "est": 223,
+     "grid": 20.3
+    },
+    "2026-10-08": {
+     "count": 1132,
+     "est": 1132,
+     "grid": 59.5
+    },
+    "2026-10-09": {
+     "count": 1065,
+     "partial_hours": 9.84,
+     "views": 11390,
+     "est": 1950,
+     "grid": 64.4
+    }
+   },
+   "attention": {
+    "big_names": 5,
+    "politics": 1,
+    "news": 6,
+    "novelty": 10,
+    "notes": [
+     "toly 2024 BunkerCoin 论文是梗源；Drake“地堡”言论",
+     "无政治角度",
+     "“首个后量子证明 meme”可上科技媒体",
+     "🆕 首个带后量子（哈希签名）证明的 Solana meme"
+    ]
+   },
+   "firsts": [
+    "🆕 pqc.market：首个用后量子密码学证明发币的 Solana 发射台",
+    "BNKR = pqc.market 官方测试币（10/09 02:23 UTC 推文）"
+   ],
+   "ignition": "toly 本人转发/评论 pqc.market 或 BunkerCoin",
+   "play": [
+    "PQC 是母盘，BNKR 是官方子币；回撤到前高 50% 以下再看",
+    "toly 一旦表态 → 先看老 BunkerCoin 8NCiev 和 BNKR"
+   ],
+   "risk": "search 里 BNKR/PQC 同名仿盘几十个，只认本页 CA；BNKR、PQC 机器人占比 ~65%",
+   "top_views": 11390,
+   "top_post": "https://x.com/pqcmarket/status/2108382929487552537",
+   "sources": [
+    {
+     "label": "pqc.market：$BNKR 首个后量子证明 meme（1.1 万浏览）",
+     "url": "https://x.com/pqcmarket/status/2108382929487552537"
+    },
+    {
+     "label": "pqc.market：哈希签名后量子证明解释",
+     "url": "https://x.com/pqcmarket/status/2108392049032450165"
+    },
+    {
+     "label": "pqc.market：The \"bunker\" effect",
+     "url": "https://x.com/pqcmarket/status/2108233460800503947"
+    },
+    {
+     "label": "toly 2024：If you are into mainstream adoption, pivot to bunkers（37.7 万浏览）",
+     "url": "https://x.com/toly/status/1774794089818689699"
+    },
+    {
+     "label": "BNKR 上线 1h41m 从 $18K 到 $278K（catchtherunners）",
+     "url": "https://x.com/catchtherunners/status/2108407383995056355"
+    }
+   ],
+   "discover": {
+    "keywords": [
+     "bunker",
+     "bnkr",
+     "pqc",
+     "post-quantum",
+     "post quantum",
+     "地堡"
+    ],
+    "search": [
+     "bunker",
+     "pqc"
+    ]
+   },
+   "coins": [
+    {
+     "sym": "BNKR",
+     "chain": "sol",
+     "ca": "5YfBLGhU7k5YDcfMUjNmftv7crbZCHoh2shScZVXnbKo",
+     "blurb": "pqc.market 官方发的“首个带后量子（哈希签名）证明的 Solana meme”，10/09 13:18 悉尼上线，当天最高 ~$420K。",
+     "role": "leader",
+     "name": "Bunker Coin"
+    },
+    {
+     "sym": "PQC",
+     "chain": "sol",
+     "ca": "7K52aYQW9rWGjwZmQ7o2d1P6E7bji6hSMsqaLy5EcxLh",
+     "blurb": "pqc.market 平台币：后量子发射台，10/08 上线，24h 成交 ~$7.7M，BNKR 的母盘。",
+     "role": "beta",
+     "name": "pqc.market"
+    },
+    {
+     "sym": "BUNKER",
+     "chain": "sol",
+     "ca": "2WNiZqRefcndEA9c1T6A1bdie31pbBGdFQpyR52h9TWr",
+     "blurb": "bunker.markets：蹭“地堡”热度的同名盘，10/08 晚上线，24h +2000%，机器人/捆绑占比高。",
+     "role": "beta",
+     "name": "bunker.markets"
+    }
+   ],
+   "memes": [],
+   "heat": 56,
+   "delta": 444,
+   "trend": "up",
+   "reach": 23,
+   "rank": 4,
+   "leader": {
+    "sym": "—",
+    "chain": "",
+    "note": "",
+    "ca": "",
+    "mcap": ""
+   }
   }
  ],
  "musk": {
@@ -1222,7 +1504,7 @@
     "signal": "up",
     "verdict": "🟢 马斯克当前第一主推，最直接的 meme 源",
     "heat": 10,
-    "meme": "BOTCOMPANY / Grok Bot / “for peanuts” —— 他原话“像花花生钱雇一个超聪明的人”，可与 Peanut 梗联动",
+    "meme": "BOTCOMPANY / Grok Bot / “for peanuts” —— 他原话“像花花生钱雇一个超聪明的人”",
     "posts": [
      "2108298090755031284",
      "2108396588544745887",
