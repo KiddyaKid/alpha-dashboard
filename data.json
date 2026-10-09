@@ -1,8 +1,8 @@
 {
  "version": 2,
  "meta": {
-  "updated": "2026-10-09T17:47+11:00",
-  "updated_label": "10/09 17:47 悉尼",
+  "updated": "2026-10-09T18:46+11:00",
+  "updated_label": "10/09 18:46 悉尼",
   "musk_window": "10/09 16:48 → 10/09 18:00 悉尼（4 条回复）",
   "note": "热度 = 讨论量(50%) + 动量(30%) + 头部帖浏览(20%)；当天按时段曲线外推（估算）。不构成投资建议",
   "day_basis": "UTC 日（悉尼 11:00 换日）"
@@ -150,10 +150,10 @@
      "grid": 17.5
     },
     "2026-10-09": {
-     "count": 156,
-     "partial_hours": 6.79,
-     "est": 678,
-     "grid": 30.3
+     "count": 171,
+     "partial_hours": 7.75,
+     "est": 671,
+     "grid": 30.0
     }
    },
    "heat": 40,
@@ -292,19 +292,19 @@
      "grid": 61.4
     },
     "2026-10-08": {
-     "count": 6385,
-     "est": 6385,
+     "count": 6379,
+     "est": 6379,
      "grid": 73.5
     },
     "2026-10-09": {
-     "count": 1666,
-     "partial_hours": 6.79,
-     "est": 6508,
-     "grid": 66.0
+     "count": 1908,
+     "partial_hours": 7.76,
+     "est": 6569,
+     "grid": 66.3
     }
    },
    "heat": 66,
-   "delta": 123,
+   "delta": 124,
    "trend": "up",
    "reach": 64,
    "rank": 3
@@ -413,14 +413,14 @@
      "grid": 85.4
     },
     "2026-10-09": {
-     "count": 3682,
-     "partial_hours": 6.79,
-     "est": 18680,
-     "grid": 73.6
+     "count": 4105,
+     "partial_hours": 7.75,
+     "est": 18456,
+     "grid": 73.3
     }
    },
    "heat": 78,
-   "delta": 129,
+   "delta": 127,
    "trend": "up",
    "reach": 96,
    "rank": 2
@@ -520,14 +520,14 @@
      "grid": 88.8
     },
     "2026-10-09": {
-     "count": 7842,
-     "partial_hours": 6.79,
-     "est": 29824,
-     "grid": 89.1
+     "count": 8984,
+     "partial_hours": 7.75,
+     "est": 30187,
+     "grid": 89.2
     }
    },
    "heat": 91,
-   "delta": 933,
+   "delta": 939,
    "trend": "up",
    "reach": 100,
    "rank": 1
@@ -648,11 +648,10 @@
      "grid": 45.2
     },
     "2026-10-09": {
-     "count": 671,
-     "partial_hours": 6.0,
-     "views": 2355,
-     "est": 3540,
-     "grid": 49.1
+     "count": 916,
+     "partial_hours": 7.75,
+     "est": 3584,
+     "grid": 49.4
     }
    },
    "heat": 41,
@@ -775,10 +774,9 @@
      "grid": 52.5
     },
     "2026-10-09": {
-     "count": 406,
-     "partial_hours": 6.0,
-     "views": 873,
-     "est": 2047,
+     "count": 523,
+     "partial_hours": 7.75,
+     "est": 2046,
      "grid": 49.5
     }
    },
@@ -869,11 +867,10 @@
      "grid": 43.4
     },
     "2026-10-09": {
-     "count": 424,
-     "partial_hours": 6.0,
-     "views": 8921,
-     "est": 1933,
-     "grid": 44.0
+     "count": 528,
+     "partial_hours": 7.75,
+     "est": 1930,
+     "grid": 43.9
     }
    },
    "heat": 39,
@@ -990,15 +987,14 @@
      "grid": 34.8
     },
     "2026-10-09": {
-     "count": 205,
-     "partial_hours": 6.0,
-     "views": 498,
-     "est": 1074,
-     "grid": 32.6
+     "count": 298,
+     "partial_hours": 7.75,
+     "est": 1109,
+     "grid": 33.6
     }
    },
-   "heat": 26,
-   "delta": -25,
+   "heat": 27,
+   "delta": -24,
    "trend": "down",
    "reach": 0,
    "rank": 9
@@ -1099,15 +1095,14 @@
      "grid": 24.7
     },
     "2026-10-09": {
-     "count": 180,
-     "partial_hours": 6.0,
-     "views": 7137,
-     "est": 472,
-     "grid": 36.4
+     "count": 243,
+     "partial_hours": 7.75,
+     "est": 527,
+     "grid": 39.8
     }
    },
-   "heat": 33,
-   "delta": -10,
+   "heat": 36,
+   "delta": -3,
    "trend": "flat",
    "reach": 19,
    "rank": 8
@@ -1189,11 +1184,10 @@
      "grid": 46.7
     },
     "2026-10-09": {
-     "count": 51,
-     "partial_hours": 6.0,
-     "views": 0,
-     "est": 395,
-     "grid": 32.6
+     "count": 80,
+     "partial_hours": 7.75,
+     "est": 398,
+     "grid": 32.9
     }
    },
    "heat": 26,
