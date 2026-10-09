@@ -3,172 +3,181 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#111111">
-<title>Alpha 雷达 v3 · 沐珩</title>
+<meta name="theme-color" content="#1c1c1f">
+<title>$ALPHA 雷达 · 沐珩</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f4f4f4;--card:#fff;--ink:#111;--sub:#666;--line:#e3e3e3;--bar:#e9e9e9;
---blue:#2563eb;--red:#dc2626;--green:#16a34a;--yellow:#d4a106;--yellowbg:#fff7d6;--redbg:#fdecec;--greenbg:#e8f6ed;--bluebg:#eaf0fe}
+:root{--bg:#8b80d9;--panel:#1c1c1f;--panel2:#26262b;--line:#333338;--ink:#e8e8ea;--sub:#8b8b93;--dim:#5d5d66;
+--yellow:#f2d45c;--lilac:#b4a7f5;--lilacbg:#a99cf0;--green:#a3d977;--red:#f07178;--blue:#8fb8ff;
+--mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",monospace}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
-a{color:var(--blue);text-decoration:none}
-header{position:sticky;top:0;z-index:5;background:#111;color:#fff;padding:12px 14px 0;padding-top:max(12px,env(safe-area-inset-top))}
+html{background:var(--bg)}
+body{margin:0;min-height:100vh;color:var(--ink);font:13px/1.55 var(--mono);overflow-x:hidden;
+ background:var(--bg) radial-gradient(rgba(255,255,255,.22) 1px,transparent 1.2px) 0 0/14px 14px}
+a{color:var(--lilac);text-decoration:none}
+button{font:inherit}
+/* top bar */
+header{position:sticky;top:0;z-index:5;background:var(--panel);padding:10px 12px 8px;padding-top:max(10px,env(safe-area-inset-top))}
 .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
-.brand{font-weight:800;font-size:17px;letter-spacing:.5px}
-.upd{font-size:12px;color:#aaa;white-space:nowrap}.upd b{color:#fff;font-weight:600}
-.tabs{display:flex;gap:2px;margin-top:10px;overflow-x:auto;scrollbar-width:none}
+.ticker{font-weight:700;letter-spacing:.3px}.ticker i{font-style:normal;color:var(--lilac)}
+.upd{font-size:11px;color:var(--sub);white-space:nowrap}.upd b{color:var(--ink);font-weight:600}
+.dots{display:inline-flex;gap:3px;background:#3a3a40;border-radius:6px;padding:5px 6px;margin-left:6px;vertical-align:middle}
+.dots i{width:7px;height:7px;border-radius:50%;display:block}
+.tabs{display:flex;gap:4px;margin-top:9px;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{flex:0 0 auto;padding:8px 11px;border:0;background:none;color:#999;font-size:14px;font-weight:600;border-bottom:3px solid transparent}
-.tab.on{color:#fff;border-color:#fff}
-main{max-width:640px;margin:0 auto;padding:12px 12px 90px}
-.alert{border-left:5px solid var(--yellow);background:var(--yellowbg);padding:10px 12px;border-radius:8px;font-weight:600;margin-bottom:10px;font-size:14px}
-.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--sub);margin:4px 0 10px;align-items:center}
-.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:0}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
-.card h3{margin:0 0 6px;font-size:16px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-/* ranking rows */
-.trow{display:grid;grid-template-columns:26px 1fr auto;gap:4px 10px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:5px solid #ccc;border-radius:12px;padding:11px 12px;margin-bottom:8px;cursor:pointer;transition:opacity .2s}
-.trow.hot{border-left-color:var(--red);box-shadow:0 2px 10px rgba(220,38,38,.12)}
-.trow.warm{border-left-color:var(--yellow)}
-.trow.cool{filter:grayscale(.75)}
-.trow .rk{font-weight:800;font-size:18px;color:#bbb;text-align:center}
-.trow.hot .rk{color:var(--red)}
-.tname{font-weight:700;font-size:15px;line-height:1.3}
-.tchain{font-size:11px;color:var(--sub);font-weight:500}
-.score{text-align:right;font-weight:800;font-size:20px;line-height:1}
-.score small{display:block;font-size:12px;font-weight:700;margin-top:2px}
-.up{color:var(--green)}.down{color:#888}.flat{color:#aaa}
-.tsub{grid-column:2/4;display:flex;justify-content:space-between;align-items:center;gap:8px}
-.lead{font-size:12px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lead b{color:var(--ink);font-family:ui-monospace,Menlo,monospace}
-.grid{display:flex;gap:3px;flex:0 0 auto}
-.grid i{width:13px;height:13px;border-radius:3px;background:#ebedf0;display:block}
-.g1{background:#c6e9cf!important}.g2{background:#7fd093!important}.g3{background:#3fae5d!important}.g4{background:#22783a!important}.g5{background:#0f4d22!important}
-.gp{outline:1.5px dashed #999;outline-offset:-1.5px}
-.gridlbl{display:flex;justify-content:space-between;font-size:10px;color:#999;margin-top:2px}
-/* detail sheet */
-.sheet{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:20;display:none;align-items:flex-end;justify-content:center}
-.sheet.on{display:flex}
-.panelx{background:var(--bg);width:100%;max-width:640px;max-height:88vh;overflow:auto;border-radius:16px 16px 0 0;padding:14px 12px calc(20px + env(safe-area-inset-bottom))}
-.close{float:right;border:0;background:#111;color:#fff;border-radius:99px;width:32px;height:32px;font-size:16px}
-.verdict{font-weight:700;padding:8px 10px;border-radius:8px;margin:6px 0 10px;font-size:14px}
-.s-up{background:var(--greenbg);color:#0f6b31}.s-risk{background:var(--redbg);color:#a11616}
-.s-watch{background:var(--yellowbg);color:#7a5c00}.s-info{background:var(--bluebg);color:#1d4ed8}
-.sec{font-size:12px;font-weight:700;color:var(--sub);letter-spacing:1px;margin:12px 0 6px}
-.row{display:grid;grid-template-columns:76px 1fr;gap:8px;align-items:center;margin:5px 0;font-size:13px}
-.row .k{color:var(--sub)}
-.bar{height:9px;background:var(--bar);border-radius:5px;overflow:hidden}
-.bar i{display:block;height:100%;background:#111;border-radius:5px}
-.bar.g i{background:var(--green)}.bar.r i{background:var(--red)}.bar.y i{background:var(--yellow)}.bar.b i{background:var(--blue)}
-.note{font-size:12px;color:var(--sub);grid-column:2;margin-top:-3px}
-.ign{border:1px dashed var(--red);color:var(--red);border-radius:8px;padding:8px 10px;font-size:13px;font-weight:600;margin-top:10px}
-.risk{color:var(--red);font-size:13px;margin-top:8px}
-.first{background:var(--yellowbg);border-radius:8px;padding:6px 10px;font-size:13px;margin:4px 0}
-.coin{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;padding:9px 0;border-top:1px solid var(--line);font-size:13px}
-.coin:first-child{border-top:0}
-.sym{font-weight:800;font-family:ui-monospace,Menlo,monospace}
-.sym.L{color:var(--green)}
-.ca{grid-column:1/-1;font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--blue);word-break:break-all}
-.chip{font-size:10px;border:1px solid #bbb;color:var(--sub);border-radius:99px;padding:0 6px;margin-left:4px;font-weight:600}
-ul.src{list-style:none;padding:0;margin:6px 0 0}
-ul.src li{padding:7px 0;border-top:1px solid var(--line);font-size:13px}
-ul.src li .t{color:var(--sub);font-size:12px}
-.steps{display:flex;flex-direction:column;gap:6px}
-.step{font-size:14px;padding:8px 10px;border-radius:8px}
-.mini{display:flex;gap:3px;align-items:flex-end;height:46px;margin-top:4px}
-.mini div{flex:1;background:#111;border-radius:3px 3px 0 0;min-height:2px;position:relative}
-.mini div.p{background:repeating-linear-gradient(45deg,#111,#111 3px,#666 3px,#666 6px)}
-.minil{display:flex;gap:3px;font-size:10px;color:#999}.minil span{flex:1;text-align:center}
-.hist{border-left:3px solid #ccc;padding:2px 0 2px 12px;margin:10px 0}
-.hist.s-watch{border-color:var(--yellow);background:none}.hist.s-info{border-color:var(--blue);background:none}
-.hist.s-risk{border-color:var(--red);background:none}.hist.s-up{border-color:var(--green);background:none}
-.hist .t{font-size:12px;color:var(--sub)}
-.sum li{margin:6px 0}
+.tab{flex:0 0 auto;padding:4px 9px;border:0;border-radius:6px;background:none;color:var(--ink);font-size:13px;cursor:pointer}
+.tab.on{background:var(--lilacbg);color:#111}
+main{max-width:640px;margin:0 auto;padding:10px 8px 40px}
+.term{background:var(--panel);border-radius:10px;padding:12px;margin-bottom:10px;box-shadow:0 4px 18px rgba(30,20,80,.25);overflow:hidden}
 .panel{display:none}.panel.on{display:block}
-.fab{position:fixed;right:14px;bottom:max(16px,env(safe-area-inset-bottom));background:#111;color:#fff;border:0;border-radius:99px;padding:12px 18px;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:10}
-footer{text-align:center;font-size:12px;color:#999;margin-top:20px}
-.retired{opacity:.4}
-
-/* mdxcn figures: official fenced ASCII inside <pre>; frame is part of the text, so no extra border */
-.fig{font:clamp(9.5px,calc((100vw - 84px) / 31.4),12px)/1.32 "Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums;white-space:pre;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:6px 0 8px;padding:0;color:#111;background:transparent}
-.figlead{font-size:13px;color:#333;margin:2px 0 0}
-/* v3 coin cards */
-.cc{border-top:1px solid var(--line);padding:10px 0}
-.cc:first-child{border-top:0}
-.cch{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.cch .sym{font-size:15px}
-.badge{font-size:10px;font-weight:700;border-radius:99px;padding:1px 7px;border:1px solid}
-.b-alive{color:var(--green);border-color:var(--green)}
-.b-dead{color:#888;border-color:#aaa}
-.b-rugged{color:#fff;background:var(--red);border-color:var(--red)}
-.b-risk{color:var(--red);border-color:var(--red)}
-.b-new{color:#7a5c00;background:var(--yellowbg);border-color:var(--yellow)}
-.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:6px 0 4px;font-size:12px}
-.nums div{background:#f6f6f6;border-radius:6px;padding:4px 6px}
-.nums small{display:block;color:var(--sub);font-size:10px}
-.nums b{font-family:ui-monospace,Menlo,monospace;font-size:13px}
+.sub{color:var(--sub)}.dim{color:var(--dim)}.y{color:var(--yellow)}.l{color:var(--lilac)}.g{color:var(--green)}.r{color:var(--red)}
+.h{font-weight:700;color:var(--green);margin:0 0 2px}
+.sec{color:var(--green);font-weight:700;margin:14px 0 2px}.sec:first-child{margin-top:0}
+.secsub{color:var(--sub);font-size:12px;margin-bottom:8px}
+hr{border:0;border-top:1px solid var(--line);margin:12px 0}
+/* meters */
+.meter{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;margin:2px 0;font-size:12px}
+.meter .k{color:var(--sub);white-space:nowrap}
+.meter .v{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.vb{display:flex;gap:1.5px;overflow:hidden;height:13px;align-items:stretch}
+.vb i{flex:1 1 0;min-width:1px;max-width:3px;background:#55555c;border-radius:1px}
+.vb i.f{background:var(--yellow)}.vb.gr i.f{background:var(--green)}.vb.rd i.f{background:var(--red)}.vb.li i.f{background:var(--lilac)}
+/* yellow-header table */
+table.tt{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed}
+.tt th{background:var(--yellow);color:#111;text-align:left;font-weight:600;padding:3px 6px}
+.tt td{padding:4px 6px;border-top:1px solid var(--line);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tt .n{text-align:right;font-variant-numeric:tabular-nums}
+.state{color:var(--sub)}
+/* event log */
+.log{font-size:12px}
+.ev{display:grid;grid-template-columns:76px 52px 1fr;gap:0 8px;padding:3px 0;align-items:baseline}
+.ev .t{color:var(--dim);font-variant-numeric:tabular-nums}
+.ev .tag{font-weight:700;font-size:10.5px;text-align:center;border-radius:4px;padding:0 3px}
+.tag.ALERT{background:var(--lilacbg);color:#111}.tag.NEW{background:rgba(163,217,119,.18);color:var(--green)}
+.tag.DEL{background:rgba(240,113,120,.18);color:var(--red)}.tag.VERIFY{background:rgba(242,212,92,.15);color:var(--yellow)}
+.ev .m{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ev .d{grid-column:3;color:var(--sub);font-size:11px;white-space:normal}
+/* board / desk */
+.boardh{text-align:center;margin:4px 0 10px}
+.boardh .nav{font-size:12px;color:var(--sub);text-align:left}.boardh .nav b{color:var(--green)}
+.boardh h1{color:var(--lilac);font-size:21px;margin:8px 0 2px;letter-spacing:.3px}
+.thread{padding:10px 0;border-top:1px solid var(--line)}
+.op{display:grid;grid-template-columns:64px 1fr;gap:10px}
+.tile{width:64px;height:64px;border-radius:6px;background:#2d2d33;display:flex;align-items:center;justify-content:center;font-size:34px;line-height:1}
+.tile.sm{width:52px;height:52px;font-size:28px}
+.pmeta{font-size:12px;color:var(--sub);word-break:break-word}
+.pmeta .t1{color:var(--ink);font-weight:700}
+.idb{color:var(--sub)}.idb b{color:var(--yellow);font-weight:400}
+.ubadge{border:1px solid #66666e;color:var(--sub);font-size:10px;padding:0 3px;border-radius:3px}
+.ca{font-size:11px;color:var(--sub);display:flex;gap:6px;align-items:baseline;margin:3px 0;min-width:0}
+.ca code{color:var(--lilac);word-break:break-all;min-width:0;flex:1}
+.lnk{color:var(--sub);cursor:pointer;background:none;border:0;padding:0;font-size:11px;flex:0 0 auto}
+.lnk:hover,.lnk.ok{color:var(--green)}
+.body{margin:4px 0;font-size:13px}
+.gt{color:var(--green);font-size:12.5px;margin:1px 0}
+.chk{font-size:12px;margin:1px 0}
+.reply{background:var(--panel2);border-radius:6px;padding:7px 9px;margin:8px 0 0 14px;font-size:12px}
+.reply .q{color:var(--red)}
+.more{display:inline-block;margin-top:6px;color:var(--lilac);cursor:pointer;font-size:12px}
+.foot{display:flex;align-items:stretch;font-size:12px;margin:10px -12px -12px;border-top:1px solid var(--line)}
+.foot b{background:var(--lilacbg);color:#111;font-weight:600;padding:5px 10px}
+.foot span{padding:5px 10px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.foot em{font-style:normal;background:#3a3a40;padding:5px 8px;margin:3px;border-radius:3px;white-space:nowrap}
+/* coins */
+.ccard{background:var(--panel2);border-radius:8px;padding:10px 10px 0;margin-bottom:9px;overflow:hidden;cursor:pointer}
+.ccard .row1{display:grid;grid-template-columns:52px 1fr;gap:10px}
+.cname{display:flex;justify-content:space-between;gap:6px;align-items:baseline}
+.cname .tk{color:var(--yellow);font-weight:700}
+.cname .mc{font-weight:700;white-space:nowrap}
+.cblurb{color:var(--sub);font-size:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:2px 0}
+.cmeta{font-size:12px;color:var(--sub);display:flex;gap:10px;flex-wrap:wrap}
+.cmeta b{color:var(--ink);font-weight:600}
+.pbar{height:3px;background:#3a3a40;margin:8px -10px 0}.pbar i{display:block;height:100%;background:var(--green)}
+.sorts{display:inline-flex;background:var(--panel2);border-radius:6px;padding:2px;gap:2px}
+.sorts button{border:0;background:none;color:var(--ink);font-size:12px;padding:2px 7px;border-radius:4px;cursor:pointer}
+.sorts button.on{background:var(--green);color:#111}
+.badge{font-size:10px;border-radius:3px;padding:0 4px;margin-left:4px;border:1px solid;font-weight:600;vertical-align:1px}
+.b-alive{color:var(--green)}.b-dead{color:var(--sub)}.b-rugged{color:var(--red)}.b-risk{color:var(--red)}.b-new{color:var(--yellow)}
 .pos{color:var(--green)}.neg{color:var(--red)}
-.blurb{font-size:13px;color:#333;margin:2px 0 4px}
-.carow{display:flex;gap:6px;align-items:center}
-.carow code{flex:1;font-size:11px;color:var(--blue);word-break:break-all;font-family:ui-monospace,Menlo,monospace}
-.cpy,.gm{flex:0 0 auto;border:1px solid var(--blue);color:var(--blue);background:#fff;border-radius:6px;font-size:12px;padding:3px 8px;font-weight:700}
-.cpy.ok{background:var(--blue);color:#fff}
-.mbar{height:5px;background:var(--bar);border-radius:3px;overflow:hidden;margin-top:4px}
-.mbar i{display:block;height:100%;background:#111}
-.mbar.hot i{background:var(--red)}.mbar.g i{background:var(--green)}
-.live{font-size:12px;color:var(--sub);margin:-4px 0 10px;display:flex;gap:6px;align-items:center}
-.live .ld{width:8px;height:8px;border-radius:50%;background:#bbb;display:inline-block}
-.live.on .ld{background:var(--green);box-shadow:0 0 0 3px rgba(22,163,74,.18)}
-.tcard{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--yellow);border-radius:12px;padding:12px;margin-bottom:10px}
-.tcard.hot{border-left-color:var(--red)}
-.tch{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;cursor:pointer}
-.memo{font-size:12px;color:var(--sub)}
-.rcoin{display:grid;grid-template-columns:1fr auto;gap:2px 8px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
-.rcoin .r{text-align:right;font-family:ui-monospace,Menlo,monospace;font-weight:800}
-.rcoin .full{grid-column:1/-1}
-.toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:#111;color:#fff;padding:8px 14px;border-radius:99px;font-size:13px;opacity:0;transition:opacity .2s;z-index:30;pointer-events:none}
+/* topics */
+.trow{padding:9px 0;border-top:1px solid var(--line);cursor:pointer}
+.trow:first-of-type{border-top:0}
+.trow .l1{display:flex;justify-content:space-between;gap:8px}
+.trow .nm{font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trow .sc{white-space:nowrap}
+.grid{display:flex;gap:3px;flex:0 0 auto}
+.grid i{width:12px;height:12px;border-radius:2px;background:#2f2f35;display:block}
+.g1{background:#3d4a2c!important}.g2{background:#5b7a36!important}.g3{background:#7fae45!important}.g4{background:#a3d977!important}.g5{background:#d4f5a8!important}
+.gp{outline:1px dashed #888;outline-offset:-1px}
+.retired{opacity:.45}
+/* live line */
+.live{font-size:11px;color:var(--sub);display:flex;gap:6px;align-items:center;margin:8px 0 0}
+.live .ld{width:7px;height:7px;border-radius:50%;background:#666;display:inline-block}
+.live.on .ld{background:var(--green);box-shadow:0 0 0 3px rgba(163,217,119,.18)}
+/* mdxcn figures: official fenced ASCII in <pre>; frame is the text */
+.fig{font:clamp(9.5px,calc((100vw - 70px) / 31.4),12px)/1.32 var(--mono);font-variant-numeric:tabular-nums;white-space:pre;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:6px 0 8px;padding:0;color:#d6d6da;background:transparent}
+.figlead{font-size:12px;color:var(--sub);margin:2px 0 0}
+/* detail sheet */
+.sheet{position:fixed;inset:0;background:rgba(20,14,60,.55);z-index:20;display:none;align-items:flex-end;justify-content:center}
+.sheet.on{display:flex}
+.panelx{background:var(--panel);width:100%;max-width:640px;max-height:90vh;overflow:auto;overflow-x:hidden;border-radius:12px 12px 0 0;padding:14px 12px calc(20px + env(safe-area-inset-bottom))}
+.close{float:right;border:0;background:var(--lilacbg);color:#111;border-radius:6px;width:30px;height:28px;font-size:14px;cursor:pointer}
+.box{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}
+.verdict{padding:7px 9px;border-radius:6px;margin:8px 0;font-size:12.5px;border-left:3px solid}
+.s-up{border-color:var(--green);background:rgba(163,217,119,.08)}.s-risk{border-color:var(--red);background:rgba(240,113,120,.08)}
+.s-watch{border-color:var(--yellow);background:rgba(242,212,92,.07)}.s-info{border-color:var(--lilac);background:rgba(180,167,245,.08)}
+.kv{display:grid;grid-template-columns:76px 1fr;gap:8px;font-size:12px;margin:3px 0}.kv .k{color:var(--sub)}
+ul.src{list-style:none;padding:0;margin:4px 0 0}ul.src li{padding:5px 0;border-top:1px solid var(--line);font-size:12px}
+.sum{padding-left:18px;margin:6px 0}.sum li{margin:4px 0}
+.btn{display:inline-block;border:0;background:var(--lilacbg);color:#111;border-radius:6px;padding:7px 14px;font-weight:700;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%);background:var(--lilacbg);color:#111;padding:6px 14px;border-radius:6px;font-size:12px;opacity:0;transition:opacity .2s;z-index:30;pointer-events:none}
 .toast.on{opacity:1}
+footer{text-align:center;font-size:11px;color:#2a2350;margin-top:12px}
 </style>
 </head>
 <body>
 <header>
-  <div class="top"><div class="brand">🍀 ALPHA 雷达</div><div class="upd">更新 <b id="upd"></b></div></div>
+  <div class="top"><div class="ticker">$ALPHA <i>—</i> 🍀</div><div class="upd">upd <b id="upd"></b><span class="dots"><i style="background:var(--lilac)"></i><i style="background:var(--yellow)"></i><i style="background:var(--green)"></i></span></div></div>
   <nav class="tabs">
-    <button class="tab on" data-p="h24">⚡ 24小时</button>
-    <button class="tab" data-p="home">🌊 大周期</button>
-    <button class="tab" data-p="lead">🪙 币</button>
-    <button class="tab" data-p="musk">👁 马斯克</button>
-    <button class="tab" data-p="hist">🕘 历史</button>
+    <button class="tab on" data-p="desk">desk</button>
+    <button class="tab" data-p="coins">coins</button>
+    <button class="tab" data-p="topics">topics</button>
+    <button class="tab" data-p="feed">feed</button>
+    <button class="tab" data-p="rank">rank</button>
+    <button class="tab" data-p="musk">musk</button>
+    <button class="tab" data-p="export">export</button>
   </nav>
 </header>
 <main>
-  <section class="panel on" id="p-h24"></section>
-  <section class="panel" id="p-home"></section>
+  <section class="panel on" id="p-desk"></section>
+  <section class="panel" id="p-coins"></section>
+  <section class="panel" id="p-topics"></section>
+  <section class="panel" id="p-feed"></section>
+  <section class="panel" id="p-rank"></section>
   <section class="panel" id="p-musk"></section>
-  <section class="panel" id="p-lead"></section>
-  <section class="panel" id="p-hist"></section>
+  <section class="panel" id="p-export"></section>
   <footer id="foot"></footer>
 </main>
 <div class="sheet" id="sheet"><div class="panelx" id="detail"></div></div>
-<button class="fab" id="xl">⬇ 导出 Excel</button>
 <div class="toast" id="toast"></div>
 <script id="embedded" type="application/json">/*DATA*/</script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
 <script>
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const bar=(v,c="")=>`<div class="bar ${c}"><i style="width:${Math.max(0,Math.min(10,v))*10}%"></i></div>`;
-const arrow=t=>t==="up"?'<span class="up">▲ 升温</span>':t==="down"?'<span class="down">▼ 降温</span>':'<span class="flat">● 持平</span>';
+const arrow=t=>t==="up"?'<span class="g">▲升温</span>':t==="down"?'<span class="sub">▼降温</span>':'<span class="dim">●持平</span>';
 const lvl=g=>g>=80?5:g>=65?4:g>=50?3:g>=35?2:g>=20?1:0;
 const fmt=n=>n>=1e4?(n/1e4).toFixed(n>=1e5?0:1)+"万":String(n);
 let D;
-function days(t){return Object.keys(t.history).sort().slice(-7)}
+function days(t){return Object.keys(t.history||{}).sort().slice(-7)}
 function gridHTML(t){return `<div class="grid">${days(t).map(d=>{const h=t.history[d];return `<i class="g${lvl(h.grid)}${h.partial_hours?" gp":""}" title="${d} 约${h.est}帖"></i>`}).join("")}</div>`}
 const figHTML=s=>s?`<pre class="fig">${esc(String(s).split("\n").filter(l=>!/^```/.test(l)).join("\n"))}</pre>`:"";
-// ---------- v3: coins, live prices ----------
+// thin vertical-bar meter: n bars, frac filled
+function vbar(frac,n=40,cls=""){const f=Math.round(Math.max(0,Math.min(1,frac||0))*n);return `<div class="vb ${cls}">${Array.from({length:n},(_,i)=>`<i class="${i<f?"f":""}"></i>`).join("")}</div>`}
+const meter=(k,frac,v,cls="")=>`<div class="meter"><span class="k">${k}</span>${vbar(frac,40,cls)}<span class="v">${v}</span></div>`;
 const LV={};let liveAt=null,liveOK=false;
-const money=v=>v==null||isNaN(v)?"—":v>=1e9?"$"+(v/1e9).toFixed(2)+"B":v>=1e6?"$"+(v/1e6).toFixed(v>=1e8?0:1)+"M":v>=1e3?"$"+(v/1e3).toFixed(0)+"K":"$"+Math.round(v);
+const money=v=>v==null||isNaN(v)?"—":v>=1e9?"$"+(v/1e9).toFixed(2)+"b":v>=1e6?"$"+(v/1e6).toFixed(v>=1e8?0:1)+"m":v>=1e3?"$"+(v/1e3).toFixed(1)+"k":"$"+Math.round(v);
 const pct=v=>v==null||isNaN(v)?"—":(v>0?"+":"")+(Math.abs(v)>=1000?Math.round(v).toLocaleString():Number(v).toFixed(Math.abs(v)>=100?0:1))+"%";
 const pc=v=>v==null||isNaN(v)?"":v>0?"pos":v<0?"neg":"";
 const gmLink=c=>`https://gmgn.ai/${c.chain}/token/${c.ca}`;
@@ -177,35 +186,34 @@ function vals(c){const s=c.snap||{},l=LV[key(c.ca)];return l?{mcap:l.mcap,h1:l.h
 const ST={alive:["存活","b-alive"],dead:["已死","b-dead"],rugged:["跑路","b-rugged"]};
 function risky(c){const s=c.snap||{};const r=[...(s.flags||[])];if((s.bundler||0)>=40)r.push("捆绑"+s.bundler+"%");if((s.top10||0)>=60)r.push("前十"+s.top10+"%");return r}
 const isNew=c=>c.snap&&c.snap.created&&(Date.now()/1000-c.snap.created)<86400;
-function momBar(m){return `<div class="mbar ${m>=75?"hot":m>=60?"g":""}"><i style="width:${Math.max(3,Math.min(100,m||0))}%"></i></div>`}
-function coinCard(c,role){
+function ageTxt(ts){if(!ts)return"";const h=(Date.now()/1000-ts)/3600;return h<1?Math.round(h*60)+"m":h<48?Math.round(h)+"h":Math.round(h/24)+"d"}
+const hid=s=>{let h=0;for(const ch of String(s))h=(h*31+ch.charCodeAt(0))>>>0;return h};
+const pid=s=>hid(s).toString(16).padStart(6,"0").slice(-6);          // short post id
+const pno=s=>1000+hid("no"+s)%9000;                                   // post number
+const tsyd=iso=>{const d=new Date(iso);return isNaN(d)?"":d.toLocaleString("en-GB",{timeZone:"Australia/Sydney",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false}).replace(",","")};
+const L=(c,f)=>`data-lv="${f}" data-ca="${key(c.ca)}"`;
+const caRow=c=>`<div class="ca">CA <code>${esc(c.ca)}</code><button class="lnk cpy" data-copy="${esc(c.ca)}">copy</button><a class="lnk" href="${gmLink(c)}" target="_blank" rel="noopener">gmgn↗</a></div>`;
+// full coin block (detail sheet)
+function coinBlock(c,role){
   const v=vals(c),st=ST[c.status]||ST.alive,rk=risky(c),s=c.snap||{};
-  return `<div class="cc"><div class="cch"><span class="sym ${role==="leader"?"L":""}">${role==="leader"?"👑 ":""}${esc(c.sym)}</span><span class="chip">${esc(c.chain.toUpperCase())}</span>
-   <span class="badge ${st[1]}">${st[0]}</span>${isNew(c)?'<span class="badge b-new">🆕 24h</span>':""}${c.auto?'<span class="badge b-new">自动发现</span>':""}${rk.length?`<span class="badge b-risk">⚠ ${esc(rk.join(" · "))}</span>`:""}</div>
-   <div class="nums"><div><small>市值</small><b data-lv="mcap" data-ca="${key(c.ca)}">${money(v.mcap)}</b></div><div><small>1h</small><b class="${pc(v.h1)}" data-lv="h1" data-ca="${key(c.ca)}">${pct(v.h1)}</b></div><div><small>24h</small><b class="${pc(v.h24)}" data-lv="h24" data-ca="${key(c.ca)}">${pct(v.h24)}</b></div><div><small>流动性</small><b data-lv="liq" data-ca="${key(c.ca)}">${money(v.liq)}</b></div></div>
-   <div class="blurb">${esc(c.blurb||"")}</div>
-   <div class="memo">持有人 ${s.holders??"—"} · 前十 ${s.top10??"—"}% · ATH ${money(s.ath_mcap)}</div>
-   <div class="carow"><code>${esc(c.ca)}</code><button class="cpy" data-copy="${esc(c.ca)}">📋 复制</button><a class="gm" href="${gmLink(c)}" target="_blank" rel="noopener">GMGN ↗</a></div></div>`}
-function coinsHTML(t){return (t.coins||[]).map((c,i)=>coinCard(c,i===0?"leader":"beta")).join("")+(t.memes||[]).map(m=>`<div class="memo" style="padding:6px 0;border-top:1px solid var(--line)">💬 梗（无币）：${esc(m)}</div>`).join("")||'<div class="memo">暂无链上币</div>'}
-function ageTxt(ts){if(!ts)return"";const h=(Date.now()/1000-ts)/3600;return h<1?Math.round(h*60)+" 分钟前":h<48?Math.round(h)+" 小时前":Math.round(h/24)+" 天前"}
-function radarCard(r){
-  const c={sym:r.sym,chain:r.chain,ca:r.ca,snap:{mcap:r.mcap,chg1h:r.chg1h,chg6h:r.chg6h,liq:r.liq}},v=vals(c);
-  const tp=r.topic&&D.topics.find(t=>t.id===r.topic);
-  return `<div class="rcoin"><div><span class="sym">${esc(r.sym)}</span><span class="chip">${r.chain.toUpperCase()}</span>${(Date.now()-Date.parse(r.first_seen))<7200e3?'<span class="badge b-new" style="margin-left:4px">🆕 新发现</span>':""}
-    <div class="memo">${esc(r.name)} · 上线 ${ageTxt(r.created)} · ${r.holders} 持有人${tp?` · 属于 ${tp.emoji}${esc(tp.name.split(" ")[0])}`:""}</div></div>
-   <div class="r"><span data-lv="mcap" data-ca="${key(r.ca)}">${money(v.mcap)}</span><div class="${pc(v.h1)}" style="font-size:13px" data-lv="h1" data-ca="${key(r.ca)}">${pct(v.h1)}</div></div>
-   <div class="full">${momBar(r.mom)}<div class="memo" style="margin-top:3px">动量 ${r.mom} · 6h ${pct(r.chg6h)} · 流动性 ${money(v.liq)} · GMGN 热榜自动抓取，叙事未核实</div>
-   <div class="carow" style="margin-top:4px"><code>${esc(r.ca)}</code><button class="cpy" data-copy="${esc(r.ca)}">📋</button><a class="gm" href="${gmLink(r)}" target="_blank" rel="noopener">GMGN ↗</a></div></div></div>`}
-function tcard24(t){
-  const L=(t.coins||[])[0],v=L?vals(L):{};
-  return `<div class="tcard ${t.momentum>=70?"hot":""}"><div class="tch" data-id="${t.id}"><div><div class="tname">${t.emoji} ${esc(t.name)}</div><div class="tchain">诞生 ${t.born?ageTxt(Date.parse(t.born)/1000):"—"} · X 今日约 ${fmt(t.history[days(t).slice(-1)[0]]?.est||0)} 帖</div></div>
-   <div class="score">${t.momentum??t.heat}<small style="color:var(--sub)">动量</small></div></div>
-   ${momBar(t.momentum)}<div class="verdict s-${t.signal}" style="margin:8px 0 4px">${esc(t.verdict)}</div>
-   ${coinsHTML(t)}<div class="memo" style="margin-top:6px;cursor:pointer;color:var(--blue)" data-open="${t.id}">详情 / 来源 ›</div></div>`}
-function setLive(){const el=$("#livebar");if(!el)return;el.classList.toggle("on",liveOK);
-  el.innerHTML=`<span class="ld"></span>${liveOK?`实时 ${liveAt.toLocaleTimeString("zh-CN",{timeZone:"Australia/Sydney",hour12:false})} 悉尼 · Dexscreener · 每 60 秒刷新`:`快照 ${esc(D.meta.prices_label||D.meta.updated_label)} · 实时行情获取中/失败时显示 GMGN 快照`}`}
+  return `<div class="thread" style="padding:8px 0"><div class="pmeta"><span class="y" style="font-weight:700">${role==="leader"?"👑 ":""}$${esc(c.sym)}</span> <span class="ubadge">${esc(c.chain.toUpperCase())}</span><span class="badge ${st[1]}">${st[0]}</span>${isNew(c)?'<span class="badge b-new">🆕24h</span>':""}${c.auto?'<span class="badge b-new">自动发现</span>':""}${rk.length?`<span class="badge b-risk">⚠ ${esc(rk.join(" · "))}</span>`:""}</div>
+   <div class="cmeta" style="margin-top:3px">mc <b ${L(c,"mcap")}>${money(v.mcap)}</b> 1h <b class="${pc(v.h1)}" ${L(c,"h1")}>${pct(v.h1)}</b> 24h <b class="${pc(v.h24)}" ${L(c,"h24")}>${pct(v.h24)}</b> liq <b ${L(c,"liq")}>${money(v.liq)}</b></div>
+   <div class="cblurb" style="-webkit-line-clamp:4">${esc(c.blurb||"")}</div>
+   <div class="cmeta">持有人 ${s.holders??"—"} · 前十 ${s.top10??"—"}% · ATH ${money(s.ath_mcap)}</div>${caRow(c)}</div>`}
+function coinsHTML(t){return (t.coins||[]).map((c,i)=>coinBlock(c,i===0?"leader":"beta")).join("")+(t.memes||[]).map(m=>`<div class="gt">&gt;梗（无币）：${esc(m)}</div>`).join("")||'<div class="sub">暂无链上币</div>'}
+// coin card (coins tab)
+function ccard(c,t){
+  const v=vals(c),s=c.snap||{},st=ST[c.status]||ST.alive,rk=risky(c);
+  const prog=Math.max(3,Math.min(100,s.mom??(s.ath_mcap?100*(v.mcap||0)/s.ath_mcap:30)));
+  return `<div class="ccard" data-open="${t?t.id:""}"><div class="row1"><div class="tile sm">${t?t.emoji:"🆕"}</div><div style="min-width:0">
+   <div class="cname"><span><span class="tk">$${esc(c.sym)}</span> <span class="sub">${ageTxt(s.created)}${t?` · ${esc(t.name.split(" ")[0])}`:""}</span></span><span class="mc" ${L(c,"mcap")}>${money(v.mcap)}</span></div>
+   <div class="cblurb">${esc(c.blurb||c.name||"")}</div>
+   <div class="cmeta"><span>1h <b class="${pc(v.h1)}" ${L(c,"h1")}>${pct(v.h1)}</b></span><span>24h <b class="${pc(v.h24)}" ${L(c,"h24")}>${pct(v.h24)}</b></span><span>liq <b ${L(c,"liq")}>${money(v.liq)}</b></span><span class="${st[1]}">${st[0]}</span>${rk.length?`<span class="r">⚠${esc(rk[0])}</span>`:""}</div>
+   ${caRow(c)}</div></div><div class="pbar"><i style="width:${prog}%"></i></div></div>`}
+function setLive(){document.querySelectorAll(".livebar").forEach(el=>{el.classList.toggle("on",liveOK);
+  el.innerHTML=`<span class="ld"></span>${liveOK?`live ${liveAt.toLocaleTimeString("en-GB",{timeZone:"Australia/Sydney",hour12:false})} 悉尼 · dexscreener · 60s`:`snapshot ${esc(D.meta.prices_label||D.meta.updated_label)} · 实时行情获取中/失败时显示 GMGN 快照`}`})}
 function applyLive(){document.querySelectorAll("[data-lv]").forEach(e=>{const l=LV[e.dataset.ca];if(!l)return;const f=e.dataset.lv,v=l[f];if(v==null)return;
-  if(f==="mcap"||f==="liq")e.textContent=money(v);else{e.textContent=pct(v);e.classList.remove("pos","neg");pc(v)&&e.classList.add(pc(v))}});setLive()}
+  if(f==="mcap"||f==="liq")e.textContent=money(v);else{e.textContent=pct(v);e.classList.remove("pos","neg");pc(v)&&e.classList.add(pc(v))}});setLive();liveMeter()}
 async function live(){
   const cas=[...new Set([...D.topics.flatMap(t=>(t.coins||[]).map(c=>c.ca)),...(D.radar||[]).map(r=>r.ca)].filter(Boolean))];
   let got=0;
@@ -219,111 +227,161 @@ async function live(){
   applyLive();
 }
 function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),1300)}
-document.addEventListener("click",e=>{const b=e.target.closest(".cpy");if(b){e.stopPropagation();const s=b.dataset.copy;
-  const done=()=>{b.classList.add("ok");toast("已复制 CA");setTimeout(()=>b.classList.remove("ok"),1200)};
+document.addEventListener("click",e=>{const b=e.target.closest(".cpy");if(b){e.stopPropagation();e.preventDefault();const s=b.dataset.copy;
+  const done=()=>{b.classList.add("ok");b.textContent="copied";toast("已复制 CA");setTimeout(()=>{b.classList.remove("ok");b.textContent="copy"},1200)};
   if(navigator.clipboard&&isSecureContext)navigator.clipboard.writeText(s).then(done,()=>fb());else fb();
   function fb(){const a=document.createElement("textarea");a.value=s;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();try{document.execCommand("copy");done()}catch(_){prompt("复制 CA",s)}a.remove()}
   return}
- const o=e.target.closest("[data-open],.tch");if(o)detail(o.dataset.open||o.dataset.id)});
-function row(t){
-  const cls=t.heat>=60&&t.trend!=="down"?"hot":t.heat>=40?"warm":"";
-  const op=(0.38+0.62*t.heat/100)*(t.trend==="down"?0.8:1);
-  return `<div class="trow ${cls} ${t.trend==="down"?"cool":""}" style="opacity:${op.toFixed(2)}" data-id="${t.id}">
-   <div class="rk">${t.rank}</div>
-   <div><div class="tname">${t.emoji} ${esc(t.name)}</div><div class="tchain">${t.chains.join(" · ")}</div></div>
-   <div class="score">${t.heat}<small>${arrow(t.trend)}</small></div>
-   <div class="tsub"><div class="lead">龙头 <b>${esc(t.leader.sym)}</b> ${t.coins&&t.coins[0]?`<span data-lv="mcap" data-ca="${key(t.coins[0].ca)}">${money(vals(t.coins[0]).mcap)}</span>`:""}</div>${gridHTML(t)}</div>
-  </div>`}
+ if(e.target.closest("a"))return;
+ const o=e.target.closest("[data-open]");if(o&&o.dataset.open)detail(o.dataset.open)});
+// ---------- detail sheet ----------
 function detail(id){
-  const t=D.topics.find(x=>x.id===id),a=t.attention,ds=days(t),mx=Math.max(...ds.map(d=>t.history[d].est));
+  const t=D.topics.find(x=>x.id===id);if(!t)return;const a=t.attention||{notes:[]},F=t.figures||{};
   $("#detail").innerHTML=`<button class="close" onclick="closeD()">✕</button>
-   <h3 style="margin:4px 0">${t.emoji} ${esc(t.name)}</h3>
-   <div style="font-size:13px;color:var(--sub)">${t.horizon==="24h"?`⚡ 24h 话题 · 动量 <b style="color:var(--ink)">${t.momentum}</b> · `:""}热度 <b style="color:var(--ink)">${t.heat}</b> · 第 ${t.rank??"-"} 名 · ${arrow(t.trend)} ${t.delta>0?"+":""}${t.delta}%（近2日 vs 前3日）</div>
+   <div class="pmeta"><span class="t1">${t.emoji} ${esc(t.name)}</span><br><span class="idb">ID:<b>${pid(t.id)}</b></span> No.${pno(t.id)} · 热度 <span class="y">${t.heat}</span>${t.momentum!=null?` · 动量 <span class="y">${t.momentum}</span>`:""} · ${arrow(t.trend)} ${t.delta>0?"+":""}${t.delta}%（近2日 vs 前3日）</div>
    <div class="verdict s-${t.signal}">${esc(t.verdict)}</div>
-   <div class="card"><div class="sec" style="margin-top:0">7 日热度走势</div>
-    <div class="figlead">X 上每日讨论量（${esc(D.meta.day_basis)}，最后一格为今日估算）；百分比＝近 2 日 vs 前 3 日，${t.delta>=0?"在升温":"在降温"}。</div>
-    ${figHTML((t.figures||{}).trend)}</div>
-   <div class="card"><div class="sec" style="margin-top:0">龙头 & Beta（GMGN 核验 CA）</div>
-    ${(t.figures||{}).coins?`<div class="figlead">* 为龙头；GMGN 快照 ${esc(D.meta.prices_label||"")}，下方卡片为实时价。</div>${figHTML((t.figures||{}).coins)}`:""}${coinsHTML(t)}</div>
-   <div class="card"><div class="sec" style="margin-top:0">注意力定价</div>
-    <div class="figlead">四项各 10 分：大人物 big names · 政治/慈善 politics · 新闻潜力 news · 🆕新鲜感 novelty；最高项为强调色。</div>
-    ${figHTML((t.figures||{}).attention)}
-    ${["大人物","政治/慈善","新闻潜力","🆕新鲜感"].map((k,i)=>a.notes[i]?`<div class="row"><span class="k">${k}</span><span style="font-size:13px">${esc(a.notes[i])}</span></div>`:"").join("")}
-    ${t.firsts.map(f=>`<div class="first">${esc(f)}</div>`).join("")}
-    <div class="ign">🔑 点火变量：${esc(t.ignition)}</div></div>
-   <div class="card"><div class="sec" style="margin-top:0">打法</div><div class="steps">${t.play.map((p,i)=>`<div class="step ${i?"s-up":"s-watch"}">${esc(p)}</div>`).join("")}</div>
-    <div class="risk">🚫 ${esc(t.risk)}</div></div>
-   <div class="card"><div class="sec" style="margin-top:0">来源</div><ul class="src">${t.sources.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)} ↗</a></li>`).join("")}</ul>
-    <div class="note" style="margin-top:8px;word-break:break-all">检索式：${esc(t.query)}</div></div>`;
-  $("#sheet").classList.add("on");
+   <div class="box"><div class="h">7 日热度走势</div><div class="figlead">X 上每日讨论量（${esc(D.meta.day_basis)}，最后一格为今日估算）；百分比＝近 2 日 vs 前 3 日，${t.delta>=0?"在升温":"在降温"}。</div>${figHTML(F.trend)}</div>
+   <div class="box"><div class="h">龙头 & Beta（GMGN 核验 CA）</div>${F.coins?`<div class="figlead">* 为龙头；GMGN 快照 ${esc(D.meta.prices_label||"")}，下方为实时价。</div>${figHTML(F.coins)}`:""}${coinsHTML(t)}<div class="live livebar"></div></div>
+   <div class="box"><div class="h">注意力定价</div><div class="figlead">四项各 10 分：大人物 big names · 政治/慈善 politics · 新闻潜力 news · 🆕新鲜感 novelty；最高项为强调色。</div>${figHTML(F.attention)}
+    ${["大人物","政治/慈善","新闻潜力","🆕新鲜感"].map((k,i)=>a.notes[i]?`<div class="kv"><span class="k">${k}</span><span>${esc(a.notes[i])}</span></div>`:"").join("")}
+    ${(t.firsts||[]).map(f=>`<div class="gt">&gt;${esc(f)}</div>`).join("")}
+    <div class="verdict s-risk" style="background:none">🔑 点火变量：${esc(t.ignition||"")}</div></div>
+   <div class="box"><div class="h">打法</div>${(t.play||[]).map(p=>`<div class="gt">&gt;${esc(p)}</div>`).join("")}<div class="r" style="font-size:12px;margin-top:6px">🚫 ${esc(t.risk||"")}</div></div>
+   <div class="box"><div class="h">来源</div><ul class="src">${(t.sources||[]).map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)} ↗</a></li>`).join("")}</ul>
+    <div class="dim" style="font-size:11px;margin-top:8px;word-break:break-all">query: ${esc(t.query||"")}</div></div>`;
+  $("#sheet").classList.add("on");setLive();applyLive();
 }
 function closeD(){$("#sheet").classList.remove("on")}
 $("#sheet").onclick=e=>{if(e.target.id==="sheet")closeD()};
+// ---------- desk meters ----------
+function deskMeters(){
+  const d=D,now=new Date(),today=now.toLocaleDateString("en-CA",{timeZone:"Australia/Sydney"});
+  const scans=(d.meta.scan_log||[]).filter(x=>x.slice(0,10)===today).length;
+  const act=d.topics.filter(t=>t.status==="active");
+  const coins=act.flatMap(t=>t.coins||[]).filter(c=>c.ca);
+  const liveN=coins.filter(c=>LV[key(c.ca)]).length,alive=coins.filter(c=>c.status==="alive").length;
+  const age=Math.max(0,(now-new Date(d.meta.prices_updated||d.meta.updated))/60000);
+  return meter("radar scans today",scans/24,`${scans}`)+meter("topics tracked",act.length/20,`${act.length}`,"li")
+   +meter("coins live",(liveN||alive)/Math.max(coins.length,1),liveOK?`${liveN}/${coins.length}`:`${alive}/${coins.length}`,"gr")
+   +meter("last update",1-Math.min(age,120)/120,`${age<60?Math.round(age)+"m":Math.round(age/60)+"h"} ago`)}
+function liveMeter(){const m=$("#meters");if(m&&D)m.innerHTML=deskMeters()}
+// ---------- feed ----------
+function feedItems(d){
+  const out=[],k=s=>s;  // keys are "MM/DD HH:MM"
+  (d.history||[]).forEach(h=>out.push({t:h.time,tag:/删除|归零|rug|跑路/.test(h.title)?"DEL":/新|升入/.test(h.title)?"NEW":"ALERT",m:h.title,dsc:h.verdict}));
+  (d.radar||[]).forEach(r=>out.push({t:tsyd(r.first_seen),tag:"NEW",m:`<span class="g">$${esc(r.sym)}</span> ${money(r.mcap)} · 1h ${pct(r.chg1h)}`,raw:1,dsc:"GMGN 热榜新币，叙事未核实"}));
+  (d.pruned||[]).forEach(p=>out.push({t:p.date,tag:"DEL",m:`<span class="r">$${esc(p.sym)}</span> ${esc(p.reason)}`,raw:1,dsc:p.ca}));
+  d.topics.filter(t=>t.status==="active").forEach(t=>{const c=(t.coins||[])[0];if(c&&c.snap&&c.snap.at)out.push({t:tsyd(c.snap.at),tag:"VERIFY",m:`<span class="y">$${esc(c.sym)}</span> ${c.status==="alive"?"✅":"❌"} gmgn ${money(c.snap.mcap)}`,raw:1,dsc:t.name})});
+  return out.filter(x=>x.t).sort((a,b)=>b.t.localeCompare(a.t));
+}
+const evHTML=x=>`<div class="ev"><span class="t">${esc(x.t)}</span><span class="tag ${x.tag}">${x.tag}</span><span class="m">${x.raw?x.m:esc(x.m)}</span>${x.dsc?`<span class="d">${esc(x.dsc)}</span>`:""}</div>`;
+// ---------- desk thread ----------
+function checks(t){
+  const c=(t.coins||[])[0];if(!c)return [["❌","暂无链上龙头（只有梗）"]];
+  const v=vals(c),s=c.snap||{},rk=risky(c);
+  return [[c.snap?"✅":"❌",`CA 经 GMGN 核验（${c.chain.toUpperCase()}）`],[(v.liq||0)>=20000?"✅":"❌",`流动性 ${money(v.liq)}${(v.liq||0)>=20000?"":" < $20K"}`],
+   [(v.h1||0)>=0?"✅":"❌",`1h ${pct(v.h1)}`],[rk.length?"❌":"✅",rk.length?"风险："+rk.join(" · "):"无蜜罐/高税/捆绑警报"]]}
+function thread(t,tag){
+  const c=(t.coins||[])[0],v=c?vals(c):{};
+  return `<div class="thread"><div class="op"><div class="tile" data-open="${t.id}" style="cursor:pointer">${t.emoji}</div><div style="min-width:0">
+   <div class="pmeta">${c?`<span class="y" style="font-weight:700">$${esc(c.sym)}</span> `:""}<span class="t1">${esc(t.name)}</span> <span class="idb">ID:<b>${pid(t.id)}</b></span> <span class="ubadge">${tag}</span> ${t.born?tsyd(t.born):""} No.${pno(t.id)}</div>
+   ${c?`<div class="cmeta" style="margin-top:2px">mc <b ${L(c,"mcap")}>${money(v.mcap)}</b> 1h <b class="${pc(v.h1)}" ${L(c,"h1")}>${pct(v.h1)}</b> 24h <b class="${pc(v.h24)}" ${L(c,"h24")}>${pct(v.h24)}</b></div>`:""}</div></div>
+   ${c?caRow(c):""}
+   <div class="body">${esc(t.verdict)}</div>
+   ${(t.play||[]).slice(0,2).map(p=>`<div class="gt">&gt;${esc(p)}</div>`).join("")}${(t.firsts||[]).slice(0,1).map(p=>`<div class="gt">&gt;${esc(p)}</div>`).join("")}
+   <div style="margin-top:5px">${checks(t).map(([m,x])=>`<div class="chk">${m} ${esc(x)}</div>`).join("")}</div>
+   ${(t.coins||[]).slice(1,3).map(b=>{const bv=vals(b);return `<div class="reply"><span class="y">$${esc(b.sym)}</span> <span class="idb">ID:<b>${pid(b.ca)}</b></span> No.${pno(b.ca)}<br><span class="q">&gt;&gt;${pno(t.id)}</span> ${esc(b.blurb||"")}<div class="cmeta">mc <b ${L(b,"mcap")}>${money(bv.mcap)}</b> 1h <b class="${pc(bv.h1)}" ${L(b,"h1")}>${pct(bv.h1)}</b></div>${caRow(b)}</div>`}).join("")}
+   <span class="more" data-open="${t.id}">[ 详情 / 来源 / 全部 ${ (t.coins||[]).length } 个币 ]</span></div>`}
+function radarThread(radar){
+  if(!radar.length)return"";
+  return `<div class="thread"><div class="op"><div class="tile">📡</div><div><div class="pmeta"><span class="t1">新币雷达</span> <span class="idb">ID:<b>${pid("radar")}</b></span> <span class="ubadge">BOT</span> No.${pno("radar")}</div>
+   <div class="body">24h 内诞生或 1h 暴涨、市值≥$100K 的新币（GMGN 热榜自动抓取，叙事未核实）。</div></div></div>
+   ${radar.slice(0,8).map(r=>{const c={sym:r.sym,chain:r.chain,ca:r.ca,snap:{mcap:r.mcap,chg1h:r.chg1h,liq:r.liq}},v=vals(c);const tp=r.topic&&D.topics.find(t=>t.id===r.topic);
+    return `<div class="reply"><span class="y">$${esc(r.sym)}</span> <span class="sub">${esc(r.name)}</span> <span class="idb">ID:<b>${pid(r.ca)}</b></span> ${(Date.now()-Date.parse(r.first_seen))<7200e3?'<span class="badge b-new">🆕</span>':""}<br>
+     <span class="gt">&gt;上线 ${ageTxt(r.created)} 前 · ${r.holders} 持有人 · 动量 ${r.mom}${tp?` · 属于 ${tp.emoji}${esc(tp.name.split(" ")[0])}`:""}</span>
+     <div class="cmeta">mc <b ${L(c,"mcap")}>${money(v.mcap)}</b> 1h <b class="${pc(v.h1)}" ${L(c,"h1")}>${pct(v.h1)}</b> 6h <b>${pct(r.chg6h)}</b> liq <b ${L(c,"liq")}>${money(v.liq)}</b></div>${caRow(r)}</div>`}).join("")}</div>`}
+let coinSort="mcap";
 function render(d){
-  D=d;$("#upd").textContent=d.meta.updated_label;
+  D=d;$("#upd").textContent=d.meta.updated_label.replace(" 悉尼","");
   const act=d.topics.filter(t=>t.status==="active").sort((a,b)=>b.heat-a.heat);
-  const cyc=act.filter(t=>t.horizon!=="24h"),t24=act.filter(t=>t.horizon==="24h").sort((a,b)=>(b.momentum||0)-(a.momentum||0));
+  const t24=act.filter(t=>t.horizon==="24h").sort((a,b)=>(b.momentum||0)-(a.momentum||0));
+  const cyc=act.filter(t=>t.horizon!=="24h");
+  // desk: 24h topics first, then the fastest-rising long-cycle topics so the board is never empty
+  const rising=cyc.filter(t=>!t24.includes(t)).sort((a,b)=>(b.momentum||0)-(a.momentum||0)).slice(0,Math.max(0,3-t24.length));
   const radar=(d.radar||[]).slice().sort((a,b)=>(b.first_seen.slice(0,13)>a.first_seen.slice(0,13))-(b.first_seen.slice(0,13)<a.first_seen.slice(0,13))||b.mom-a.mom);
-  const onR=new Set(radar.map(r=>r.ca));
-  const fresh=act.flatMap(t=>(t.coins||[]).filter(c=>isNew(c)&&!onR.has(c.ca)).map(c=>({...c,_t:t})));
-  $("#p-h24").innerHTML=`<div class="alert">⚡ ${esc(d.headline.text)}</div><div class="live" id="livebar"></div>
-   <div class="card" style="padding:10px 12px"><div class="figlead">24h 话题与雷达新币的短线动量（0–100：币价 1h/6h/24h + X 发帖速度；$ 开头为单币）。</div>${figHTML((d.figures||{}).momentum_rank)}</div>
-   <div class="sec" style="margin-top:0">🔥 24 小时新话题 · 按动量排序</div>${t24.map(tcard24).join("")||'<div class="memo">暂无</div>'}
-   <div class="sec">🆕 新币雷达 · 24h 内诞生或 1h 暴涨（最新在上）</div>${radar.map(radarCard).join("")}
-   ${fresh.length?`<div class="sec">📌 看板内 24h 新币</div><div class="card">${fresh.map(c=>coinCard(c,"beta")).join("")}</div>`:""}
-   <div class="note" style="margin-top:6px">动量＝币价 1h/6h/24h 变化＋X 发帖速度 · 24h 话题 36 小时后自动升入大周期或归档 · 市值<$10K / 较ATH跌>90%且无量 的币自动删除</div>`;
+  $("#p-desk").innerHTML=`<div class="term"><div id="meters">${deskMeters()}</div><div class="live livebar"></div></div>
+   <div class="term"><div class="boardh"><div class="nav"><b>alpha</b> [ <span style="color:var(--ink)">desk</span> ] [ coins ] [ topics ] [ feed ]</div><h1>/alpha/ - 叙事 &amp; 链上</h1><div class="sub" style="font-size:12px">bot 发帖，人来读。每个币都经 GMGN 核验 CA。</div></div>
+    <div class="alert" style="color:var(--yellow);font-size:12.5px;margin-bottom:6px">&gt;${esc(d.headline.text)}</div>
+    <div class="figlead">24h 话题与雷达新币的短线动量（0–100：币价 1h/6h/24h + X 发帖速度；$ 开头为单币）。</div>${figHTML((d.figures||{}).momentum_rank)}
+    ${t24.map(t=>thread(t,"24H")).join("")}${rising.map(t=>thread(t,"升温")).join("")}${radarThread(radar)}
+    <div class="foot"><b>BOARD</b><span>/alpha/ 24h</span><em>${t24.length+rising.length} threads</em><em>${radar.length} new</em></div></div>`;
+  // coins
+  const all=act.flatMap(t=>(t.coins||[]).map((c,i)=>({c,t,i})));
+  const pinned=all.filter(x=>x.i===0).sort((a,b)=>(vals(b.c).mcap||0)-(vals(a.c).mcap||0));
+  const rest=all.filter(x=>x.i>0);
+  const sorter={mcap:(a,b)=>(vals(b.c).mcap||0)-(vals(a.c).mcap||0),"1h":(a,b)=>(vals(b.c).h1??-1e9)-(vals(a.c).h1??-1e9),newest:(a,b)=>((b.c.snap||{}).created||0)-((a.c.snap||{}).created||0)}[coinSort];
+  const tot=all.reduce((s,x)=>s+(vals(x.c).mcap||0),0);
+  $("#p-coins").innerHTML=`<div class="term"><div class="sec">Pinned</div><div class="secsub">各话题龙头 · ${pinned.length} 个</div>${pinned.map(x=>ccard(x.c,x.t)).join("")}<div class="live livebar"></div></div>
+   <div class="term"><div style="display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap"><div class="sec" style="margin:0">Betas</div><div class="sorts">${[["mcap","market cap"],["1h","1h"],["newest","newest"]].map(([k,l])=>`<button data-sort="${k}" class="${coinSort===k?"on":""}">${l}</button>`).join("")}</div></div>
+    <div class="secsub">${all.length} coins, ${money(tot)} total · 点卡片看话题详情</div>${rest.sort(sorter).map(x=>ccard(x.c,x.t)).join("")}</div>
+   ${(d.pruned||[]).length?`<div class="term"><div class="sec r">Deleted</div><div class="secsub">死盘/归零/仿盘，已从看板删除</div><div class="log">${d.pruned.slice().reverse().map(p=>evHTML({t:p.date,tag:"DEL",m:`<span class="r">$${esc(p.sym)}</span> ${esc(p.chain.toUpperCase())} ${esc(p.reason)}`,raw:1,dsc:p.ca})).join("")}${(d.removed_concepts||[]).map(x=>evHTML({t:"",tag:"DEL",m:"过时概念："+x})).join("")}</div></div>`:""}`;
+  document.querySelectorAll("[data-sort]").forEach(b=>b.onclick=e=>{e.stopPropagation();coinSort=b.dataset.sort;render(D);document.querySelector('.tab[data-p="coins"]').click()});
+  // topics (大周期)
   const ret=d.topics.filter(t=>t.status!=="active");
-  $("#p-home").innerHTML=`<div class="alert">⚡ ${esc(d.headline.text)}</div>
-   <div class="legend"><span>热度 0–100</span><span class="up">▲升温</span><span class="down">▼降温</span>
-    <span>7日 <i style="display:inline-block;width:10px;height:10px;background:#c6e9cf;border-radius:2px"></i><i style="display:inline-block;width:10px;height:10px;background:#3fae5d;border-radius:2px;margin-left:2px"></i><i style="display:inline-block;width:10px;height:10px;background:#0f4d22;border-radius:2px;margin-left:2px"></i> 越深越热</span></div>
-   <div class="card" style="padding:10px 12px"><div class="figlead">大周期话题热度排行（0–100，X 讨论量 + 动量 + 头部帖浏览）。点下方任一行看详情。</div>${figHTML((d.figures||{}).cycle_rank)}</div>
-   ${cyc.map(row).join("")}
-   ${ret.length?`<div class="sec">已退役话题</div>${ret.map(t=>`<div class="trow retired" data-id="${t.id}"><div class="rk">–</div><div class="tname">${t.emoji} ${esc(t.name)}</div><div></div></div>`).join("")}`:""}
-   <div class="note" style="margin-top:6px">点任一话题看详情 · 热度＝讨论量50%＋动量30%＋头部帖浏览20%</div>`;
-  document.querySelectorAll(".trow").forEach(r=>r.onclick=()=>detail(r.dataset.id));
-  // cycle ranks are recomputed within the 大周期 list
-  document.querySelectorAll("#p-home .trow:not(.retired) .rk").forEach((e,i)=>e.textContent=i+1);
+  $("#p-topics").innerHTML=`<div class="term"><div class="sec">大周期 · heat</div><div class="figlead">大周期话题热度排行（0–100，X 讨论量 + 动量 + 头部帖浏览）。点下方任一行看详情。</div>${figHTML((d.figures||{}).cycle_rank)}</div>
+   <div class="term">${cyc.map((t,i)=>{const c=(t.coins||[])[0];return `<div class="trow" data-open="${t.id}"><div class="l1"><span class="nm">${i+1}. ${t.emoji} ${esc(t.name)}</span><span class="sc"><span class="y">${t.heat}</span> ${arrow(t.trend)}</span></div>
+     ${meter("heat",t.heat/100,String(t.heat),t.heat>=60&&t.trend!=="down"?"rd":"")}
+     <div class="l1" style="align-items:center;margin-top:3px"><span class="sub" style="font-size:12px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">龙头 <span class="y">${c?"$"+esc(c.sym):"—"}</span> ${c?`<span ${L(c,"mcap")}>${money(vals(c).mcap)}</span>`:""}</span>${gridHTML(t)}</div></div>`}).join("")}
+    ${ret.length?`<hr><div class="sub">已归档</div>${ret.map(t=>`<div class="trow retired" data-open="${t.id}">${t.emoji} ${esc(t.name)}</div>`).join("")}`:""}
+    <div class="dim" style="font-size:11px;margin-top:8px">7 日格：越亮越热，虚线＝今日估算 · 热度＝讨论量50%＋动量30%＋头部帖浏览20%</div></div>`;
+  // feed
+  const fi=feedItems(d);
+  $("#p-feed").innerHTML=`<div class="term"><div class="sec">feed</div><div class="secsub"><span class="l">ALERT</span> 推送 · <span class="g">NEW</span> 新币/升级 · <span class="r">DEL</span> 删除 · <span class="y">VERIFY</span> GMGN 核验</div><div class="log">${fi.map(evHTML).join("")}</div></div>`;
+  // rank
+  $("#p-rank").innerHTML=`<div class="term" style="padding:0"><table class="tt"><colgroup><col style="width:28px"><col><col style="width:44px"><col style="width:50px"><col style="width:58px"></colgroup>
+   <tr><th>#</th><th>topic</th><th class="n">heat</th><th class="n">7d</th><th>state</th></tr>
+   ${act.map((t,i)=>`<tr data-open="${t.id}" style="cursor:pointer"><td class="sub">${i+1}</td><td>${t.emoji} ${esc(t.name.split(" · ")[0])}</td><td class="n y">${t.heat}</td><td class="n ${t.delta>0?"g":t.delta<0?"r":""}">${t.delta>0?"+":""}${t.delta}%</td><td class="state">${t.horizon==="24h"?"24H":t.trend==="up"?"HOT":t.trend==="down"?"COOL":"IDLE"}</td></tr>`).join("")}</table>
+   <div class="foot" style="margin:0"><b>RANK</b><span>last 7 days</span><em>${act.length} topics by heat</em></div></div>`;
   // musk
-  const m=d.musk,byId=Object.fromEntries(d.posts.map(p=>[p.id,p]));
-  $("#p-musk").innerHTML=`<div class="card"><h3>👁 他在关注什么</h3><ol class="sum">${m.summary.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
-    <div class="ign" style="border-color:var(--yellow);color:#7a5c00">🔎 ${esc(m.quantum_check)}</div>
-    <div class="note" style="margin-top:8px">扫描窗口：${esc(d.meta.musk_window)}</div></div>
-   ${m.topics.map(t=>`<div class="card"><h3>${esc(t.title)}</h3><div class="row"><span class="k">热度</span>${bar(t.heat,{up:"g",risk:"r",watch:"y",info:"b"}[t.signal])}</div>
-    <div class="verdict s-${t.signal}">${esc(t.verdict)}</div><div class="first" style="background:#f7f7f7"><b class="up">Meme 角度</b>　${esc(t.meme)}</div>
-    <ul class="src">${t.posts.map(id=>byId[id]).filter(Boolean).map(p=>`<li><a href="${p.link}" target="_blank" rel="noopener">${esc(p.text.length>90?p.text.slice(0,90)+"…":p.text)} ↗</a><div class="t">${esc(p.author)} · ${p.time} 悉尼 · ${fmt(p.views)} 浏览</div></li>`).join("")}</ul></div>`).join("")}`;
-  // leaders
-  $("#p-lead").innerHTML=`<div class="note" style="margin-bottom:8px">全部币均经 GMGN 核验 CA · 点 📋 复制 · 数值优先显示 Dexscreener 实时行情</div>`+[...t24,...cyc].map(t=>`<div class="card"><h3>${t.emoji} ${esc(t.name)} <span style="font-size:12px;color:var(--sub)">${t.horizon==="24h"?"⚡24h":"🌊大周期"}</span></h3>${coinsHTML(t)}</div>`).join("")
-   +((d.pruned||[]).length?`<div class="card"><h3>🗑 已删除（死盘/归零/仿盘）</h3>${d.pruned.slice().reverse().map(p=>`<div class="memo" style="padding:4px 0;border-top:1px solid var(--line)">${esc(p.date)} · <b>${esc(p.sym)}</b> ${esc(p.chain.toUpperCase())} · ${esc(p.reason)}<br><code style="font-size:10px;word-break:break-all">${esc(p.ca)}</code></div>`).join("")}${(d.removed_concepts||[]).map(x=>`<div class="memo" style="padding:4px 0;border-top:1px solid var(--line)">✂ 过时概念：${esc(x)}</div>`).join("")}</div>`:"");
-  // history
-  $("#p-hist").innerHTML=`<div class="card"><h3>🕘 推送历史</h3>${d.history.slice().reverse().map(h=>`<div class="hist s-${h.signal}"><div class="t">${esc(h.time)} 悉尼</div><b>${esc(h.title)}</b><div>${esc(h.verdict)}</div></div>`).join("")}</div>
-   <div class="card"><h3>📊 话题热度表（帖/日）</h3><div style="overflow-x:auto"><table style="border-collapse:collapse;font-size:12px;width:100%">
-    <tr><th style="text-align:left">话题</th>${days(act[0]).map(x=>`<th>${x.slice(5)}</th>`).join("")}</tr>
-    ${d.topics.map(t=>`<tr style="border-top:1px solid #eee"><td>${t.emoji} ${esc(t.name.split(" ")[0])}</td>${days(t).map(x=>`<td style="text-align:right">${fmt(t.history[x].est)}</td>`).join("")}</tr>`).join("")}</table></div></div>
-   <div class="card"><h3>📄 帖子（${d.posts.length}）</h3><ul class="src">${d.posts.slice().sort((a,b)=>b.views-a.views).map(p=>`<li><a href="${p.link}" target="_blank" rel="noopener">${esc(p.text.length>80?p.text.slice(0,80)+"…":p.text)} ↗</a><div class="t">${esc(p.topic)} · ${esc(p.author)} · ${p.time} · ${fmt(p.views)}</div></li>`).join("")}</ul></div>`;
-  $("#foot").textContent=d.meta.note;
+  const m=d.musk||{summary:[],topics:[]},byId=Object.fromEntries((d.posts||[]).map(p=>[p.id,p]));
+  $("#p-musk").innerHTML=`<div class="term"><div class="sec">👁 他在关注什么</div><ol class="sum">${m.summary.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
+    <div class="gt">&gt;${esc(m.quantum_check||"")}</div><div class="dim" style="font-size:11px;margin-top:6px">扫描窗口：${esc(d.meta.musk_window||"")}</div></div>
+   ${m.topics.map(t=>`<div class="term"><div class="pmeta"><span class="t1">${esc(t.title)}</span></div>${meter("heat",t.heat/10,t.heat+"/10",{up:"gr",risk:"rd",watch:"",info:"li"}[t.signal]||"")}
+    <div class="verdict s-${t.signal}">${esc(t.verdict)}</div><div class="gt">&gt;meme 角度：${esc(t.meme)}</div>
+    ${t.posts.map(id=>byId[id]).filter(Boolean).map(p=>`<div class="reply"><span class="y">${esc(p.author)}</span> <span class="sub">${p.time} · ${fmt(p.views)} 浏览</span><br><a href="${p.link}" target="_blank" rel="noopener">${esc(p.text.length>110?p.text.slice(0,110)+"…":p.text)} ↗</a></div>`).join("")}</div>`).join("")}`;
+  // export
+  $("#p-export").innerHTML=`<div class="term"><div class="sec">export</div><div class="secsub">三张表：帖子与来源 · 话题热度 · 代币（含 CA / GMGN 链接 / 实时价）</div>
+    <button class="btn" id="xl">⬇ 导出 Excel</button>
+    <div class="cmeta" style="margin-top:12px;flex-direction:column;gap:4px"><a href="data.json" target="_blank">data.json ↗（原始数据）</a><a href="posts.xlsx">posts.xlsx ↗（服务器生成版）</a></div>
+    <hr><div class="sec">📊 话题热度表（帖/日）</div><div style="overflow-x:auto"><table class="tt" style="table-layout:auto"><tr><th>话题</th>${days(act[0]||{history:{}}).map(x=>`<th class="n">${x.slice(5)}</th>`).join("")}</tr>
+    ${d.topics.map(t=>`<tr><td>${t.emoji} ${esc(t.name.split(" ")[0])}</td>${days(t).map(x=>`<td class="n">${fmt(t.history[x].est)}</td>`).join("")}</tr>`).join("")}</table></div>
+    <hr><div class="sec">📄 帖子（${(d.posts||[]).length}）</div>${(d.posts||[]).slice().sort((a,b)=>b.views-a.views).map(p=>`<div class="reply" style="margin-left:0"><a href="${p.link}" target="_blank" rel="noopener">${esc(p.text.length>80?p.text.slice(0,80)+"…":p.text)} ↗</a><div class="sub" style="font-size:11px">${esc(p.topic)} · ${esc(p.author)} · ${p.time} · ${fmt(p.views)}</div></div>`).join("")}</div>`;
+  $("#xl").onclick=doExport;
+  $("#foot").textContent=d.meta.note||"";
   setLive();applyLive();
 }
 document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===b));
   document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on",p.id==="p-"+b.dataset.p));scrollTo(0,0)});
 function sheets(){
-  const posts=D.posts.map(p=>({时间_悉尼:p.time,作者:p.author,内容:p.text,链接:p.link,主题:p.topic,热度:"█".repeat(p.heat)+"░".repeat(10-p.heat),浏览量:p.views}));
-  const seen=new Set(D.posts.map(p=>p.link));
-  D.topics.forEach(t=>t.sources.forEach(s=>{if(!seen.has(s.url)){seen.add(s.url);posts.push({时间_悉尼:"",作者:"",内容:s.label,链接:s.url,主题:t.name,热度:"",浏览量:""})}}));
-  const ds=[...new Set(D.topics.flatMap(t=>Object.keys(t.history)))].sort();
+  const posts=(D.posts||[]).map(p=>({时间_悉尼:p.time,作者:p.author,内容:p.text,链接:p.link,主题:p.topic,热度:"█".repeat(p.heat)+"░".repeat(10-p.heat),浏览量:p.views}));
+  const seen=new Set((D.posts||[]).map(p=>p.link));
+  D.topics.forEach(t=>(t.sources||[]).forEach(s=>{if(!seen.has(s.url)){seen.add(s.url);posts.push({时间_悉尼:"",作者:"",内容:s.label,链接:s.url,主题:t.name,热度:"",浏览量:""})}}));
+  const ds=[...new Set(D.topics.flatMap(t=>Object.keys(t.history||{})))].sort();
   const heat=D.topics.slice().sort((a,b)=>b.heat-a.heat).map(t=>{const o={排名:t.rank??"",话题:t.name,状态:t.status,热度:t.heat,趋势:{up:"↑",down:"↓"}[t.trend]||"→",龙头:t.leader.sym,结论:t.verdict};ds.forEach(x=>o[x.slice(5)+"帖数"]=t.history[x]?.est??"");return o});
   const coins=D.topics.flatMap(t=>(t.coins||[]).map((c,i)=>{const v=vals(c);return {话题:t.name,周期:t.horizon==="24h"?"24小时":"大周期",角色:i?"beta":"龙头",代币:c.sym,链:c.chain,CA:c.ca,状态:c.status,市值:Math.round(v.mcap||0),"1h%":v.h1,"24h%":v.h24,流动性:Math.round(v.liq||0),叙事:c.blurb,GMGN:gmLink(c)}}));
   return {posts,heat,coins};
 }
-$("#xl").onclick=()=>{
+function doExport(){
   const {posts,heat,coins}=sheets(),name="alpha_"+D.meta.updated.slice(0,10);
   if(window.XLSX){const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(posts),"帖子与来源");XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(heat),"话题热度");XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(coins),"代币");XLSX.writeFile(wb,name+".xlsx");return}
   const csv=rows=>{const k=Object.keys(rows[0]);return [k.join(",")].concat(rows.map(o=>k.map(x=>'"'+String(o[x]??"").replace(/"/g,'""')+'"').join(","))).join("\n")};
   const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+csv(posts)+"\n\n"+csv(heat)+"\n\n"+csv(coins)],{type:"text/csv"}));a.download=name+".csv";a.click();
-};
+}
 const emb=JSON.parse($("#embedded").textContent);render(emb);
-{const h=location.hash.slice(1),b=h&&document.querySelector(`.tab[data-p="${h}"]`);if(b)b.click();else if(h.startsWith("t=")&&D.topics.some(x=>x.id===h.slice(2)))detail(h.slice(2))}
-fetch("data.json?t="+Date.now()).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.version>=3&&((d.meta.prices_updated||"")>(emb.meta.prices_updated||"")||d.meta.updated>emb.meta.updated))render(d)}).catch(()=>{}).finally(()=>{live();setInterval(live,60000)});
+const legacy={h24:"desk",home:"topics",lead:"coins",hist:"feed"};
+{let h=location.hash.slice(1);h=legacy[h]||h;const b=h&&document.querySelector(`.tab[data-p="${h}"]`);if(b)b.click();else if(h.startsWith("t=")&&D.topics.some(x=>x.id===h.slice(2)))detail(h.slice(2))}
+fetch("data.json?t="+Date.now()).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.version>=3&&((d.meta.prices_updated||"")>(emb.meta.prices_updated||"")||d.meta.updated>emb.meta.updated)){const cur=document.querySelector(".tab.on");render(d);cur&&cur.click()}}).catch(()=>{}).finally(()=>{live();setInterval(live,60000)});
 </script>
 </body>
 </html>

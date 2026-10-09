@@ -202,6 +202,9 @@ def main(a):
     if "--no-discover" not in a: discover(d, dry)
     lifecycle(d)
     d["version"] = 3
+    # scan log for the desk meters (radar scans today); keep 48h
+    cut = (NOW - timedelta(hours=48)).isoformat(timespec="minutes")
+    d["meta"]["scan_log"] = [x for x in d["meta"].get("scan_log", []) if x >= cut] + [NOW.isoformat(timespec="minutes")]
     d["meta"]["prices_updated"] = NOW.isoformat(timespec="minutes")
     d["meta"]["prices_label"] = NOW.strftime("%m/%d %H:%M") + " 悉尼"
     if dry: log("dry-run: not written"); return
