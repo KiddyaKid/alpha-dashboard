@@ -61,7 +61,7 @@ table.tt{width:100%;border-collapse:collapse;font-size:12.5px;table-layout:fixed
 .alert{color:var(--yellow);font-size:12.5px;margin:10px 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .post{padding:14px 0;border-bottom:1px solid var(--line)}
 .post:last-of-type{border-bottom:0}
-.ph{display:grid;grid-template-columns:48px 1fr;gap:10px;align-items:center;cursor:pointer}
+.ph{cursor:pointer}
 .tile{width:48px;height:48px;border-radius:6px;background:#2d2d33;display:flex;align-items:center;justify-content:center;font-size:26px;line-height:1}
 .hl{font-weight:700;font-size:14px;line-height:1.35}
 .tk{color:var(--yellow);font-weight:700;font-size:15px}
@@ -70,7 +70,7 @@ table.tt{width:100%;border-collapse:collapse;font-size:12.5px;table-layout:fixed
 .vf{font-size:12px;margin:8px 0 4px;color:var(--sub)}
 .gt{color:var(--green);font-size:12.5px;line-height:1.55;margin:3px 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .rel{font-size:12px;margin-top:6px;color:var(--sub)}.rel span{margin-right:10px;white-space:nowrap}
-.ca{font-size:11.5px;color:var(--sub);display:flex;gap:10px;align-items:baseline;margin-top:4px}
+.ca{font-size:11.5px;color:var(--sub);display:flex;gap:10px;align-items:baseline;margin-top:4px;white-space:nowrap}
 .ca code{color:var(--lilac);font-family:inherit}
 .lnk{color:var(--sub);cursor:pointer;background:none;border:0;padding:0;font-size:11.5px}
 .lnk.ok{color:var(--green)}
@@ -80,7 +80,7 @@ table.tt{width:100%;border-collapse:collapse;font-size:12.5px;table-layout:fixed
 .foot em{font-style:normal;background:#3a3a40;padding:2px 8px;margin:3px 3px 3px 0;border-radius:3px;white-space:nowrap}
 /* coins */
 .ccard{background:var(--panel2);border-radius:8px;padding:10px 10px 0;margin-bottom:8px;overflow:hidden;cursor:pointer}
-.ccard .row1{display:grid;grid-template-columns:56px 1fr;gap:10px}
+.ccard .row1{display:block}
 .ccard .tile{width:56px;height:56px;font-size:30px}
 .cname{display:flex;justify-content:space-between;gap:6px;align-items:baseline}
 .cname .mc{font-weight:700;white-space:nowrap;font-size:13.5px}
@@ -170,14 +170,14 @@ function risky(c){const s=c.snap||{};const r=[...(s.flags||[])];if((s.bundler||0
 function ageTxt(ts){if(!ts)return"";const h=(Date.now()/1000-ts)/3600;return h<1?Math.round(h*60)+"m":h<48?Math.round(h)+"h":Math.round(h/24)+"d"}
 const tsyd=iso=>{const d=new Date(iso);return isNaN(d)?"":d.toLocaleString("en-GB",{timeZone:"Australia/Sydney",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false}).replace(",","")};
 const L=(c,f)=>`data-lv="${f}" data-ca="${key(c.ca)}"`;
-const shortCA=ca=>ca.length>14?ca.slice(0,6)+"…"+ca.slice(-4):ca;
+const shortCA=ca=>ca.length>24?ca.slice(0,10)+"…"+ca.slice(-8):ca;
 const caRow=c=>`<div class="ca">CA <code>${esc(shortCA(c.ca))}</code><button class="lnk cpy" data-copy="${esc(c.ca)}">copy</button><a class="lnk" href="${gmLink(c)}" target="_blank" rel="noopener">gmgn↗</a></div>`;
 const tname=t=>t.name.split(" · ")[0];
 // coin card
 function ccard(c,t){
   const v=vals(c),s=c.snap||{},rk=risky(c),dead=c.status&&c.status!=="alive";
   const prog=Math.max(3,Math.min(100,s.mom??(s.ath_mcap?100*(v.mcap||0)/s.ath_mcap:30)));
-  return `<div class="ccard" data-open="${t?t.id:""}"><div class="row1"><div class="tile">${t?t.emoji:"🆕"}</div><div style="min-width:0">
+  return `<div class="ccard" data-open="${t?t.id:""}"><div class="row1"><div style="min-width:0">
    <div class="cname"><span><span class="tk">$${esc(c.sym)}</span> <span class="sub" style="font-size:11.5px">${ageTxt(s.created)}</span></span><span class="mc" ${L(c,"mcap")}>${money(v.mcap)}</span></div>
    <div class="cblurb">${esc(c.blurb||c.name||"")}</div>
    <div class="cmeta"><span>1h <b class="${pc(v.h1)}" ${L(c,"h1")}>${pct(v.h1)}</b></span><span>vol <b ${L(c,"vol")}>${money(v.vol)}</b></span><span>${c.snap&&!dead?"✅":"❌"}${dead?' <span class="r">已死</span>':rk.length?' <span class="r">'+esc(rk[0])+'</span>':""}</span></div>
@@ -255,7 +255,7 @@ function verifyLine(c){
 function post(t,tag){
   const c=(t.coins||[])[0],v=c?vals(c):{};
   const bullets=[t.verdict,...(t.play||[]).slice(0,2),...(t.firsts||[]).slice(0,1)].filter(Boolean).slice(0,4);
-  return `<div class="post"><div class="ph" data-open="${t.id}"><div class="tile">${t.emoji}</div><div style="min-width:0">
+  return `<div class="post"><div class="ph" data-open="${t.id}"><div style="min-width:0">
    <div class="hl">${c?`<span class="tk">$${esc(c.sym)}</span> `:""}${esc(tname(t))}</div>
    <div class="meta">${c?`<b ${L(c,"mcap")}>${money(v.mcap)}</b> · 1h <span class="${pc(v.h1)}" ${L(c,"h1")}>${pct(v.h1)}</span> · `:""}热度 <span class="y">${t.heat}</span> ${arrow(t.trend)} · ${tag}</div></div></div>
    ${verifyLine(c)}
@@ -264,12 +264,12 @@ function post(t,tag){
    ${c?caRow(c):""}</div>`}
 function radarPost(radar){
   if(!radar.length)return"";
-  return `<div class="post"><div class="ph"><div class="tile">📡</div><div style="min-width:0"><div class="hl">新币雷达</div><div class="meta">GMGN 热榜 · 24h 新币/1h 暴涨 · 叙事未核实</div></div></div>
+  return `<div class="post"><div class="ph"><div style="min-width:0"><div class="hl">新币雷达</div><div class="meta">GMGN 热榜 · 24h 新币/1h 暴涨 · 叙事未核实</div></div></div>
    ${radar.slice(0,5).map(r=>`<div class="gt" style="color:var(--ink)"><span class="g">&gt;</span><span class="y">$${esc(r.sym)}</span> ${money(r.mcap)} <span class="${pc(r.chg1h)}">${pct(r.chg1h)}</span> <span class="sub">${ageTxt(r.created)}</span></div>`).join("")}</div>`}
 function muskPost(d){
   const m=d.musk||{summary:[]};if(!(m.summary||[]).length)return"";
   const top=(d.posts||[]).filter(p=>/elon|musk/i.test(p.author)).sort((a,b)=>b.views-a.views).slice(0,2);
-  return `<div class="post"><div class="ph"><div class="tile">👁</div><div style="min-width:0"><div class="hl">马斯克在关注</div><div class="meta">${esc(d.meta.musk_window||"")}</div></div></div>
+  return `<div class="post"><div class="ph"><div style="min-width:0"><div class="hl">马斯克在关注</div><div class="meta">${esc(d.meta.musk_window||"")}</div></div></div>
    ${m.summary.slice(0,3).map(s=>`<div class="gt">&gt;${esc(s)}</div>`).join("")}
    ${top.map(p=>`<div class="rel"><a href="${p.link}" target="_blank" rel="noopener">↗ ${esc(p.text.length>34?p.text.slice(0,34)+"…":p.text)}</a> <span>${fmt(p.views)}</span></div>`).join("")}</div>`}
 let coinSort="mcap";
