@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111111">
-<title>Alpha 雷达 v2 · 沐珩</title>
+<title>Alpha 雷达 v3 · 沐珩</title>
 <style>
 :root{--bg:#f4f4f4;--card:#fff;--ink:#111;--sub:#666;--line:#e3e3e3;--bar:#e9e9e9;
 --blue:#2563eb;--red:#dc2626;--green:#16a34a;--yellow:#d4a106;--yellowbg:#fff7d6;--redbg:#fdecec;--greenbg:#e8f6ed;--bluebg:#eaf0fe}
@@ -87,20 +87,59 @@ ul.src li .t{color:var(--sub);font-size:12px}
 .fab{position:fixed;right:14px;bottom:max(16px,env(safe-area-inset-bottom));background:#111;color:#fff;border:0;border-radius:99px;padding:12px 18px;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:10}
 footer{text-align:center;font-size:12px;color:#999;margin-top:20px}
 .retired{opacity:.4}
+
+/* v3 coin cards */
+.cc{border-top:1px solid var(--line);padding:10px 0}
+.cc:first-child{border-top:0}
+.cch{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.cch .sym{font-size:15px}
+.badge{font-size:10px;font-weight:700;border-radius:99px;padding:1px 7px;border:1px solid}
+.b-alive{color:var(--green);border-color:var(--green)}
+.b-dead{color:#888;border-color:#aaa}
+.b-rugged{color:#fff;background:var(--red);border-color:var(--red)}
+.b-risk{color:var(--red);border-color:var(--red)}
+.b-new{color:#7a5c00;background:var(--yellowbg);border-color:var(--yellow)}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:6px 0 4px;font-size:12px}
+.nums div{background:#f6f6f6;border-radius:6px;padding:4px 6px}
+.nums small{display:block;color:var(--sub);font-size:10px}
+.nums b{font-family:ui-monospace,Menlo,monospace;font-size:13px}
+.pos{color:var(--green)}.neg{color:var(--red)}
+.blurb{font-size:13px;color:#333;margin:2px 0 4px}
+.carow{display:flex;gap:6px;align-items:center}
+.carow code{flex:1;font-size:11px;color:var(--blue);word-break:break-all;font-family:ui-monospace,Menlo,monospace}
+.cpy,.gm{flex:0 0 auto;border:1px solid var(--blue);color:var(--blue);background:#fff;border-radius:6px;font-size:12px;padding:3px 8px;font-weight:700}
+.cpy.ok{background:var(--blue);color:#fff}
+.mbar{height:5px;background:var(--bar);border-radius:3px;overflow:hidden;margin-top:4px}
+.mbar i{display:block;height:100%;background:#111}
+.mbar.hot i{background:var(--red)}.mbar.g i{background:var(--green)}
+.live{font-size:12px;color:var(--sub);margin:-4px 0 10px;display:flex;gap:6px;align-items:center}
+.live .ld{width:8px;height:8px;border-radius:50%;background:#bbb;display:inline-block}
+.live.on .ld{background:var(--green);box-shadow:0 0 0 3px rgba(22,163,74,.18)}
+.tcard{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--yellow);border-radius:12px;padding:12px;margin-bottom:10px}
+.tcard.hot{border-left-color:var(--red)}
+.tch{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;cursor:pointer}
+.memo{font-size:12px;color:var(--sub)}
+.rcoin{display:grid;grid-template-columns:1fr auto;gap:2px 8px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.rcoin .r{text-align:right;font-family:ui-monospace,Menlo,monospace;font-weight:800}
+.rcoin .full{grid-column:1/-1}
+.toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:#111;color:#fff;padding:8px 14px;border-radius:99px;font-size:13px;opacity:0;transition:opacity .2s;z-index:30;pointer-events:none}
+.toast.on{opacity:1}
 </style>
 </head>
 <body>
 <header>
   <div class="top"><div class="brand">🍀 ALPHA 雷达</div><div class="upd">更新 <b id="upd"></b></div></div>
   <nav class="tabs">
-    <button class="tab on" data-p="home">🔥 总览</button>
+    <button class="tab on" data-p="h24">⚡ 24小时</button>
+    <button class="tab" data-p="home">🌊 大周期</button>
+    <button class="tab" data-p="lead">🪙 币</button>
     <button class="tab" data-p="musk">👁 马斯克</button>
-    <button class="tab" data-p="lead">📈 龙头&amp;Beta</button>
     <button class="tab" data-p="hist">🕘 历史</button>
   </nav>
 </header>
 <main>
-  <section class="panel on" id="p-home"></section>
+  <section class="panel on" id="p-h24"></section>
+  <section class="panel" id="p-home"></section>
   <section class="panel" id="p-musk"></section>
   <section class="panel" id="p-lead"></section>
   <section class="panel" id="p-hist"></section>
@@ -108,6 +147,7 @@ footer{text-align:center;font-size:12px;color:#999;margin-top:20px}
 </main>
 <div class="sheet" id="sheet"><div class="panelx" id="detail"></div></div>
 <button class="fab" id="xl">⬇ 导出 Excel</button>
+<div class="toast" id="toast"></div>
 <script id="embedded" type="application/json">/*DATA*/</script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
 <script>
@@ -120,6 +160,65 @@ const fmt=n=>n>=1e4?(n/1e4).toFixed(n>=1e5?0:1)+"万":String(n);
 let D;
 function days(t){return Object.keys(t.history).sort().slice(-7)}
 function gridHTML(t){return `<div class="grid">${days(t).map(d=>{const h=t.history[d];return `<i class="g${lvl(h.grid)}${h.partial_hours?" gp":""}" title="${d} 约${h.est}帖"></i>`}).join("")}</div>`}
+// ---------- v3: coins, live prices ----------
+const LV={};let liveAt=null,liveOK=false;
+const money=v=>v==null||isNaN(v)?"—":v>=1e9?"$"+(v/1e9).toFixed(2)+"B":v>=1e6?"$"+(v/1e6).toFixed(v>=1e8?0:1)+"M":v>=1e3?"$"+(v/1e3).toFixed(0)+"K":"$"+Math.round(v);
+const pct=v=>v==null||isNaN(v)?"—":(v>0?"+":"")+(Math.abs(v)>=1000?Math.round(v).toLocaleString():Number(v).toFixed(Math.abs(v)>=100?0:1))+"%";
+const pc=v=>v==null||isNaN(v)?"":v>0?"pos":v<0?"neg":"";
+const gmLink=c=>`https://gmgn.ai/${c.chain}/token/${c.ca}`;
+const key=ca=>/^0x/i.test(ca)?ca.toLowerCase():ca;
+function vals(c){const s=c.snap||{},l=LV[key(c.ca)];return l?{mcap:l.mcap,h1:l.h1,h6:l.h6,h24:l.h24,liq:l.liq,src:"live"}:{mcap:s.mcap,h1:s.chg1h,h6:s.chg6h,h24:s.chg24h,liq:s.liq,src:"snap"}}
+const ST={alive:["存活","b-alive"],dead:["已死","b-dead"],rugged:["跑路","b-rugged"]};
+function risky(c){const s=c.snap||{};const r=[...(s.flags||[])];if((s.bundler||0)>=40)r.push("捆绑"+s.bundler+"%");if((s.top10||0)>=60)r.push("前十"+s.top10+"%");return r}
+const isNew=c=>c.snap&&c.snap.created&&(Date.now()/1000-c.snap.created)<86400;
+function momBar(m){return `<div class="mbar ${m>=75?"hot":m>=60?"g":""}"><i style="width:${Math.max(3,Math.min(100,m||0))}%"></i></div>`}
+function coinCard(c,role){
+  const v=vals(c),st=ST[c.status]||ST.alive,rk=risky(c),s=c.snap||{};
+  return `<div class="cc"><div class="cch"><span class="sym ${role==="leader"?"L":""}">${role==="leader"?"👑 ":""}${esc(c.sym)}</span><span class="chip">${esc(c.chain.toUpperCase())}</span>
+   <span class="badge ${st[1]}">${st[0]}</span>${isNew(c)?'<span class="badge b-new">🆕 24h</span>':""}${c.auto?'<span class="badge b-new">自动发现</span>':""}${rk.length?`<span class="badge b-risk">⚠ ${esc(rk.join(" · "))}</span>`:""}</div>
+   <div class="nums"><div><small>市值</small><b data-lv="mcap" data-ca="${key(c.ca)}">${money(v.mcap)}</b></div><div><small>1h</small><b class="${pc(v.h1)}" data-lv="h1" data-ca="${key(c.ca)}">${pct(v.h1)}</b></div><div><small>24h</small><b class="${pc(v.h24)}" data-lv="h24" data-ca="${key(c.ca)}">${pct(v.h24)}</b></div><div><small>流动性</small><b data-lv="liq" data-ca="${key(c.ca)}">${money(v.liq)}</b></div></div>
+   <div class="blurb">${esc(c.blurb||"")}</div>
+   <div class="memo">持有人 ${s.holders??"—"} · 前十 ${s.top10??"—"}% · ATH ${money(s.ath_mcap)}</div>
+   <div class="carow"><code>${esc(c.ca)}</code><button class="cpy" data-copy="${esc(c.ca)}">📋 复制</button><a class="gm" href="${gmLink(c)}" target="_blank" rel="noopener">GMGN ↗</a></div></div>`}
+function coinsHTML(t){return (t.coins||[]).map((c,i)=>coinCard(c,i===0?"leader":"beta")).join("")+(t.memes||[]).map(m=>`<div class="memo" style="padding:6px 0;border-top:1px solid var(--line)">💬 梗（无币）：${esc(m)}</div>`).join("")||'<div class="memo">暂无链上币</div>'}
+function ageTxt(ts){if(!ts)return"";const h=(Date.now()/1000-ts)/3600;return h<1?Math.round(h*60)+" 分钟前":h<48?Math.round(h)+" 小时前":Math.round(h/24)+" 天前"}
+function radarCard(r){
+  const c={sym:r.sym,chain:r.chain,ca:r.ca,snap:{mcap:r.mcap,chg1h:r.chg1h,chg6h:r.chg6h,liq:r.liq}},v=vals(c);
+  const tp=r.topic&&D.topics.find(t=>t.id===r.topic);
+  return `<div class="rcoin"><div><span class="sym">${esc(r.sym)}</span><span class="chip">${r.chain.toUpperCase()}</span>${(Date.now()-Date.parse(r.first_seen))<7200e3?'<span class="badge b-new" style="margin-left:4px">🆕 新发现</span>':""}
+    <div class="memo">${esc(r.name)} · 上线 ${ageTxt(r.created)} · ${r.holders} 持有人${tp?` · 属于 ${tp.emoji}${esc(tp.name.split(" ")[0])}`:""}</div></div>
+   <div class="r"><span data-lv="mcap" data-ca="${key(r.ca)}">${money(v.mcap)}</span><div class="${pc(v.h1)}" style="font-size:13px" data-lv="h1" data-ca="${key(r.ca)}">${pct(v.h1)}</div></div>
+   <div class="full">${momBar(r.mom)}<div class="memo" style="margin-top:3px">动量 ${r.mom} · 6h ${pct(r.chg6h)} · 流动性 ${money(v.liq)} · GMGN 热榜自动抓取，叙事未核实</div>
+   <div class="carow" style="margin-top:4px"><code>${esc(r.ca)}</code><button class="cpy" data-copy="${esc(r.ca)}">📋</button><a class="gm" href="${gmLink(r)}" target="_blank" rel="noopener">GMGN ↗</a></div></div></div>`}
+function tcard24(t){
+  const L=(t.coins||[])[0],v=L?vals(L):{};
+  return `<div class="tcard ${t.momentum>=70?"hot":""}"><div class="tch" data-id="${t.id}"><div><div class="tname">${t.emoji} ${esc(t.name)}</div><div class="tchain">诞生 ${t.born?ageTxt(Date.parse(t.born)/1000):"—"} · X 今日约 ${fmt(t.history[days(t).slice(-1)[0]]?.est||0)} 帖</div></div>
+   <div class="score">${t.momentum??t.heat}<small style="color:var(--sub)">动量</small></div></div>
+   ${momBar(t.momentum)}<div class="verdict s-${t.signal}" style="margin:8px 0 4px">${esc(t.verdict)}</div>
+   ${coinsHTML(t)}<div class="memo" style="margin-top:6px;cursor:pointer;color:var(--blue)" data-open="${t.id}">详情 / 来源 ›</div></div>`}
+function setLive(){const el=$("#livebar");if(!el)return;el.classList.toggle("on",liveOK);
+  el.innerHTML=`<span class="ld"></span>${liveOK?`实时 ${liveAt.toLocaleTimeString("zh-CN",{timeZone:"Australia/Sydney",hour12:false})} 悉尼 · Dexscreener · 每 60 秒刷新`:`快照 ${esc(D.meta.prices_label||D.meta.updated_label)} · 实时行情获取中/失败时显示 GMGN 快照`}`}
+function applyLive(){document.querySelectorAll("[data-lv]").forEach(e=>{const l=LV[e.dataset.ca];if(!l)return;const f=e.dataset.lv,v=l[f];if(v==null)return;
+  if(f==="mcap"||f==="liq")e.textContent=money(v);else{e.textContent=pct(v);e.classList.remove("pos","neg");pc(v)&&e.classList.add(pc(v))}});setLive()}
+async function live(){
+  const cas=[...new Set([...D.topics.flatMap(t=>(t.coins||[]).map(c=>c.ca)),...(D.radar||[]).map(r=>r.ca)].filter(Boolean))];
+  let got=0;
+  for(let i=0;i<cas.length;i+=30){
+    try{const r=await fetch("https://api.dexscreener.com/latest/dex/tokens/"+cas.slice(i,i+30).join(","));if(!r.ok)continue;const j=await r.json();
+      const best={};(j.pairs||[]).forEach(p=>{const k=key(p.baseToken.address);if(!cas.some(c=>key(c)===k))return;if(!best[k]||(p.liquidity?.usd||0)>(best[k].liquidity?.usd||0))best[k]=p});
+      for(const k in best){const p=best[k];LV[k]={mcap:p.marketCap??p.fdv,h1:p.priceChange?.h1,h6:p.priceChange?.h6,h24:p.priceChange?.h24,liq:p.liquidity?.usd};got++}
+    }catch(e){}
+  }
+  if(got){liveOK=true;liveAt=new Date()}
+  applyLive();
+}
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),1300)}
+document.addEventListener("click",e=>{const b=e.target.closest(".cpy");if(b){e.stopPropagation();const s=b.dataset.copy;
+  const done=()=>{b.classList.add("ok");toast("已复制 CA");setTimeout(()=>b.classList.remove("ok"),1200)};
+  if(navigator.clipboard&&isSecureContext)navigator.clipboard.writeText(s).then(done,()=>fb());else fb();
+  function fb(){const a=document.createElement("textarea");a.value=s;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();try{document.execCommand("copy");done()}catch(_){prompt("复制 CA",s)}a.remove()}
+  return}
+ const o=e.target.closest("[data-open],.tch");if(o)detail(o.dataset.open||o.dataset.id)});
 function row(t){
   const cls=t.heat>=60&&t.trend!=="down"?"hot":t.heat>=40?"warm":"";
   const op=(0.38+0.62*t.heat/100)*(t.trend==="down"?0.8:1);
@@ -127,19 +226,18 @@ function row(t){
    <div class="rk">${t.rank}</div>
    <div><div class="tname">${t.emoji} ${esc(t.name)}</div><div class="tchain">${t.chains.join(" · ")}</div></div>
    <div class="score">${t.heat}<small>${arrow(t.trend)}</small></div>
-   <div class="tsub"><div class="lead">龙头 <b>${esc(t.leader.sym)}</b>${t.leader.mcap?" "+esc(t.leader.mcap):""}</div>${gridHTML(t)}</div>
+   <div class="tsub"><div class="lead">龙头 <b>${esc(t.leader.sym)}</b> ${t.coins&&t.coins[0]?`<span data-lv="mcap" data-ca="${key(t.coins[0].ca)}">${money(vals(t.coins[0]).mcap)}</span>`:""}</div>${gridHTML(t)}</div>
   </div>`}
 function detail(id){
   const t=D.topics.find(x=>x.id===id),a=t.attention,ds=days(t),mx=Math.max(...ds.map(d=>t.history[d].est));
   $("#detail").innerHTML=`<button class="close" onclick="closeD()">✕</button>
    <h3 style="margin:4px 0">${t.emoji} ${esc(t.name)}</h3>
-   <div style="font-size:13px;color:var(--sub)">热度 <b style="color:var(--ink)">${t.heat}</b> · 第 ${t.rank??"-"} 名 · ${arrow(t.trend)} ${t.delta>0?"+":""}${t.delta}%（近2日 vs 前3日）</div>
+   <div style="font-size:13px;color:var(--sub)">${t.horizon==="24h"?`⚡ 24h 话题 · 动量 <b style="color:var(--ink)">${t.momentum}</b> · `:""}热度 <b style="color:var(--ink)">${t.heat}</b> · 第 ${t.rank??"-"} 名 · ${arrow(t.trend)} ${t.delta>0?"+":""}${t.delta}%（近2日 vs 前3日）</div>
    <div class="verdict s-${t.signal}">${esc(t.verdict)}</div>
    <div class="card"><div class="sec" style="margin-top:0">7 日讨论量（${esc(D.meta.day_basis)}，斜纹=今日估算）</div>
     <div class="mini">${ds.map(d=>`<div class="${t.history[d].partial_hours?"p":""}" style="height:${Math.max(3,t.history[d].est/mx*100)}%" title="${t.history[d].est}"></div>`).join("")}</div>
     <div class="minil">${ds.map(d=>`<span>${d.slice(8)}<br>${fmt(t.history[d].est)}</span>`).join("")}</div></div>
-   <div class="card"><div class="sec" style="margin-top:0">龙头 & Beta</div>
-    ${[{...t.leader,L:1},...t.betas].map(c=>`<div class="coin"><span class="sym ${c.L?"L":""}">${c.L?"👑 ":""}${esc(c.sym)}<span class="chip">${esc(c.chain)}</span></span><span>${esc(c.note)}${c.mcap?` · <b>${esc(c.mcap)}</b>`:""}</span>${c.ca?`<div class="ca">${esc(c.ca)}</div>`:""}</div>`).join("")}</div>
+   <div class="card"><div class="sec" style="margin-top:0">龙头 & Beta（GMGN 核验 CA）</div>${coinsHTML(t)}</div>
    <div class="card"><div class="sec" style="margin-top:0">注意力定价</div>
     ${[["大人物",a.big_names,"r"],["政治/慈善",a.politics,"y"],["新闻潜力",a.news,"b"],["🆕新鲜感",a.novelty,"y"]].map((r,i)=>`<div class="row"><span class="k">${r[0]}</span>${bar(r[1],r[1]>=8?r[2]:"")}<span class="note">${esc(a.notes[i]||"")}</span></div>`).join("")}
     ${t.firsts.map(f=>`<div class="first">${esc(f)}</div>`).join("")}
@@ -155,14 +253,25 @@ $("#sheet").onclick=e=>{if(e.target.id==="sheet")closeD()};
 function render(d){
   D=d;$("#upd").textContent=d.meta.updated_label;
   const act=d.topics.filter(t=>t.status==="active").sort((a,b)=>b.heat-a.heat);
+  const cyc=act.filter(t=>t.horizon!=="24h"),t24=act.filter(t=>t.horizon==="24h").sort((a,b)=>(b.momentum||0)-(a.momentum||0));
+  const radar=(d.radar||[]).slice().sort((a,b)=>(b.first_seen.slice(0,13)>a.first_seen.slice(0,13))-(b.first_seen.slice(0,13)<a.first_seen.slice(0,13))||b.mom-a.mom);
+  const onR=new Set(radar.map(r=>r.ca));
+  const fresh=act.flatMap(t=>(t.coins||[]).filter(c=>isNew(c)&&!onR.has(c.ca)).map(c=>({...c,_t:t})));
+  $("#p-h24").innerHTML=`<div class="alert">⚡ ${esc(d.headline.text)}</div><div class="live" id="livebar"></div>
+   <div class="sec" style="margin-top:0">🔥 24 小时新话题 · 按动量排序</div>${t24.map(tcard24).join("")||'<div class="memo">暂无</div>'}
+   <div class="sec">🆕 新币雷达 · 24h 内诞生或 1h 暴涨（最新在上）</div>${radar.map(radarCard).join("")}
+   ${fresh.length?`<div class="sec">📌 看板内 24h 新币</div><div class="card">${fresh.map(c=>coinCard(c,"beta")).join("")}</div>`:""}
+   <div class="note" style="margin-top:6px">动量＝币价 1h/6h/24h 变化＋X 发帖速度 · 24h 话题 36 小时后自动升入大周期或归档 · 市值<$10K / 较ATH跌>90%且无量 的币自动删除</div>`;
   const ret=d.topics.filter(t=>t.status!=="active");
   $("#p-home").innerHTML=`<div class="alert">⚡ ${esc(d.headline.text)}</div>
    <div class="legend"><span>热度 0–100</span><span class="up">▲升温</span><span class="down">▼降温</span>
     <span>7日 <i style="display:inline-block;width:10px;height:10px;background:#c6e9cf;border-radius:2px"></i><i style="display:inline-block;width:10px;height:10px;background:#3fae5d;border-radius:2px;margin-left:2px"></i><i style="display:inline-block;width:10px;height:10px;background:#0f4d22;border-radius:2px;margin-left:2px"></i> 越深越热</span></div>
-   ${act.map(row).join("")}
+   ${cyc.map(row).join("")}
    ${ret.length?`<div class="sec">已退役话题</div>${ret.map(t=>`<div class="trow retired" data-id="${t.id}"><div class="rk">–</div><div class="tname">${t.emoji} ${esc(t.name)}</div><div></div></div>`).join("")}`:""}
    <div class="note" style="margin-top:6px">点任一话题看详情 · 热度＝讨论量50%＋动量30%＋头部帖浏览20%</div>`;
   document.querySelectorAll(".trow").forEach(r=>r.onclick=()=>detail(r.dataset.id));
+  // cycle ranks are recomputed within the 大周期 list
+  document.querySelectorAll("#p-home .trow:not(.retired) .rk").forEach((e,i)=>e.textContent=i+1);
   // musk
   const m=d.musk,byId=Object.fromEntries(d.posts.map(p=>[p.id,p]));
   $("#p-musk").innerHTML=`<div class="card"><h3>👁 他在关注什么</h3><ol class="sum">${m.summary.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
@@ -172,9 +281,8 @@ function render(d){
     <div class="verdict s-${t.signal}">${esc(t.verdict)}</div><div class="first" style="background:#f7f7f7"><b class="up">Meme 角度</b>　${esc(t.meme)}</div>
     <ul class="src">${t.posts.map(id=>byId[id]).filter(Boolean).map(p=>`<li><a href="${p.link}" target="_blank" rel="noopener">${esc(p.text.length>90?p.text.slice(0,90)+"…":p.text)} ↗</a><div class="t">${esc(p.author)} · ${p.time} 悉尼 · ${fmt(p.views)} 浏览</div></li>`).join("")}</ul></div>`).join("")}`;
   // leaders
-  $("#p-lead").innerHTML=act.map(t=>`<div class="card" style="opacity:${(0.45+0.55*t.heat/100).toFixed(2)}"><h3>${t.emoji} ${esc(t.name)} <span style="font-size:13px">${arrow(t.trend)}</span></h3>
-    ${[{...t.leader,L:1},...t.betas].map(c=>`<div class="coin"><span class="sym ${c.L?"L":""}">${c.L?"👑 ":"β "}${esc(c.sym)}<span class="chip">${esc(c.chain)}</span></span><span>${esc(c.note)}${c.mcap?` · <b>${esc(c.mcap)}</b>`:""}</span>${c.ca?`<div class="ca">${esc(c.ca)}</div>`:""}</div>`).join("")}
-    <div class="verdict s-${t.signal}" style="margin-bottom:0">${esc(t.play[0]||"")}</div></div>`).join("");
+  $("#p-lead").innerHTML=`<div class="note" style="margin-bottom:8px">全部币均经 GMGN 核验 CA · 点 📋 复制 · 数值优先显示 Dexscreener 实时行情</div>`+[...t24,...cyc].map(t=>`<div class="card"><h3>${t.emoji} ${esc(t.name)} <span style="font-size:12px;color:var(--sub)">${t.horizon==="24h"?"⚡24h":"🌊大周期"}</span></h3>${coinsHTML(t)}</div>`).join("")
+   +((d.pruned||[]).length?`<div class="card"><h3>🗑 已删除（死盘/归零/仿盘）</h3>${d.pruned.slice().reverse().map(p=>`<div class="memo" style="padding:4px 0;border-top:1px solid var(--line)">${esc(p.date)} · <b>${esc(p.sym)}</b> ${esc(p.chain.toUpperCase())} · ${esc(p.reason)}<br><code style="font-size:10px;word-break:break-all">${esc(p.ca)}</code></div>`).join("")}${(d.removed_concepts||[]).map(x=>`<div class="memo" style="padding:4px 0;border-top:1px solid var(--line)">✂ 过时概念：${esc(x)}</div>`).join("")}</div>`:"");
   // history
   $("#p-hist").innerHTML=`<div class="card"><h3>🕘 推送历史</h3>${d.history.slice().reverse().map(h=>`<div class="hist s-${h.signal}"><div class="t">${esc(h.time)} 悉尼</div><b>${esc(h.title)}</b><div>${esc(h.verdict)}</div></div>`).join("")}</div>
    <div class="card"><h3>📊 话题热度表（帖/日）</h3><div style="overflow-x:auto"><table style="border-collapse:collapse;font-size:12px;width:100%">
@@ -182,6 +290,7 @@ function render(d){
     ${d.topics.map(t=>`<tr style="border-top:1px solid #eee"><td>${t.emoji} ${esc(t.name.split(" ")[0])}</td>${days(t).map(x=>`<td style="text-align:right">${fmt(t.history[x].est)}</td>`).join("")}</tr>`).join("")}</table></div></div>
    <div class="card"><h3>📄 帖子（${d.posts.length}）</h3><ul class="src">${d.posts.slice().sort((a,b)=>b.views-a.views).map(p=>`<li><a href="${p.link}" target="_blank" rel="noopener">${esc(p.text.length>80?p.text.slice(0,80)+"…":p.text)} ↗</a><div class="t">${esc(p.topic)} · ${esc(p.author)} · ${p.time} · ${fmt(p.views)}</div></li>`).join("")}</ul></div>`;
   $("#foot").textContent=d.meta.note;
+  setLive();applyLive();
 }
 document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===b));
@@ -192,16 +301,18 @@ function sheets(){
   D.topics.forEach(t=>t.sources.forEach(s=>{if(!seen.has(s.url)){seen.add(s.url);posts.push({时间_悉尼:"",作者:"",内容:s.label,链接:s.url,主题:t.name,热度:"",浏览量:""})}}));
   const ds=[...new Set(D.topics.flatMap(t=>Object.keys(t.history)))].sort();
   const heat=D.topics.slice().sort((a,b)=>b.heat-a.heat).map(t=>{const o={排名:t.rank??"",话题:t.name,状态:t.status,热度:t.heat,趋势:{up:"↑",down:"↓"}[t.trend]||"→",龙头:t.leader.sym,结论:t.verdict};ds.forEach(x=>o[x.slice(5)+"帖数"]=t.history[x]?.est??"");return o});
-  return {posts,heat};
+  const coins=D.topics.flatMap(t=>(t.coins||[]).map((c,i)=>{const v=vals(c);return {话题:t.name,周期:t.horizon==="24h"?"24小时":"大周期",角色:i?"beta":"龙头",代币:c.sym,链:c.chain,CA:c.ca,状态:c.status,市值:Math.round(v.mcap||0),"1h%":v.h1,"24h%":v.h24,流动性:Math.round(v.liq||0),叙事:c.blurb,GMGN:gmLink(c)}}));
+  return {posts,heat,coins};
 }
 $("#xl").onclick=()=>{
-  const {posts,heat}=sheets(),name="alpha_"+D.meta.updated.slice(0,10);
-  if(window.XLSX){const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(posts),"帖子与来源");XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(heat),"话题热度");XLSX.writeFile(wb,name+".xlsx");return}
+  const {posts,heat,coins}=sheets(),name="alpha_"+D.meta.updated.slice(0,10);
+  if(window.XLSX){const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(posts),"帖子与来源");XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(heat),"话题热度");XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(coins),"代币");XLSX.writeFile(wb,name+".xlsx");return}
   const csv=rows=>{const k=Object.keys(rows[0]);return [k.join(",")].concat(rows.map(o=>k.map(x=>'"'+String(o[x]??"").replace(/"/g,'""')+'"').join(","))).join("\n")};
-  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+csv(posts)+"\n\n"+csv(heat)],{type:"text/csv"}));a.download=name+".csv";a.click();
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+csv(posts)+"\n\n"+csv(heat)+"\n\n"+csv(coins)],{type:"text/csv"}));a.download=name+".csv";a.click();
 };
 const emb=JSON.parse($("#embedded").textContent);render(emb);
-fetch("data.json?t="+Date.now()).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.version===2&&d.meta.updated>emb.meta.updated)render(d)}).catch(()=>{});
+{const h=location.hash.slice(1),b=h&&document.querySelector(`.tab[data-p="${h}"]`);if(b)b.click()}
+fetch("data.json?t="+Date.now()).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.version>=3&&((d.meta.prices_updated||"")>(emb.meta.prices_updated||"")||d.meta.updated>emb.meta.updated))render(d)}).catch(()=>{}).finally(()=>{live();setInterval(live,60000)});
 </script>
 </body>
 </html>

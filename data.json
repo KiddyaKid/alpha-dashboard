@@ -5,11 +5,13 @@
   "updated_label": "10/09 20:52 悉尼",
   "musk_window": "10/09 16:48 → 10/09 18:00 悉尼（4 条回复）",
   "note": "热度 = 讨论量(50%) + 动量(30%) + 头部帖浏览(20%)；当天按时段曲线外推（估算）。不构成投资建议",
-  "day_basis": "UTC 日（悉尼 11:00 换日）"
+  "day_basis": "UTC 日（悉尼 11:00 换日）",
+  "prices_updated": "2026-10-09T20:53+11:00",
+  "prices_label": "10/09 20:53 悉尼"
  },
  "headline": {
   "level": "watch",
-  "text": "热度第一：🇮🇳 Starlink 印度 · Ambani（91）· 升温：Starlink 印度 · Ambani、Grok Bot · 整家公司由 AI 组成、量子 / AI 破解私钥"
+  "text": "24h 动量第一：🛡 后量子地堡 · BNKR/PQC（75） · 大周期热度第一：🇮🇳 Starlink（91）"
  },
  "topics": [
   {
@@ -26,9 +28,9 @@
    "leader": {
     "sym": "SI",
     "chain": "SOL",
-    "note": "Super Inu · ATH ~$68M(9/30) · 10/6-10/8 约 $24–31M · 据称给持有人发 NVDAx",
     "ca": "DEW9dSN6QpWyNthphCpMmAbZP1Q4cEKR9xQXAri98WDP",
-    "mcap": "~$24–31M"
+    "mcap": "$25.1M",
+    "note": "Super Inu：马斯克“SI 超级智能”梗龙头，ATH ~$69M，现在 ~$25M 横盘。"
    },
    "attention": {
     "big_names": 9,
@@ -131,7 +133,31 @@
      "ca": "DEW9dSN6QpWyNthphCpMmAbZP1Q4cEKR9xQXAri98WDP",
      "blurb": "Super Inu：马斯克“SI 超级智能”梗龙头，ATH ~$69M，现在 ~$25M 横盘。",
      "role": "leader",
-     "name": "Super Inu"
+     "name": "Super Inu",
+     "snap": {
+      "symbol": "SI",
+      "name": "Super Inu",
+      "price": 0.025147721,
+      "mcap": 25053627,
+      "ath_mcap": 68935600,
+      "liq": 807857,
+      "holders": 55799,
+      "chg1h": 1.9,
+      "chg6h": -7.0,
+      "chg24h": 9.6,
+      "vol1h": 39982,
+      "vol24h": 7652650,
+      "top10": 16.7,
+      "bundler": 56.9,
+      "bot": 52.6,
+      "created": 1790005495,
+      "twitter": "superinuog",
+      "website": "https://truthsocial.com/@realdonaldtrump/posts/117309799376551907",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 50.2
+     },
+     "status": "alive"
     },
     {
      "sym": "SI",
@@ -139,7 +165,31 @@
      "ca": "9aqmJjCnnMQv42TXLk921ceUkN35nea2QP969n1caqjj",
      "blurb": "Super Intelligence：同名二号 SI，9/30 上线，百万级市值。",
      "role": "beta",
-     "name": "Super Intelligence"
+     "name": "Super Intelligence",
+     "snap": {
+      "symbol": "SI",
+      "name": "Super Intelligence",
+      "price": 0.0014323231,
+      "mcap": 1390791,
+      "ath_mcap": 9283576,
+      "liq": 162747,
+      "holders": 11453,
+      "chg1h": 12.0,
+      "chg6h": 15.0,
+      "chg24h": 37.2,
+      "vol1h": 15020,
+      "vol24h": 1180522,
+      "top10": 20.1,
+      "bundler": 23.5,
+      "bot": 27.1,
+      "created": 1790721756,
+      "twitter": "entersicto",
+      "website": "https://sicto.si",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 54.2
+     },
+     "status": "alive"
     },
     {
      "sym": "OWL",
@@ -147,7 +197,31 @@
      "ca": "68AGsjomsgTtiTaDhF6XGCeVJDnFeh415ngYYgVxGzns",
      "blurb": "Superintelligence Owl：马斯克“It always was”猫头鹰封面吉祥物盘，24h 反弹 +170%。",
      "role": "beta",
-     "name": "Superintelligence Owl"
+     "name": "Superintelligence Owl",
+     "snap": {
+      "symbol": "OWL",
+      "name": "Superintelligence Owl",
+      "price": 0.00095824606,
+      "mcap": 958179,
+      "ath_mcap": 2406523,
+      "liq": 114575,
+      "holders": 3043,
+      "chg1h": 5.8,
+      "chg6h": -6.2,
+      "chg24h": 174.4,
+      "vol1h": 23007,
+      "vol24h": 1527764,
+      "top10": 17.6,
+      "bundler": 22.4,
+      "bot": 48.6,
+      "created": 1791111715,
+      "twitter": "weightlesswires/status/2106701341078831545",
+      "website": "https://blog.oup.com/2014/08/unfinished-fable-sparrows-superintelligence/",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 55.5
+     },
+     "status": "alive"
     },
     {
      "sym": "OWLNIGHT",
@@ -155,7 +229,31 @@
      "ca": "CmCHvr99aXrLDQB7jAtFtsBwg3DnXqq4spcTEMt7pump",
      "blurb": "Owl Nighter：10/09 新猫头鹰盘，1.6 万持有人，24h 暴涨后回落一半。",
      "role": "beta",
-     "name": "Owl Nighter"
+     "name": "Owl Nighter",
+     "snap": {
+      "symbol": "OWLNIGHT",
+      "name": "Owl Nighter",
+      "price": 0.00050048788,
+      "mcap": 496700,
+      "ath_mcap": 1240279,
+      "liq": 67994,
+      "holders": 15815,
+      "chg1h": 3.6,
+      "chg6h": -44.1,
+      "chg24h": 16466.4,
+      "vol1h": 139822,
+      "vol24h": 4964352,
+      "top10": 2.3,
+      "bundler": 2.5,
+      "bot": 0.1,
+      "created": 1791478718,
+      "twitter": "owlnight_meme",
+      "website": "https://www.owlnight.top",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 55.9
+     },
+     "status": "alive"
     },
     {
      "sym": "SI",
@@ -163,7 +261,65 @@
      "ca": "Ap7R5jTGxFCZEbkFc3WNMiN3ru6nkPkn3Co5p6tbpump",
      "blurb": "Superintelligence（2024 老盘复活）：小市值同名盘，流动性薄。",
      "role": "beta",
-     "name": "Superintelligence"
+     "name": "Superintelligence",
+     "snap": {
+      "symbol": "SI",
+      "name": "Superintelligence",
+      "price": 2.2598597e-05,
+      "mcap": 22569,
+      "ath_mcap": 50567,
+      "liq": 13654,
+      "holders": 148,
+      "chg1h": -7.5,
+      "chg6h": 39.9,
+      "chg24h": 325.3,
+      "vol1h": 3389,
+      "vol24h": 47546,
+      "top10": 27.1,
+      "bundler": 0.0,
+      "bot": 39.0,
+      "created": 1729349994,
+      "twitter": "SI_MEME_OG",
+      "website": "https://sisuperintelligence.live",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 59.1
+     },
+     "status": "alive"
+    },
+    {
+     "sym": "SI276",
+     "name": "Super Intelligence SI276",
+     "chain": "sol",
+     "ca": "HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump",
+     "role": "beta",
+     "auto": true,
+     "found": "2026-10-09T20:53+11:00",
+     "status": "alive",
+     "snap": {
+      "symbol": "SI276",
+      "name": "Super Intelligence SI276",
+      "price": 0.0018292077,
+      "mcap": 1809264,
+      "ath_mcap": 2294845,
+      "liq": 125983,
+      "holders": 1949,
+      "chg1h": -7.1,
+      "chg6h": -1.0,
+      "chg24h": 308.3,
+      "vol1h": 34982,
+      "vol24h": 1087104,
+      "top10": 25.4,
+      "bundler": 0.9,
+      "bot": 20.8,
+      "created": 1791309202,
+      "twitter": "si276_xyz",
+      "website": "https://si276.xyz",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 56.3
+     },
+     "blurb": "Super Intelligence SI276：GMGN 自动发现的新 SI 同名盘（<72h），~$1.8M，叙事待人工核实。"
     }
    ],
    "horizon": "cycle",
@@ -180,7 +336,8 @@
      "owl"
     ]
    },
-   "memes": []
+   "memes": [],
+   "momentum": 47
   },
   {
    "id": "quantum",
@@ -195,11 +352,11 @@
    "verdict": "讨论量 3 天翻 2.6 倍；旧龙头 QUANTUM 已归零删除，新龙头 Quantum Inu ~$80 万。地堡/后量子玩法已拆成独立 24h 话题",
    "signal": "watch",
    "leader": {
-    "sym": "QUANTUM",
+    "sym": "QI",
     "chain": "SOL",
-    "note": "喊单盘 · 池子薄 ($35K) · 16:44 悉尼",
-    "ca": "AUd3rULBqpeUMUcoguBc8afg68g2hjj7SegB9AJsKCyQ",
-    "mcap": "~$159.5K"
+    "ca": "8TiMkgvsrat9tM2esko8zVTt99LZLpefUM4SnZaziXaQ",
+    "mcap": "$812K",
+    "note": "Quantum Inu：10/09 新盘，量子狗，量子赛道当前市值最大的纯 meme，24h 涨幅上万 %。"
    },
    "attention": {
     "big_names": 6,
@@ -298,7 +455,31 @@
      "ca": "8TiMkgvsrat9tM2esko8zVTt99LZLpefUM4SnZaziXaQ",
      "blurb": "Quantum Inu：10/09 新盘，量子狗，量子赛道当前市值最大的纯 meme，24h 涨幅上万 %。",
      "role": "leader",
-     "name": "Quantum Inu"
+     "name": "Quantum Inu",
+     "snap": {
+      "symbol": "QI",
+      "name": "Quantum Inu",
+      "price": 0.00085250736,
+      "mcap": 812217,
+      "ath_mcap": 962787,
+      "liq": 85932,
+      "holders": 3925,
+      "chg1h": 6.0,
+      "chg6h": 27479.9,
+      "chg24h": 27479.9,
+      "vol1h": 314057,
+      "vol24h": 2858587,
+      "top10": 19.4,
+      "bundler": 13.1,
+      "bot": 66.4,
+      "created": 1791519073,
+      "twitter": "Milsaftermils/status/2108409259675599203",
+      "website": "https://pqc.market/coin/q/8TiMkgvsrat9tM2esko8zVTt99LZLpefUM4SnZaziXaQ",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 75.8
+     },
+     "status": "alive"
     },
     {
      "sym": "BUNKER",
@@ -306,7 +487,31 @@
      "ca": "8NCievmJCg2d9Vc2TWgz2HkE6ANeSX7kwvdq5AL7pump",
      "blurb": "BunkerCoin（bunkercoin.io）：toly 2024 愚人节“短波电台区块链”论文的老梗盘，1 月上线，ATH ~$9.8M，量子恐慌让“地堡”梗回流。",
      "role": "beta",
-     "name": "BunkerCoin"
+     "name": "BunkerCoin",
+     "snap": {
+      "symbol": "BUNKER",
+      "name": "BunkerCoin",
+      "price": 0.00094745849,
+      "mcap": 947145,
+      "ath_mcap": 9765451,
+      "liq": 135165,
+      "holders": 2930,
+      "chg1h": 0.0,
+      "chg6h": 3.5,
+      "chg24h": -14.0,
+      "vol1h": 0,
+      "vol24h": 35004,
+      "top10": 18.5,
+      "bundler": 0.1,
+      "bot": 5.1,
+      "created": 1737391445,
+      "twitter": "bunkercoin_io",
+      "website": "https://bunkercoin.io",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 49.5
+     },
+     "status": "alive"
     },
     {
      "sym": "QCAT",
@@ -314,7 +519,31 @@
      "ca": "GmsAcJAFKEtAXDoRUroaQP5GBdmPcGwA2sRdC9Mbpump",
      "blurb": "Quantum Cat：10/09 新量子猫，小盘高波动，捆绑 ~15%，只当彩票。",
      "role": "beta",
-     "name": "Quantum Cat"
+     "name": "Quantum Cat",
+     "snap": {
+      "symbol": "QCAT",
+      "name": "Quantum Cat",
+      "price": 2.9975897e-05,
+      "mcap": 27809,
+      "ath_mcap": 115292,
+      "liq": 11859,
+      "holders": 549,
+      "chg1h": 3.5,
+      "chg6h": 861.7,
+      "chg24h": 861.7,
+      "vol1h": 31085,
+      "vol24h": 435771,
+      "top10": 26.2,
+      "bundler": 13.0,
+      "bot": 54.2,
+      "created": 1791525379,
+      "twitter": "NikolaiHauckx/status/2108436376157032582",
+      "website": "https://pqc.market/coin/q/8TiMkgvsrat9tM2esko8zVTt99LZLpefUM4SnZaziXaQ",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 75.4
+     },
+     "status": "alive"
     }
    ],
    "horizon": "cycle",
@@ -329,7 +558,8 @@
      "quantum"
     ]
    },
-   "memes": []
+   "memes": [],
+   "momentum": 80
   },
   {
    "id": "grokbot",
@@ -345,9 +575,9 @@
    "leader": {
     "sym": "—",
     "chain": "—",
-    "note": "未搜到公认龙头（下轮扫链补）",
     "ca": "",
-    "mcap": ""
+    "mcap": "",
+    "note": "暂无链上龙头"
    },
    "attention": {
     "big_names": 10,
@@ -444,7 +674,8 @@
    },
    "memes": [
     "“整家公司都由 Grok Bot 组成”（2180 万浏览）"
-   ]
+   ],
+   "momentum": 53
   },
   {
    "id": "starlink_india",
@@ -459,9 +690,9 @@
    "leader": {
     "sym": "—",
     "chain": "—",
-    "note": "无链上龙头",
     "ca": "",
-    "mcap": ""
+    "mcap": "",
+    "note": "暂无链上龙头"
    },
    "attention": {
     "big_names": 10,
@@ -556,7 +787,8 @@
    },
    "memes": [
     "“Is Ambani the real boss of India?”（4280 万浏览）"
-   ]
+   ],
+   "momentum": 60
   },
   {
    "id": "stonk",
@@ -573,9 +805,9 @@
    "leader": {
     "sym": "STONK",
     "chain": "SOL",
-    "note": "StonkFun 发射台币 · 30 天收入约 $28–31M（帖子引 DefiLlama）",
-    "ca": "",
-    "mcap": "~$150M"
+    "ca": "6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx",
+    "mcap": "$123.0M",
+    "note": "StonkFun 发射台币：股票 meme 龙头，30 天收入 ~$28–31M，市值 ~$1.2 亿。"
    },
    "attention": {
     "big_names": 6,
@@ -669,7 +901,31 @@
      "ca": "6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx",
      "blurb": "StonkFun 发射台币：股票 meme 龙头，30 天收入 ~$28–31M，市值 ~$1.2 亿。",
      "role": "leader",
-     "name": "STONK"
+     "name": "STONK",
+     "snap": {
+      "symbol": "STONK",
+      "name": "STONK",
+      "price": 0.15447921,
+      "mcap": 123040661,
+      "ath_mcap": 322879637,
+      "liq": 283015,
+      "holders": 107104,
+      "chg1h": 4.0,
+      "chg6h": 0.2,
+      "chg24h": -10.9,
+      "vol1h": 741399,
+      "vol24h": 13285633,
+      "top10": 17.8,
+      "bundler": 55.1,
+      "bot": 25.7,
+      "created": 1784833616,
+      "twitter": "LaunchOnSF",
+      "website": "https://www.stonkfun.xyz/",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 49.9
+     },
+     "status": "alive"
     },
     {
      "sym": "PONS",
@@ -677,7 +933,31 @@
      "ca": "0x39dbed3a2bd333467115de45665cc57f813c4571",
      "blurb": "Robinhood Chain 发射台币 Pons：10 万持有人，股票链 meme 的庄家盘。",
      "role": "beta",
-     "name": "Pons"
+     "name": "Pons",
+     "snap": {
+      "symbol": "PONS",
+      "name": "Pons",
+      "price": 0.35019986,
+      "mcap": 350199860,
+      "ath_mcap": 990116930,
+      "liq": 2808685,
+      "holders": 102350,
+      "chg1h": -0.9,
+      "chg6h": -2.9,
+      "chg24h": -13.7,
+      "vol1h": 612206,
+      "vol24h": 20732082,
+      "top10": 20.2,
+      "bundler": 4.8,
+      "bot": 28.1,
+      "created": 1783975341,
+      "twitter": "ponsdotfamily",
+      "website": "https://ponsfamily.com/launchpad",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 48.9
+     },
+     "status": "alive"
     },
     {
      "sym": "BLUECHIP",
@@ -685,7 +965,31 @@
      "ca": "0xb200000000000000000000cfbdf64a8706a94a01",
      "blurb": "Base 股票 meme：Jesse Pollak Token2049 幻灯片点名。",
      "role": "beta",
-     "name": "BLUE CHIP"
+     "name": "BLUE CHIP",
+     "snap": {
+      "symbol": "BLUECHIP",
+      "name": "BLUE CHIP",
+      "price": 0.0069378544,
+      "mcap": 6937854,
+      "ath_mcap": 32136653,
+      "liq": 337144,
+      "holders": 8184,
+      "chg1h": 1.9,
+      "chg6h": 3.5,
+      "chg24h": -0.9,
+      "vol1h": 17897,
+      "vol24h": 362588,
+      "top10": 29.4,
+      "bundler": 0.0,
+      "bot": 0.0,
+      "created": 1787236973,
+      "twitter": "o1bluechip",
+      "website": "https://basebluechip.com/",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 50.5
+     },
+     "status": "alive"
     },
     {
      "sym": "IPOD",
@@ -693,7 +997,31 @@
      "ca": "0xa6af0cea8fbc93e1eccc00f1fdd9a0bba251fee1",
      "blurb": "Base 苹果股票梗 iPod，Jesse 幻灯片点名。",
      "role": "beta",
-     "name": "iPod"
+     "name": "iPod",
+     "snap": {
+      "symbol": "IPOD",
+      "name": "iPod",
+      "price": 0.0013160585,
+      "mcap": 1316058,
+      "ath_mcap": 3325646,
+      "liq": 269520,
+      "holders": 2031,
+      "chg1h": -0.5,
+      "chg6h": 1.2,
+      "chg24h": 7.3,
+      "vol1h": 36,
+      "vol24h": 9829,
+      "top10": 27.8,
+      "bundler": 0.0,
+      "bot": 0.0,
+      "created": 1787838429,
+      "twitter": "iPodAAPLc",
+      "website": "https://ipodonchain.com",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 50.4
+     },
+     "status": "alive"
     },
     {
      "sym": "DGUY",
@@ -701,7 +1029,31 @@
      "ca": "0xe34356dcd3d7bb991248f322e4ec31b5d60bc54e",
      "blurb": "Delivery Guy：Base 股票 meme，Jesse 幻灯片点名。",
      "role": "beta",
-     "name": "Delivery Guy"
+     "name": "Delivery Guy",
+     "snap": {
+      "symbol": "DGUY",
+      "name": "Delivery Guy",
+      "price": 0.00066151224,
+      "mcap": 661512,
+      "ath_mcap": 1118837,
+      "liq": 94074,
+      "holders": 778,
+      "chg1h": 10.6,
+      "chg6h": -0.1,
+      "chg24h": 23.8,
+      "vol1h": 5271,
+      "vol24h": 732997,
+      "top10": 31.8,
+      "bundler": 0.0,
+      "bot": 0.0,
+      "created": 1789415435,
+      "twitter": "StonksDGUY",
+      "website": "https://deliveryguy.fun",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 52.4
+     },
+     "status": "alive"
     },
     {
      "sym": "TEMU",
@@ -709,7 +1061,31 @@
      "ca": "0x3c573bdd88008c94f025e5023212f28e5f39744c",
      "blurb": "TEMU on Base：Jesse 幻灯片点名的拼多多梗。",
      "role": "beta",
-     "name": "TEMU"
+     "name": "TEMU",
+     "snap": {
+      "symbol": "TE",
+      "name": "TEMU",
+      "price": 0.00033958804,
+      "mcap": 339588,
+      "ath_mcap": 972232,
+      "liq": 65757,
+      "holders": 1004,
+      "chg1h": -0.3,
+      "chg6h": 16.8,
+      "chg24h": 4.0,
+      "vol1h": 68,
+      "vol24h": 41273,
+      "top10": 35.8,
+      "bundler": 0.0,
+      "bot": 0.0,
+      "created": 1790354159,
+      "twitter": "temuonbase",
+      "website": "https://www.temucoin.fun/",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 51.4
+     },
+     "status": "alive"
     }
    ],
    "horizon": "cycle",
@@ -724,7 +1100,8 @@
      "stonk"
     ]
    },
-   "memes": []
+   "memes": [],
+   "momentum": 52
   },
   {
    "id": "reflection",
@@ -739,9 +1116,9 @@
    "leader": {
     "sym": "ZCAT",
     "chain": "SOL",
-    "note": "3% 交易税自动换 ZEC 分红 · 10/09 10:00 悉尼 $49.7M",
-    "ca": "",
-    "mcap": "~$49.7M"
+    "ca": "HcRLc9VDgjLeK154xDawfb1dmVJ98DoSqcwTHGqiDeJR",
+    "mcap": "$43.2M",
+    "note": "Anonymous Cat：3% 交易税自动换 ZEC 分红给持有人，分红盘龙头。"
    },
    "attention": {
     "big_names": 5,
@@ -835,7 +1212,31 @@
      "ca": "HcRLc9VDgjLeK154xDawfb1dmVJ98DoSqcwTHGqiDeJR",
      "blurb": "Anonymous Cat：3% 交易税自动换 ZEC 分红给持有人，分红盘龙头。",
      "role": "leader",
-     "name": "Anonymous Cat"
+     "name": "Anonymous Cat",
+     "snap": {
+      "symbol": "ZCAT",
+      "name": "Anonymous Cat",
+      "price": 0.044720596,
+      "mcap": 43239149,
+      "ath_mcap": 183090402,
+      "liq": 1074363,
+      "holders": 29604,
+      "chg1h": -2.6,
+      "chg6h": -11.5,
+      "chg24h": -6.7,
+      "vol1h": 14725,
+      "vol24h": 2444404,
+      "top10": 16.8,
+      "bundler": 49.2,
+      "bot": 22.1,
+      "created": 1788132595,
+      "twitter": "",
+      "website": "",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 48.3
+     },
+     "status": "alive"
     },
     {
      "sym": "BATON",
@@ -843,7 +1244,31 @@
      "ca": "Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump",
      "blurb": "baton：分红 PUMP 的分红盘，ATH ~$19M，回调后第二腿。",
      "role": "beta",
-     "name": "baton"
+     "name": "baton",
+     "snap": {
+      "symbol": "baton",
+      "name": "baton",
+      "price": 0.01285995,
+      "mcap": 12843686,
+      "ath_mcap": 18946902,
+      "liq": 752065,
+      "holders": 17250,
+      "chg1h": -3.0,
+      "chg6h": -6.6,
+      "chg24h": 31.2,
+      "vol1h": 130995,
+      "vol24h": 5257685,
+      "top10": 17.5,
+      "bundler": 35.5,
+      "bot": 45.0,
+      "created": 1788985931,
+      "twitter": "baton_meme",
+      "website": "https://www.baton.meme/",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 50.5
+     },
+     "status": "alive"
     },
     {
      "sym": "MCAT",
@@ -851,7 +1276,31 @@
      "ca": "H9pPKejchJ9LCWpb1P8p4BmrjzCFARUmA7XtJK4pVhCZ",
      "blurb": "Addicted Cat：分红门罗币 XMR，Cake Wallet 创始人买入。",
      "role": "beta",
-     "name": "Addicted Cat"
+     "name": "Addicted Cat",
+     "snap": {
+      "symbol": "MCAT",
+      "name": "Addicted Cat",
+      "price": 0.0001880137,
+      "mcap": 187585,
+      "ath_mcap": 869917,
+      "liq": 39682,
+      "holders": 589,
+      "chg1h": 3.1,
+      "chg6h": 1.5,
+      "chg24h": 4.9,
+      "vol1h": 312,
+      "vol24h": 42455,
+      "top10": 30.6,
+      "bundler": 2.0,
+      "bot": 43.5,
+      "created": 1789849459,
+      "twitter": "Mcatxmr",
+      "website": "https://www.mcatxmr.xyz/",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 50.8
+     },
+     "status": "alive"
     }
    ],
    "horizon": "cycle",
@@ -865,7 +1314,8 @@
     ],
     "search": []
    },
-   "memes": []
+   "memes": [],
+   "momentum": 50
   },
   {
    "id": "ansem",
@@ -880,9 +1330,9 @@
    "leader": {
     "sym": "ANSEM",
     "chain": "SOL",
-    "note": "10/09 08:21 悉尼 $142.3M · 150,862 持有人",
-    "ca": "",
-    "mcap": "~$142M"
+    "ca": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
+    "mcap": "$140.2M",
+    "note": "The Black Bull：Ansem 本人梗的 SOL 老龙头，15 万持有人，前十持仓 ~65% 偏集中。"
    },
    "attention": {
     "big_names": 5,
@@ -965,7 +1415,31 @@
      "ca": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
      "blurb": "The Black Bull：Ansem 本人梗的 SOL 老龙头，15 万持有人，前十持仓 ~65% 偏集中。",
      "role": "leader",
-     "name": "The Black Bull"
+     "name": "The Black Bull",
+     "snap": {
+      "symbol": "ANSEM",
+      "name": "The Black Bull",
+      "price": 0.14062021,
+      "mcap": 140249094,
+      "ath_mcap": 448096653,
+      "liq": 2350060,
+      "holders": 150391,
+      "chg1h": 0.1,
+      "chg6h": -1.6,
+      "chg24h": 0.4,
+      "vol1h": 16065,
+      "vol24h": 2902202,
+      "top10": 64.8,
+      "bundler": 28.9,
+      "bot": 5.1,
+      "created": 1781643948,
+      "twitter": "blackbullsol",
+      "website": "",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 49.9
+     },
+     "status": "alive"
     }
    ],
    "horizon": "cycle",
@@ -975,7 +1449,8 @@
     ],
     "search": []
    },
-   "memes": []
+   "memes": [],
+   "momentum": 48
   },
   {
    "id": "eth",
@@ -988,11 +1463,11 @@
    "verdict": "技术/宏观新闻多（Glamsterdam 测试网、首笔原子 L1→L2、Abstract 关停），ETH ~$2,700 横盘，meme 热度低 → 只看 BURR 迁移",
    "signal": "info",
    "leader": {
-    "sym": "—",
+    "sym": "SPX",
     "chain": "ETH",
-    "note": "无 meme 龙头 · ETH ~$2,700",
-    "ca": "",
-    "mcap": ""
+    "ca": "0xe0f63a424a4439cbe457d80e4f4b51ad25b2c56c",
+    "mcap": "$367.3M",
+    "note": "SPX6900：Murad 舞台喊“meme 将超越比特币”的 ETH 主网 meme 龙头。"
    },
    "attention": {
     "big_names": 6,
@@ -1087,7 +1562,31 @@
      "ca": "0xe0f63a424a4439cbe457d80e4f4b51ad25b2c56c",
      "blurb": "SPX6900：Murad 舞台喊“meme 将超越比特币”的 ETH 主网 meme 龙头。",
      "role": "leader",
-     "name": "SPX6900"
+     "name": "SPX6900",
+     "snap": {
+      "symbol": "SPX",
+      "name": "SPX6900",
+      "price": 0.36730806,
+      "mcap": 367308060,
+      "ath_mcap": 959806680,
+      "liq": 11116240,
+      "holders": 48434,
+      "chg1h": -0.7,
+      "chg6h": -0.2,
+      "chg24h": -4.2,
+      "vol1h": 23606,
+      "vol24h": 824026,
+      "top10": 26.6,
+      "bundler": 0.0,
+      "bot": 0.0,
+      "created": 1692153767,
+      "twitter": "spx6900",
+      "website": "https://www.spx6900.com",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 49.7
+     },
+     "status": "alive"
     }
    ],
    "horizon": "cycle",
@@ -1097,7 +1596,8 @@
     ],
     "search": []
    },
-   "memes": []
+   "memes": [],
+   "momentum": 43
   },
   {
    "id": "bsc",
@@ -1112,9 +1612,9 @@
    "leader": {
     "sym": "币安人生",
     "chain": "BSC",
-    "note": "Binance Life · 据帖 ATH ~$900M · 10/8 ~$0.50–0.58",
-    "ca": "",
-    "mcap": ""
+    "ca": "0x924fa68a0fc644485b8df8abfa0a41c2e7744444",
+    "mcap": "$548.5M",
+    "note": "币安人生：何一推文带火的 BSC 中文 meme 龙头，ATH ~$9 亿，现 ~$5.5 亿。"
    },
    "attention": {
     "big_names": 6,
@@ -1197,7 +1697,31 @@
      "ca": "0x924fa68a0fc644485b8df8abfa0a41c2e7744444",
      "blurb": "币安人生：何一推文带火的 BSC 中文 meme 龙头，ATH ~$9 亿，现 ~$5.5 亿。",
      "role": "leader",
-     "name": "币安人生"
+     "name": "币安人生",
+     "snap": {
+      "symbol": "币安人生",
+      "name": "币安人生",
+      "price": 0.54846094,
+      "mcap": 548460940,
+      "ath_mcap": 902552780,
+      "liq": 8401363,
+      "holders": 101254,
+      "chg1h": 0.5,
+      "chg6h": 6.8,
+      "chg24h": -2.6,
+      "vol1h": 31315,
+      "vol24h": 2354168,
+      "top10": 81.1,
+      "bundler": 0.1,
+      "bot": 0.2,
+      "created": 1759590041,
+      "twitter": "heyibinance/status/1974489756164575458",
+      "website": "",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 50.4
+     },
+     "status": "alive"
     },
     {
      "sym": "龙虾",
@@ -1205,19 +1729,43 @@
      "ca": "0xeccbb861c0dda7efd964010085488b69317e4444",
      "blurb": "龙虾：币安中文号推文出圈的中文盘，ATH ~$3.1 亿，现 ~$4300 万。注意今天有同名高仿盘。",
      "role": "beta",
-     "name": "龙虾"
+     "name": "龙虾",
+     "snap": {
+      "symbol": "龙虾",
+      "name": "龙虾",
+      "price": 0.043133249,
+      "mcap": 43133249,
+      "ath_mcap": 311685630,
+      "liq": 2041758,
+      "holders": 92099,
+      "chg1h": 1.5,
+      "chg6h": -12.6,
+      "chg24h": 7.5,
+      "vol1h": 291497,
+      "vol24h": 7463651,
+      "top10": 65.0,
+      "bundler": 1.6,
+      "bot": 0.7,
+      "created": 1772182079,
+      "twitter": "binancezh/status/2027304629890072818",
+      "website": "",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 49.5
+     },
+     "status": "alive"
     }
    ],
    "horizon": "cycle",
    "discover": {
     "keywords": [
      "币安",
-     "binance",
-     "cz"
+     "binance"
     ],
     "search": []
    },
-   "memes": []
+   "memes": [],
+   "momentum": 48
   },
   {
    "id": "laptop",
@@ -1232,9 +1780,9 @@
    "leader": {
     "sym": "LAPTOP",
     "chain": "BASE",
-    "note": "Hunter Biden 发行 · 甩锅做市商 · 近期 +30%",
-    "ca": "",
-    "mcap": ""
+    "ca": "0xb095274743941e953c746f9c228da9c18bb6ec29",
+    "mcap": "$75.2M",
+    "note": "Hunter Biden 本人发的“笔记本电脑”梗币，前十持仓 ~91% 极度集中。"
    },
    "attention": {
     "big_names": 6,
@@ -1313,7 +1861,31 @@
      "ca": "0xb095274743941e953c746f9c228da9c18bb6ec29",
      "blurb": "Hunter Biden 本人发的“笔记本电脑”梗币，前十持仓 ~91% 极度集中。",
      "role": "leader",
-     "name": "LAPTOP"
+     "name": "LAPTOP",
+     "snap": {
+      "symbol": "LAPTOP",
+      "name": "LAPTOP",
+      "price": 0.07523981,
+      "mcap": 75239810,
+      "ath_mcap": null,
+      "liq": 659750,
+      "holders": 33612,
+      "chg1h": 0.6,
+      "chg6h": 0.4,
+      "chg24h": -7.2,
+      "vol1h": 4693,
+      "vol24h": 299666,
+      "top10": 91.0,
+      "bundler": 0.0,
+      "bot": 0.0,
+      "created": 1777317433,
+      "twitter": "HunterBiden/status/2097853144596381759",
+      "website": "https://www.laptoptoken.com/",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 49.7
+     },
+     "status": "alive"
     }
    ],
    "horizon": "cycle",
@@ -1324,7 +1896,8 @@
     ],
     "search": []
    },
-   "memes": []
+   "memes": [],
+   "momentum": 43
   },
   {
    "id": "pqc_bunker",
@@ -1445,7 +2018,31 @@
      "ca": "5YfBLGhU7k5YDcfMUjNmftv7crbZCHoh2shScZVXnbKo",
      "blurb": "pqc.market 官方发的“首个带后量子（哈希签名）证明的 Solana meme”，10/09 13:18 悉尼上线，当天最高 ~$420K。",
      "role": "leader",
-     "name": "Bunker Coin"
+     "name": "Bunker Coin",
+     "snap": {
+      "symbol": "BNKR",
+      "name": "Bunker Coin",
+      "price": 0.00019754276,
+      "mcap": 191225,
+      "ath_mcap": 422153,
+      "liq": 39607,
+      "holders": 1610,
+      "chg1h": -6.3,
+      "chg6h": 147.4,
+      "chg24h": 6330.7,
+      "vol1h": 40686,
+      "vol24h": 2017959,
+      "top10": 19.5,
+      "bundler": 8.7,
+      "bot": 67.0,
+      "created": 1791512323,
+      "twitter": "pqcmarket/status/2108382929487552537",
+      "website": "https://pqc.market/coin/q/5YfBLGhU7k5YDcfMUjNmftv7crbZCHoh2shScZVXnbKo",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 66.2
+     },
+     "status": "alive"
     },
     {
      "sym": "PQC",
@@ -1453,7 +2050,31 @@
      "ca": "7K52aYQW9rWGjwZmQ7o2d1P6E7bji6hSMsqaLy5EcxLh",
      "blurb": "pqc.market 平台币：后量子发射台，10/08 上线，24h 成交 ~$7.7M，BNKR 的母盘。",
      "role": "beta",
-     "name": "pqc.market"
+     "name": "pqc.market",
+     "snap": {
+      "symbol": "PQC",
+      "name": "pqc.market",
+      "price": 0.0014492071,
+      "mcap": 1396724,
+      "ath_mcap": 1647868,
+      "liq": 142524,
+      "holders": 4725,
+      "chg1h": -6.9,
+      "chg6h": 126.8,
+      "chg24h": 809.6,
+      "vol1h": 281145,
+      "vol24h": 7744536,
+      "top10": 14.5,
+      "bundler": 18.4,
+      "bot": 65.8,
+      "created": 1791427349,
+      "twitter": "pqcmarket",
+      "website": "https://pqc.market/",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 65.5
+     },
+     "status": "alive"
     },
     {
      "sym": "BUNKER",
@@ -1461,7 +2082,65 @@
      "ca": "2WNiZqRefcndEA9c1T6A1bdie31pbBGdFQpyR52h9TWr",
      "blurb": "bunker.markets：蹭“地堡”热度的同名盘，10/08 晚上线，24h +2000%，机器人/捆绑占比高。",
      "role": "beta",
-     "name": "bunker.markets"
+     "name": "bunker.markets",
+     "snap": {
+      "symbol": "BUNKER",
+      "name": "bunker.markets",
+      "price": 0.00013107349,
+      "mcap": 124547,
+      "ath_mcap": 175597,
+      "liq": 29428,
+      "holders": 495,
+      "chg1h": 64.6,
+      "chg6h": 680.6,
+      "chg24h": 1778.7,
+      "vol1h": 121387,
+      "vol24h": 854266,
+      "top10": 24.8,
+      "bundler": 14.5,
+      "bot": 61.3,
+      "created": 1791453166,
+      "twitter": "bunkermarkets",
+      "website": "https://bunker.markets/",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 81.5
+     },
+     "status": "alive"
+    },
+    {
+     "sym": "PQC",
+     "name": "Post Quantum Cat",
+     "chain": "sol",
+     "ca": "3ZwW1DmGH9qfLM23c2ZVmtVP1PBPrC1Tgc14v4YRTC91",
+     "role": "beta",
+     "auto": false,
+     "found": "2026-10-09T20:53+11:00",
+     "status": "alive",
+     "snap": {
+      "symbol": "PQC",
+      "name": "Post Quantum Cat",
+      "price": 6.4133651e-05,
+      "mcap": 61337,
+      "ath_mcap": 63370,
+      "liq": 18451,
+      "holders": 382,
+      "chg1h": 213.7,
+      "chg6h": 769.9,
+      "chg24h": 1989.6,
+      "vol1h": 48355,
+      "vol24h": 227495,
+      "top10": 23.6,
+      "bundler": 30.5,
+      "bot": 66.0,
+      "created": 1791513277,
+      "twitter": "",
+      "website": "https://pqc.market/coin/q/3ZwW1DmGH9qfLM23c2ZVmtVP1PBPrC1Tgc14v4YRTC91",
+      "flags": [],
+      "at": "2026-10-09T20:53+11:00",
+      "mom": 89.8
+     },
+     "blurb": "Post Quantum Cat：10/09 在 pqc.market 上发的量子猫，小盘，只当彩票。"
     }
    ],
    "memes": [],
@@ -1471,12 +2150,13 @@
    "reach": 23,
    "rank": 4,
    "leader": {
-    "sym": "PQC",
+    "sym": "BNKR",
     "chain": "SOL",
-    "note": "pqc.market 首个抗量子发射台概念币（疑似非官方，金库可升级）",
-    "ca": "7K52aYQW9rWGjwZmQ7o2d1P6E7bji6hSMsqaLy5EcxLh",
-    "mcap": "~$1.2M"
-   }
+    "ca": "5YfBLGhU7k5YDcfMUjNmftv7crbZCHoh2shScZVXnbKo",
+    "mcap": "$191K",
+    "note": "pqc.market 官方发的“首个带后量子（哈希签名）证明的 Solana meme”，10/09 13:18 悉尼上线，当天最高 ~$420K。"
+   },
+   "momentum": 75
   }
  ],
  "musk": {
@@ -1944,5 +2624,335 @@
    "views": 496,
    "heat": 2
   }
+ ],
+ "pruned": [
+  {
+   "date": "10/09 20:55",
+   "topic": "quantum",
+   "sym": "QUANTUM",
+   "chain": "sol",
+   "ca": "AUd3rULBqpeUMUcoguBc8afg68g2hjj7SegB9AJsKCyQ",
+   "reason": "归零：较ATH -90%，用户确认死盘",
+   "mcap": 27098
+  },
+  {
+   "date": "10/09 20:55",
+   "topic": "quantum",
+   "sym": "QCAT",
+   "chain": "sol",
+   "ca": "Bk3PZUcQnzvdZGcfKddsCdsvBD5uVwLZ4KDhVtNviZjx",
+   "reason": "市值<$10K",
+   "mcap": 6913
+  },
+  {
+   "date": "10/09 20:55",
+   "topic": "si",
+   "sym": "SWORDOWL",
+   "chain": "sol",
+   "ca": "9s6tPxbG3CGJQK1nD1SnwrmxWbYkm8jYaQ8c9vrApump",
+   "reason": "市值<$10K（ATH $625K→$2K）",
+   "mcap": 2438
+  },
+  {
+   "date": "10/09 20:55",
+   "topic": "si",
+   "sym": "SIF",
+   "chain": "robinhood",
+   "ca": "0x29cab82e0220fdfb98d7c5c68aa68c30cad02980",
+   "reason": "池子枯竭（流动性 0）",
+   "mcap": 638804
+  },
+  {
+   "date": "10/09 20:55",
+   "topic": "stonk",
+   "sym": "RAWR",
+   "chain": "base",
+   "ca": "0xb200000000000000000000503d889fdcbe48b801",
+   "reason": "较ATH跌>90%且无量",
+   "mcap": 133081
+  },
+  {
+   "date": "10/09 20:55",
+   "topic": "reflection",
+   "sym": "PHISH",
+   "chain": "sol",
+   "ca": "3rLbP63g74ugwqpwqTpwsELmRkQR9wnR2fv5mhtGHNZi",
+   "reason": "较ATH跌>90%且无量",
+   "mcap": 29311
+  },
+  {
+   "date": "10/09 20:55",
+   "topic": "quantum",
+   "sym": "QI(仿)",
+   "chain": "sol",
+   "ca": "KyXiiJpZFBLLdwZmSggbampmmuuTgspJEQDa5USdTHE",
+   "reason": "疑似刷量（池子>市值）",
+   "mcap": 175029
+  },
+  {
+   "date": "10/09 20:55",
+   "topic": "bsc",
+   "sym": "CZ(Cao Zhen)",
+   "chain": "bsc",
+   "ca": "0xb1b798c76a9f7bc6f5002dd72c23cf0d64b76666",
+   "reason": "误匹配（非 CZ 本人梗）",
+   "mcap": 1491962
+  },
+  {
+   "date": "10/09 20:55",
+   "topic": "bsc",
+   "sym": "龙虾(仿)",
+   "chain": "bsc",
+   "ca": "0x60169da692acf63071343e87a3192c9be1fc7777",
+   "reason": "同名高仿，安全检测未开源",
+   "mcap": 55057618
+  }
+ ],
+ "radar": [
+  {
+   "ca": "k5vNWkVr56jpEoH3nsqtrQwdmHt3dG2b6gUcT61pump",
+   "chain": "sol",
+   "sym": "Tesla",
+   "name": "Tesla",
+   "mcap": 879468,
+   "liq": 79488,
+   "holders": 2528,
+   "chg1h": 7460.46,
+   "chg6h": 7358.13,
+   "created": 1791538069,
+   "topic": null,
+   "mom": 100.0,
+   "twitter": "",
+   "first_seen": "2026-10-09T20:53+11:00",
+   "on_board": false
+  },
+  {
+   "ca": "5F7NPbzv4PoPsNf4GKbDogG5RHo9mNeeUNnzjcFupump",
+   "chain": "sol",
+   "sym": "FOMO",
+   "name": "fomo",
+   "mcap": 774553,
+   "liq": 74396,
+   "holders": 2136,
+   "chg1h": 6451.56,
+   "chg6h": 6462.56,
+   "created": 1791537923,
+   "topic": null,
+   "mom": 100.0,
+   "twitter": "https://x.com/fomo",
+   "first_seen": "2026-10-09T20:53+11:00",
+   "on_board": false
+  },
+  {
+   "ca": "psCSVPYKeoDqxbmR1dXwoXNgaT5UEn33BWdXD9vpump",
+   "chain": "sol",
+   "sym": "Elonhotdog",
+   "name": "Elonhotdog",
+   "mcap": 1436390,
+   "liq": 102145,
+   "holders": 2182,
+   "chg1h": 12092.7,
+   "chg6h": 12075.0,
+   "created": 1791536141,
+   "topic": null,
+   "mom": 100.0,
+   "twitter": "https://x.com/Elon67Pepe",
+   "first_seen": "2026-10-09T20:53+11:00",
+   "on_board": false
+  },
+  {
+   "ca": "7pYdm6bXhVf1J9Qv1fyWB9nkxdnG5RhFKA9yjW1Dpump",
+   "chain": "sol",
+   "sym": "open/acc",
+   "name": "Open Acceleration",
+   "mcap": 133424,
+   "liq": 33195,
+   "holders": 1467,
+   "chg1h": 29.4635,
+   "chg6h": 4076.4,
+   "created": 1791525893,
+   "topic": null,
+   "mom": 74.0,
+   "twitter": "https://x.com/thedevrrrrrrr/status/2108425307179122847",
+   "first_seen": "2026-10-09T20:53+11:00",
+   "on_board": false
+  },
+  {
+   "ca": "0x96a395d2e966aea74fbc66b73536f78f2a047777",
+   "chain": "bsc",
+   "sym": "羊来",
+   "name": "羊来",
+   "mcap": 193606,
+   "liq": 43486,
+   "holders": 2864,
+   "chg1h": 20.6273,
+   "chg6h": 2066.24,
+   "created": 1791525416,
+   "topic": null,
+   "mom": 72.9,
+   "twitter": "",
+   "first_seen": "2026-10-09T20:53+11:00",
+   "on_board": false
+  },
+  {
+   "ca": "8TiMkgvsrat9tM2esko8zVTt99LZLpefUM4SnZaziXaQ",
+   "chain": "sol",
+   "sym": "QI",
+   "name": "Quantum Inu",
+   "mcap": 824167,
+   "liq": 87109,
+   "holders": 3930,
+   "chg1h": -3.78493,
+   "chg6h": 27885.7,
+   "created": 1791521287,
+   "topic": "quantum",
+   "mom": 69.4,
+   "twitter": "https://x.com/Milsaftermils/status/2108409259675599203?s=20",
+   "first_seen": "2026-10-09T20:53+11:00",
+   "on_board": true
+  },
+  {
+   "ca": "PLaYu3PKhGqtmvuwp7GuyTY1PG6JkwgE7R45Zqystar",
+   "chain": "sol",
+   "sym": "PLAY",
+   "name": "DualMint",
+   "mcap": 1116180,
+   "liq": 145332,
+   "holders": 599,
+   "chg1h": -5.37944,
+   "chg6h": 403.28,
+   "created": 1791481054,
+   "topic": null,
+   "mom": 65.9,
+   "twitter": "",
+   "first_seen": "2026-10-09T20:53+11:00",
+   "on_board": false
+  },
+  {
+   "ca": "5YfBLGhU7k5YDcfMUjNmftv7crbZCHoh2shScZVXnbKo",
+   "chain": "sol",
+   "sym": "BNKR",
+   "name": "Bunker Coin",
+   "mcap": 191225,
+   "liq": 39607,
+   "holders": 1611,
+   "chg1h": -6.25264,
+   "chg6h": 147.355,
+   "created": 1791512958,
+   "topic": "pqc_bunker",
+   "mom": 58.4,
+   "twitter": "https://x.com/pqcmarket/status/2108382929487552537?s=20",
+   "first_seen": "2026-10-09T20:53+11:00",
+   "on_board": true
+  },
+  {
+   "ca": "4At7e5owcjguMyeYCjsyG9U6urLpwHqTQgmai2jXpump",
+   "chain": "sol",
+   "sym": "FI",
+   "name": "funindex",
+   "mcap": 115965,
+   "liq": 28668,
+   "holders": 450,
+   "chg1h": 10.967,
+   "chg6h": 3.29496,
+   "created": 1791509489,
+   "topic": null,
+   "mom": 52.0,
+   "twitter": "https://x.com/indexxfun",
+   "first_seen": "2026-10-09T20:53+11:00",
+   "on_board": false
+  },
+  {
+   "ca": "0xb088071eac4992c89f28e80f44f89a9b32107777",
+   "chain": "bsc",
+   "sym": "Datacenter",
+   "name": "Datacenter Token",
+   "mcap": 180170,
+   "liq": 41230,
+   "holders": 568,
+   "chg1h": -9.48501,
+   "chg6h": 35.9556,
+   "created": 1791470071,
+   "topic": null,
+   "mom": 51.6,
+   "twitter": "https://x.com/lookfirst_leep/status/2108198296699519450",
+   "first_seen": "2026-10-09T20:53+11:00",
+   "on_board": false
+  },
+  {
+   "ca": "64oAuE88tNP7KsSyaiJTKGP4sWmLMFGWLUs9eBTLYgCp",
+   "chain": "sol",
+   "sym": "TikTok",
+   "name": "Tiktok Coin",
+   "mcap": 392475,
+   "liq": 69558,
+   "holders": 6918,
+   "chg1h": -5.6625,
+   "chg6h": 17.0115,
+   "created": 1791485560,
+   "topic": null,
+   "mom": 50.7,
+   "twitter": "https://x.com/Armoskii/status/2108270683352703418?s=20",
+   "first_seen": "2026-10-09T20:53+11:00",
+   "on_board": false
+  },
+  {
+   "ca": "Y9ccqrALa5Yr3Bxzv8NQe37KP1Yy9uTCSJuap4Cpump",
+   "chain": "sol",
+   "sym": "Animal",
+   "name": "Animal Coin",
+   "mcap": 122801,
+   "liq": 31108,
+   "holders": 2003,
+   "chg1h": -7.46364,
+   "chg6h": null,
+   "created": 1791491570,
+   "topic": null,
+   "mom": 48.8,
+   "twitter": "https://x.com/Pumpfun/status/2108265472080629853",
+   "first_seen": "2026-10-09T20:53+11:00",
+   "on_board": false
+  },
+  {
+   "ca": "2iPzs2s7GVbK48ttJCNpaCgKdyz3Su7S5DWTW8QKXxYN",
+   "chain": "sol",
+   "sym": "bazucat",
+   "name": "bazucat",
+   "mcap": 124218,
+   "liq": 29233,
+   "holders": 816,
+   "chg1h": -11.1192,
+   "chg6h": null,
+   "created": 1791503425,
+   "topic": null,
+   "mom": 48.2,
+   "twitter": "https://x.com/bazucatSOL",
+   "first_seen": "2026-10-09T20:53+11:00",
+   "on_board": false
+  },
+  {
+   "ca": "BHtb53TLXzYcYgXkSmuyqFwegfejXYg2KXzALFCCT7nb",
+   "chain": "sol",
+   "sym": "OP_CAT",
+   "name": "OP_CAT",
+   "mcap": 106840,
+   "liq": 28375,
+   "holders": 906,
+   "chg1h": -21.2272,
+   "chg6h": null,
+   "created": 1791504931,
+   "topic": null,
+   "mom": 46.3,
+   "twitter": "https://x.com/JeremyRubin/status/2108350018499596655",
+   "first_seen": "2026-10-09T20:53+11:00",
+   "on_board": false
+  }
+ ],
+ "removed_concepts": [
+  "PNUT / Peanut “for peanuts” 联想（过时）",
+  "MBTC 破解中本聪钱包游戏（无链上 CA）",
+  "STRK 抗量子公链（非 meme）",
+  "BURR / BEARISH（GMGN 查无）",
+  "BANANAS（BSC，市值 $25K，可信度低）"
  ]
 }

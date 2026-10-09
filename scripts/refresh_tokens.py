@@ -94,13 +94,18 @@ def norm_trend(x, chain, interval):
             "holders": x.get("holder_count") or 0, "created": x.get("creation_timestamp") or x.get("open_timestamp") or 0,
             "chg": float(x.get("price_change_percent") or 0), "chg1h": float(x.get("price_change_percent1h") or 0),
             "interval": interval, "bad": bool(x.get("is_honeypot")) or bool(x.get("is_wash_trading")),
-            "twitter": x.get("twitter_username") or ""}
+            "twitter": x.get("twitter_username") or "", "vol": float(x.get("volume") or 0)}
 
 def norm_search(x):
     return {"ca": x.get("address"), "chain": x.get("chain"), "sym": x.get("symbol") or "", "name": x.get("name") or "",
             "mcap": float(x.get("mcp") or 0), "liq": float(x.get("liquidity") or 0), "holders": x.get("holder_count") or 0,
             "created": x.get("created_at") or 0, "chg": None, "chg1h": None, "interval": "search",
-            "bad": bool(x.get("is_honeypot")), "twitter": (x.get("token_link") or {}).get("twitter_username") or ""}
+            "bad": bool(x.get("is_honeypot")), "vol": float(x.get("volume_1h") or 0),
+            "twitter": (x.get("token_link") or {}).get("twitter_username") or ""}
+
+def suspicious(c):
+    """wash-trading tells: pool bigger than the mcap, or hourly volume > 20x mcap"""
+    return c["liq"] > c["mcap"] * 0.9 or (c.get("vol") or 0) > 20 * max(c["mcap"], 1)
 
 def matches(cand, kws):
     hay = (cand["sym"] + " " + cand["name"]).lower()
@@ -119,7 +124,8 @@ def discover(d, dry):
             except Exception as e:
                 log(f"  ! trending {ch} {iv} failed: {str(e)[:100]}")
     added = 0
-    for t in d["topics"]:
+    # 24h topics first so the most specific (newest) narrative claims a coin
+    for t in sorted(d["topics"], key=lambda t: t.get("horizon") != "24h"):
         if t.get("status") == "retired": continue
         disc = t.get("discover") or {}
         kws = disc.get("keywords") or []
@@ -133,7 +139,7 @@ def discover(d, dry):
         n_auto = sum(1 for c in t.get("coins", []) if c.get("auto"))
         for c in sorted(cands, key=lambda c: -c["mcap"]):
             if n_auto >= MAX_AUTO: break
-            if c["ca"] in seen or c["ca"] in dead or c["bad"]: continue
+            if c["ca"] in seen or c["ca"] in dead or c["bad"] or suspicious(c): continue
             if c["mcap"] < 50_000 or c["liq"] < 10_000 or c["holders"] < 150 or age_h(c["created"]) > 72: continue
             try: s = gmgn.snapshot(c["chain"], c["ca"])
             except Exception: continue
@@ -150,19 +156,19 @@ def discover(d, dry):
     old = {r["ca"]: r for r in d.get("radar", [])}
     radar = []
     for c in pool.values():
-        if c["bad"] or c["ca"] in dead: continue
+        if c["bad"] or c["ca"] in dead or suspicious(c): continue
         fresh = age_h(c["created"]) <= 24
         spike = (c.get("chg_1h") or c.get("chg1h") or 0) >= 100
         if not (fresh or spike): continue
         if c["mcap"] < 100_000 or c["liq"] < 15_000 or c["holders"] < 300: continue
-        topic = next((t["id"] for t in d["topics"] if t.get("status") != "retired"
+        topic = next((t["id"] for t in sorted(d["topics"], key=lambda t: t.get("horizon") != "24h") if t.get("status") != "retired"
                       and matches(c, (t.get("discover") or {}).get("keywords") or [])), None)
         r = old.get(c["ca"], {})
         mom = round(0.6 * sc(c.get("chg_1h", c.get("chg1h"))) + 0.4 * sc(c.get("chg_6h")), 1)
         radar.append({"ca": c["ca"], "chain": c["chain"], "sym": c["sym"], "name": c["name"], "mcap": round(c["mcap"]),
                       "liq": round(c["liq"]), "holders": c["holders"], "chg1h": c.get("chg_1h", c.get("chg1h")),
                       "chg6h": c.get("chg_6h"), "created": c["created"], "topic": topic, "mom": mom,
-                      "twitter": c["twitter"], "first_seen": r.get("first_seen") or NOW.isoformat(timespec="minutes"),
+                      "twitter": c.get("twitter", ""), "first_seen": r.get("first_seen") or NOW.isoformat(timespec="minutes"),
                       "on_board": c["ca"] in seen})
     # keep still-qualifying entries; expire anything first seen > 24h ago
     cutoff = (NOW - timedelta(hours=24)).isoformat(timespec="minutes")

@@ -69,8 +69,12 @@ def compute(d):
     act = sorted([t for t in d["topics"] if t.get("status") == "active"], key=lambda t: -t["heat"])
     for i, t in enumerate(act): t["rank"] = i + 1
     if act and not d["headline"].get("manual"):
-        top = act[0]; ups = [t["name"] for t in act if t["trend"] == "up"][:3]
-        d["headline"]["text"] = f"热度第一：{top['emoji']} {top['name']}（{top['heat']}）· 升温：" + ("、".join(ups) or "无")
+        cyc = [t for t in act if t.get("horizon") != "24h"] or act
+        t24 = sorted([t for t in act if t.get("horizon") == "24h"], key=lambda t: -(t.get("momentum") or 0))
+        top = cyc[0]; parts = []
+        if t24: parts.append(f"24h 动量第一：{t24[0]['emoji']} {t24[0]['name']}（{t24[0].get('momentum', t24[0]['heat'])}）")
+        parts.append(f"大周期热度第一：{top['emoji']} {top['name'].split(' ')[0]}（{top['heat']}）")
+        d["headline"]["text"] = " · ".join(parts)
     return d
 
 def render(d):
@@ -107,6 +111,13 @@ def render(d):
           [[t.get("rank",""), t["name"], t["status"], t["heat"], {"up":"↑","down":"↓"}.get(t["trend"],"→"),
             t["leader"]["sym"], t["verdict"]] + [t["history"].get(x,{}).get("est","") for x in days] for t in act],
           None, [6,28,8,7,6,12,70] + [10]*len(days))
+    ws3 = wb.create_sheet("代币")
+    sheet(ws3, ["话题","周期","角色","代币","链","CA","状态","市值$","1h%","24h%","流动性$","叙事","GMGN"],
+          [[t["name"], "24小时" if t.get("horizon") == "24h" else "大周期", "龙头" if i == 0 else "beta", c["sym"], c["chain"], c["ca"],
+            c.get("status",""), (c.get("snap") or {}).get("mcap"), (c.get("snap") or {}).get("chg1h"), (c.get("snap") or {}).get("chg24h"),
+            (c.get("snap") or {}).get("liq"), c.get("blurb",""), f"https://gmgn.ai/{c['chain']}/token/{c['ca']}"]
+           for t in d["topics"] if t.get("status") == "active" for i, c in enumerate(t.get("coins", []))],
+          13, [22,8,6,10,8,46,7,12,8,8,12,60,40])
     wb.save(D / "posts.xlsx")
     print("rendered:", ", ".join(f"{t['rank']}.{t['id']}={t['heat']}{'↑' if t['trend']=='up' else '↓' if t['trend']=='down' else '→'}" for t in act if t.get("rank")))
 
@@ -114,6 +125,7 @@ def publish(msg=None):
     msg = msg or "update " + datetime.now(SYD).strftime("%m/%d %H:%M")
     run = lambda *a: subprocess.run(a, cwd=D, check=False)
     run("git", "add", "-A"); r = run("git", "commit", "-m", msg)
+    run("git", "pull", "--rebase", "--autostash", "origin", "main")   # other agents push hourly too
     run("git", "push", "origin", "main")
 
 def main(a):
