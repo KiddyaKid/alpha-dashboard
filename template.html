@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111111">
-<title>Alpha 雷达 · 沐珩</title>
+<title>Alpha 雷达 v2 · 沐珩</title>
 <style>
 :root{--bg:#f4f4f4;--card:#fff;--ink:#111;--sub:#666;--line:#e3e3e3;--bar:#e9e9e9;
 --blue:#2563eb;--red:#dc2626;--green:#16a34a;--yellow:#d4a106;--yellowbg:#fff7d6;--redbg:#fdecec;--greenbg:#e8f6ed;--bluebg:#eaf0fe}
@@ -14,167 +14,194 @@ a{color:var(--blue);text-decoration:none}
 header{position:sticky;top:0;z-index:5;background:#111;color:#fff;padding:12px 14px 0;padding-top:max(12px,env(safe-area-inset-top))}
 .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .brand{font-weight:800;font-size:17px;letter-spacing:.5px}
-.upd{font-size:12px;color:#aaa;white-space:nowrap}
-.upd b{color:#fff;font-weight:600}
-.tabs{display:flex;gap:4px;margin-top:10px;overflow-x:auto;scrollbar-width:none}
+.upd{font-size:12px;color:#aaa;white-space:nowrap}.upd b{color:#fff;font-weight:600}
+.tabs{display:flex;gap:2px;margin-top:10px;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{flex:0 0 auto;padding:8px 12px;border:0;background:none;color:#999;font-size:14px;font-weight:600;border-bottom:3px solid transparent}
+.tab{flex:0 0 auto;padding:8px 11px;border:0;background:none;color:#999;font-size:14px;font-weight:600;border-bottom:3px solid transparent}
 .tab.on{color:#fff;border-color:#fff}
 main{max-width:640px;margin:0 auto;padding:12px 12px 90px}
-.alert{border-left:5px solid var(--yellow);background:var(--yellowbg);padding:10px 12px;border-radius:8px;font-weight:600;margin-bottom:12px}
-.alert.risk{border-color:var(--red);background:var(--redbg)}
+.alert{border-left:5px solid var(--yellow);background:var(--yellowbg);padding:10px 12px;border-radius:8px;font-weight:600;margin-bottom:10px;font-size:14px}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--sub);margin:4px 0 10px;align-items:center}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:0}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
 .card h3{margin:0 0 6px;font-size:16px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+/* ranking rows */
+.trow{display:grid;grid-template-columns:26px 1fr auto;gap:4px 10px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:5px solid #ccc;border-radius:12px;padding:11px 12px;margin-bottom:8px;cursor:pointer;transition:opacity .2s}
+.trow.hot{border-left-color:var(--red);box-shadow:0 2px 10px rgba(220,38,38,.12)}
+.trow.warm{border-left-color:var(--yellow)}
+.trow.cool{filter:grayscale(.75)}
+.trow .rk{font-weight:800;font-size:18px;color:#bbb;text-align:center}
+.trow.hot .rk{color:var(--red)}
+.tname{font-weight:700;font-size:15px;line-height:1.3}
+.tchain{font-size:11px;color:var(--sub);font-weight:500}
+.score{text-align:right;font-weight:800;font-size:20px;line-height:1}
+.score small{display:block;font-size:12px;font-weight:700;margin-top:2px}
+.up{color:var(--green)}.down{color:#888}.flat{color:#aaa}
+.tsub{grid-column:2/4;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.lead{font-size:12px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lead b{color:var(--ink);font-family:ui-monospace,Menlo,monospace}
+.grid{display:flex;gap:3px;flex:0 0 auto}
+.grid i{width:13px;height:13px;border-radius:3px;background:#ebedf0;display:block}
+.g1{background:#c6e9cf!important}.g2{background:#7fd093!important}.g3{background:#3fae5d!important}.g4{background:#22783a!important}.g5{background:#0f4d22!important}
+.gp{outline:1.5px dashed #999;outline-offset:-1.5px}
+.gridlbl{display:flex;justify-content:space-between;font-size:10px;color:#999;margin-top:2px}
+/* detail sheet */
+.sheet{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:20;display:none;align-items:flex-end;justify-content:center}
+.sheet.on{display:flex}
+.panelx{background:var(--bg);width:100%;max-width:640px;max-height:88vh;overflow:auto;border-radius:16px 16px 0 0;padding:14px 12px calc(20px + env(safe-area-inset-bottom))}
+.close{float:right;border:0;background:#111;color:#fff;border-radius:99px;width:32px;height:32px;font-size:16px}
 .verdict{font-weight:700;padding:8px 10px;border-radius:8px;margin:6px 0 10px;font-size:14px}
 .s-up{background:var(--greenbg);color:#0f6b31}.s-risk{background:var(--redbg);color:#a11616}
 .s-watch{background:var(--yellowbg);color:#7a5c00}.s-info{background:var(--bluebg);color:#1d4ed8}
-.pill{font-size:11px;font-weight:700;padding:2px 7px;border-radius:99px;border:1px solid}
-.p-new{color:#7a5c00;background:var(--yellowbg);border-color:var(--yellow)}
-.p-hot{color:var(--red);border-color:var(--red)}
-.p-pol{color:var(--sub);border-color:#bbb}
-.p-link{color:var(--blue);border-color:var(--blue)}
-.sec{font-size:12px;font-weight:700;color:var(--sub);letter-spacing:1px;margin:12px 0 6px;text-transform:uppercase}
-.row{display:grid;grid-template-columns:64px 1fr;gap:8px;align-items:center;margin:5px 0;font-size:13px}
+.sec{font-size:12px;font-weight:700;color:var(--sub);letter-spacing:1px;margin:12px 0 6px}
+.row{display:grid;grid-template-columns:76px 1fr;gap:8px;align-items:center;margin:5px 0;font-size:13px}
 .row .k{color:var(--sub)}
 .bar{height:9px;background:var(--bar);border-radius:5px;overflow:hidden}
 .bar i{display:block;height:100%;background:#111;border-radius:5px}
 .bar.g i{background:var(--green)}.bar.r i{background:var(--red)}.bar.y i{background:var(--yellow)}.bar.b i{background:var(--blue)}
 .note{font-size:12px;color:var(--sub);grid-column:2;margin-top:-3px}
-.story{font-size:14px;color:#333}
 .ign{border:1px dashed var(--red);color:var(--red);border-radius:8px;padding:8px 10px;font-size:13px;font-weight:600;margin-top:10px}
 .risk{color:var(--red);font-size:13px;margin-top:8px}
-.meme{font-size:13px;background:#f7f7f7;border-radius:8px;padding:8px 10px;margin-top:8px}
-.meme b{color:var(--green)}
-ul.src{list-style:none;padding:0;margin:8px 0 0}
+.first{background:var(--yellowbg);border-radius:8px;padding:6px 10px;font-size:13px;margin:4px 0}
+.coin{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;padding:9px 0;border-top:1px solid var(--line);font-size:13px}
+.coin:first-child{border-top:0}
+.sym{font-weight:800;font-family:ui-monospace,Menlo,monospace}
+.sym.L{color:var(--green)}
+.ca{grid-column:1/-1;font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--blue);word-break:break-all}
+.chip{font-size:10px;border:1px solid #bbb;color:var(--sub);border-radius:99px;padding:0 6px;margin-left:4px;font-weight:600}
+ul.src{list-style:none;padding:0;margin:6px 0 0}
 ul.src li{padding:7px 0;border-top:1px solid var(--line);font-size:13px}
 ul.src li .t{color:var(--sub);font-size:12px}
 .steps{display:flex;flex-direction:column;gap:6px}
-.step{display:grid;grid-template-columns:70px 1fr;gap:8px;font-size:14px;padding:8px 10px;border-radius:8px}
-.step b{font-size:12px}
-.coin{display:grid;grid-template-columns:78px 1fr;gap:4px 10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
-.coin:first-of-type{border-top:0}
-.sym{font-weight:800;font-family:ui-monospace,Menlo,monospace}
-.cmeta{grid-column:1/-1;font-size:12px;color:var(--sub)}
-.ca{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--blue);word-break:break-all}
-.sum li{margin:6px 0}
+.step{font-size:14px;padding:8px 10px;border-radius:8px}
+.mini{display:flex;gap:3px;align-items:flex-end;height:46px;margin-top:4px}
+.mini div{flex:1;background:#111;border-radius:3px 3px 0 0;min-height:2px;position:relative}
+.mini div.p{background:repeating-linear-gradient(45deg,#111,#111 3px,#666 3px,#666 6px)}
+.minil{display:flex;gap:3px;font-size:10px;color:#999}.minil span{flex:1;text-align:center}
 .hist{border-left:3px solid #ccc;padding:2px 0 2px 12px;margin:10px 0}
 .hist.s-watch{border-color:var(--yellow);background:none}.hist.s-info{border-color:var(--blue);background:none}
 .hist.s-risk{border-color:var(--red);background:none}.hist.s-up{border-color:var(--green);background:none}
 .hist .t{font-size:12px;color:var(--sub)}
-.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--sub);margin:4px 0 12px}
-.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:0}
-.fab{position:fixed;right:14px;bottom:max(16px,env(safe-area-inset-bottom));background:#111;color:#fff;border:0;border-radius:99px;padding:12px 18px;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.sum li{margin:6px 0}
 .panel{display:none}.panel.on{display:block}
+.fab{position:fixed;right:14px;bottom:max(16px,env(safe-area-inset-bottom));background:#111;color:#fff;border:0;border-radius:99px;padding:12px 18px;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:10}
 footer{text-align:center;font-size:12px;color:#999;margin-top:20px}
+.retired{opacity:.4}
 </style>
 </head>
 <body>
 <header>
   <div class="top"><div class="brand">🍀 ALPHA 雷达</div><div class="upd">更新 <b id="upd"></b></div></div>
-  <nav class="tabs" id="tabs">
-    <button class="tab on" data-p="radar">🔥 热点雷达</button>
-    <button class="tab" data-p="musk">👁 马斯克关注</button>
+  <nav class="tabs">
+    <button class="tab on" data-p="home">🔥 总览</button>
+    <button class="tab" data-p="musk">👁 马斯克</button>
     <button class="tab" data-p="lead">📈 龙头&amp;Beta</button>
     <button class="tab" data-p="hist">🕘 历史</button>
   </nav>
 </header>
 <main>
-  <div id="alert" class="alert"></div>
-  <div class="legend">
-    <span><i class="dot" style="background:var(--green)"></i>机会</span>
-    <span><i class="dot" style="background:var(--red)"></i>风险</span>
-    <span><i class="dot" style="background:var(--yellow)"></i>观察/🆕</span>
-    <span><i class="dot" style="background:var(--blue)"></i>信息</span>
-  </div>
-  <section class="panel on" id="p-radar"></section>
+  <section class="panel on" id="p-home"></section>
   <section class="panel" id="p-musk"></section>
   <section class="panel" id="p-lead"></section>
   <section class="panel" id="p-hist"></section>
   <footer id="foot"></footer>
 </main>
+<div class="sheet" id="sheet"><div class="panelx" id="detail"></div></div>
 <button class="fab" id="xl">⬇ 导出 Excel</button>
 <script id="embedded" type="application/json">/*DATA*/</script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
 <script>
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const sigBar={up:"g",risk:"r",watch:"y",info:"b"};
 const bar=(v,c="")=>`<div class="bar ${c}"><i style="width:${Math.max(0,Math.min(10,v))*10}%"></i></div>`;
-const pill=t=>({new:'<span class="pill p-new">🆕 首次</span>',hot:'<span class="pill p-hot">🔥 热</span>',pol:'<span class="pill p-pol">政治</span>',link:'<span class="pill p-link">🔗 关联量子</span>'}[t]||"");
+const arrow=t=>t==="up"?'<span class="up">▲ 升温</span>':t==="down"?'<span class="down">▼ 降温</span>':'<span class="flat">● 持平</span>';
+const lvl=g=>g>=80?5:g>=65?4:g>=50?3:g>=35?2:g>=20?1:0;
+const fmt=n=>n>=1e4?(n/1e4).toFixed(n>=1e5?0:1)+"万":String(n);
 let D;
+function days(t){return Object.keys(t.history).sort().slice(-7)}
+function gridHTML(t){return `<div class="grid">${days(t).map(d=>{const h=t.history[d];return `<i class="g${lvl(h.grid)}${h.partial_hours?" gp":""}" title="${d} 约${h.est}帖"></i>`}).join("")}</div>`}
+function row(t){
+  const cls=t.heat>=60&&t.trend!=="down"?"hot":t.heat>=40?"warm":"";
+  const op=(0.38+0.62*t.heat/100)*(t.trend==="down"?0.8:1);
+  return `<div class="trow ${cls} ${t.trend==="down"?"cool":""}" style="opacity:${op.toFixed(2)}" data-id="${t.id}">
+   <div class="rk">${t.rank}</div>
+   <div><div class="tname">${t.emoji} ${esc(t.name)}</div><div class="tchain">${t.chains.join(" · ")}</div></div>
+   <div class="score">${t.heat}<small>${arrow(t.trend)}</small></div>
+   <div class="tsub"><div class="lead">龙头 <b>${esc(t.leader.sym)}</b>${t.leader.mcap?" "+esc(t.leader.mcap):""}</div>${gridHTML(t)}</div>
+  </div>`}
+function detail(id){
+  const t=D.topics.find(x=>x.id===id),a=t.attention,ds=days(t),mx=Math.max(...ds.map(d=>t.history[d].est));
+  $("#detail").innerHTML=`<button class="close" onclick="closeD()">✕</button>
+   <h3 style="margin:4px 0">${t.emoji} ${esc(t.name)}</h3>
+   <div style="font-size:13px;color:var(--sub)">热度 <b style="color:var(--ink)">${t.heat}</b> · 第 ${t.rank??"-"} 名 · ${arrow(t.trend)} ${t.delta>0?"+":""}${t.delta}%（近2日 vs 前3日）</div>
+   <div class="verdict s-${t.signal}">${esc(t.verdict)}</div>
+   <div class="card"><div class="sec" style="margin-top:0">7 日讨论量（${esc(D.meta.day_basis)}，斜纹=今日估算）</div>
+    <div class="mini">${ds.map(d=>`<div class="${t.history[d].partial_hours?"p":""}" style="height:${Math.max(3,t.history[d].est/mx*100)}%" title="${t.history[d].est}"></div>`).join("")}</div>
+    <div class="minil">${ds.map(d=>`<span>${d.slice(8)}<br>${fmt(t.history[d].est)}</span>`).join("")}</div></div>
+   <div class="card"><div class="sec" style="margin-top:0">龙头 & Beta</div>
+    ${[{...t.leader,L:1},...t.betas].map(c=>`<div class="coin"><span class="sym ${c.L?"L":""}">${c.L?"👑 ":""}${esc(c.sym)}<span class="chip">${esc(c.chain)}</span></span><span>${esc(c.note)}${c.mcap?` · <b>${esc(c.mcap)}</b>`:""}</span>${c.ca?`<div class="ca">${esc(c.ca)}</div>`:""}</div>`).join("")}</div>
+   <div class="card"><div class="sec" style="margin-top:0">注意力定价</div>
+    ${[["大人物",a.big_names,"r"],["政治/慈善",a.politics,"y"],["新闻潜力",a.news,"b"],["🆕新鲜感",a.novelty,"y"]].map((r,i)=>`<div class="row"><span class="k">${r[0]}</span>${bar(r[1],r[1]>=8?r[2]:"")}<span class="note">${esc(a.notes[i]||"")}</span></div>`).join("")}
+    ${t.firsts.map(f=>`<div class="first">${esc(f)}</div>`).join("")}
+    <div class="ign">🔑 点火变量：${esc(t.ignition)}</div></div>
+   <div class="card"><div class="sec" style="margin-top:0">打法</div><div class="steps">${t.play.map((p,i)=>`<div class="step ${i?"s-up":"s-watch"}">${esc(p)}</div>`).join("")}</div>
+    <div class="risk">🚫 ${esc(t.risk)}</div></div>
+   <div class="card"><div class="sec" style="margin-top:0">来源</div><ul class="src">${t.sources.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)} ↗</a></li>`).join("")}</ul>
+    <div class="note" style="margin-top:8px;word-break:break-all">检索式：${esc(t.query)}</div></div>`;
+  $("#sheet").classList.add("on");
+}
+function closeD(){$("#sheet").classList.remove("on")}
+$("#sheet").onclick=e=>{if(e.target.id==="sheet")closeD()};
 function render(d){
-  D=d;
-  $("#upd").textContent=d.meta.updated_label;
-  const a=$("#alert");a.textContent="⚡ "+d.headline.text;a.className="alert "+(d.headline.level==="risk"?"risk":"");
-  // radar
-  $("#p-radar").innerHTML=d.radar.map(r=>`
-   <div class="card">
-    <h3>${esc(r.title)} ${pill(r.tag)}</h3>
-    <div class="verdict s-${r.signal}">${esc(r.verdict)}</div>
-    <div class="story">${esc(r.story)}</div>
-    <div class="sec">叙事热度</div>
-    ${r.heat.map(h=>`<div class="row"><span class="k">${esc(h.k)}</span>${bar(h.v)}</div>`).join("")}
-    <div class="sec">注意力定价</div>
-    ${r.attention.map(h=>`<div class="row"><span class="k">${esc(h.k)}</span>${bar(h.v,h.v>=8?"g":"")}<span class="note">${esc(h.note)}</span></div>`).join("")}
-    <div class="ign">🔑 点火变量：${esc(r.ignition)}</div>
-    <div class="sec">打法</div>
-    <div class="steps">${r.play.map((p,i)=>`<div class="step ${i?"s-up":"s-watch"}"><b>${i?"然后":"先等"}</b>${esc(p)}</div>`).join("")}</div>
-    <div class="risk">🚫 ${esc(r.risk)}</div>
-    <div class="sec">来源</div>
-    <ul class="src">${r.sources.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)} ↗</a></li>`).join("")}</ul>
-   </div>`).join("");
+  D=d;$("#upd").textContent=d.meta.updated_label;
+  const act=d.topics.filter(t=>t.status==="active").sort((a,b)=>b.heat-a.heat);
+  const ret=d.topics.filter(t=>t.status!=="active");
+  $("#p-home").innerHTML=`<div class="alert">⚡ ${esc(d.headline.text)}</div>
+   <div class="legend"><span>热度 0–100</span><span class="up">▲升温</span><span class="down">▼降温</span>
+    <span>7日 <i style="display:inline-block;width:10px;height:10px;background:#c6e9cf;border-radius:2px"></i><i style="display:inline-block;width:10px;height:10px;background:#3fae5d;border-radius:2px;margin-left:2px"></i><i style="display:inline-block;width:10px;height:10px;background:#0f4d22;border-radius:2px;margin-left:2px"></i> 越深越热</span></div>
+   ${act.map(row).join("")}
+   ${ret.length?`<div class="sec">已退役话题</div>${ret.map(t=>`<div class="trow retired" data-id="${t.id}"><div class="rk">–</div><div class="tname">${t.emoji} ${esc(t.name)}</div><div></div></div>`).join("")}`:""}
+   <div class="note" style="margin-top:6px">点任一话题看详情 · 热度＝讨论量50%＋动量30%＋头部帖浏览20%</div>`;
+  document.querySelectorAll(".trow").forEach(r=>r.onclick=()=>detail(r.dataset.id));
   // musk
-  const byId=Object.fromEntries(d.posts.map(p=>[p.id,p]));
-  const m=d.musk;
-  $("#p-musk").innerHTML=`
-   <div class="card"><h3>👁 一句话：他在关注什么</h3>
-    <ol class="sum">${m.summary.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
-    <div class="ign" style="border-color:var(--yellow);color:#7a5c00">🔎 量子检查：${esc(m.quantum_check)}</div>
+  const m=d.musk,byId=Object.fromEntries(d.posts.map(p=>[p.id,p]));
+  $("#p-musk").innerHTML=`<div class="card"><h3>👁 他在关注什么</h3><ol class="sum">${m.summary.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
+    <div class="ign" style="border-color:var(--yellow);color:#7a5c00">🔎 ${esc(m.quantum_check)}</div>
     <div class="note" style="margin-top:8px">扫描窗口：${esc(d.meta.musk_window)}</div></div>
-   ${m.topics.map(t=>`
-   <div class="card">
-    <h3>${esc(t.title)} ${pill(t.tag)}</h3>
-    <div class="row"><span class="k">热度</span>${bar(t.heat,sigBar[t.signal])}</div>
-    <div class="verdict s-${t.signal}">${esc(t.verdict)}</div>
-    <div class="meme"><b>Meme 角度</b>　${esc(t.meme)}</div>
-    <ul class="src">${t.posts.map(id=>byId[id]).filter(Boolean).map(p=>`<li><a href="${p.link}" target="_blank" rel="noopener">${esc(p.text.length>90?p.text.slice(0,90)+"…":p.text)} ↗</a><div class="t">${esc(p.author)} · ${p.time} 悉尼</div>${bar(p.heat)}</li>`).join("")}</ul>
-   </div>`).join("")}`;
+   ${m.topics.map(t=>`<div class="card"><h3>${esc(t.title)}</h3><div class="row"><span class="k">热度</span>${bar(t.heat,{up:"g",risk:"r",watch:"y",info:"b"}[t.signal])}</div>
+    <div class="verdict s-${t.signal}">${esc(t.verdict)}</div><div class="first" style="background:#f7f7f7"><b class="up">Meme 角度</b>　${esc(t.meme)}</div>
+    <ul class="src">${t.posts.map(id=>byId[id]).filter(Boolean).map(p=>`<li><a href="${p.link}" target="_blank" rel="noopener">${esc(p.text.length>90?p.text.slice(0,90)+"…":p.text)} ↗</a><div class="t">${esc(p.author)} · ${p.time} 悉尼 · ${fmt(p.views)} 浏览</div></li>`).join("")}</ul></div>`).join("")}`;
   // leaders
-  const L=d.leaders;
-  $("#p-lead").innerHTML=`
-   <div class="card"><h3>📈 ${esc(L.chain)} 量子盘 · ${esc(L.status)}</h3>
-    ${L.coins.map(c=>`<div class="coin"><span class="sym">${esc(c.sym)}</span>${bar(c.heat,sigBar[c.signal])}
-     <div class="cmeta"><span class="verdict s-${c.signal}" style="display:inline-block;margin:0;padding:2px 8px">${esc(c.note)}</span>
-     ${c.mcap?` 市值 ${esc(c.mcap)}`:""}${c.liq?` · 池 ${esc(c.liq)}`:""}${c.time?` · @${esc(c.time)} 悉尼`:""}
-     ${c.ca?`<div class="ca">${esc(c.ca)}</div>`:""}</div></div>`).join("")}
-   </div>
-   <div class="card"><h3>🎯 Beta 打法</h3><div class="steps">
-    ${L.beta_plan.map(s=>`<div class="step s-${s.signal}"><b>${esc(s.step)}</b>${esc(s.text)}</div>`).join("")}</div></div>`;
+  $("#p-lead").innerHTML=act.map(t=>`<div class="card" style="opacity:${(0.45+0.55*t.heat/100).toFixed(2)}"><h3>${t.emoji} ${esc(t.name)} <span style="font-size:13px">${arrow(t.trend)}</span></h3>
+    ${[{...t.leader,L:1},...t.betas].map(c=>`<div class="coin"><span class="sym ${c.L?"L":""}">${c.L?"👑 ":"β "}${esc(c.sym)}<span class="chip">${esc(c.chain)}</span></span><span>${esc(c.note)}${c.mcap?` · <b>${esc(c.mcap)}</b>`:""}</span>${c.ca?`<div class="ca">${esc(c.ca)}</div>`:""}</div>`).join("")}
+    <div class="verdict s-${t.signal}" style="margin-bottom:0">${esc(t.play[0]||"")}</div></div>`).join("");
   // history
   $("#p-hist").innerHTML=`<div class="card"><h3>🕘 推送历史</h3>${d.history.slice().reverse().map(h=>`<div class="hist s-${h.signal}"><div class="t">${esc(h.time)} 悉尼</div><b>${esc(h.title)}</b><div>${esc(h.verdict)}</div></div>`).join("")}</div>
-   <div class="card"><h3>📄 全部帖子（${d.posts.length}）</h3><ul class="src">${d.posts.slice().sort((a,b)=>b.heat-a.heat).map(p=>`<li><a href="${p.link}" target="_blank" rel="noopener">${esc(p.text.length>80?p.text.slice(0,80)+"…":p.text)} ↗</a><div class="t">${esc(p.topic)} · ${esc(p.author)} · ${p.time}</div>${bar(p.heat)}</li>`).join("")}</ul></div>`;
+   <div class="card"><h3>📊 话题热度表（帖/日）</h3><div style="overflow-x:auto"><table style="border-collapse:collapse;font-size:12px;width:100%">
+    <tr><th style="text-align:left">话题</th>${days(act[0]).map(x=>`<th>${x.slice(5)}</th>`).join("")}</tr>
+    ${d.topics.map(t=>`<tr style="border-top:1px solid #eee"><td>${t.emoji} ${esc(t.name.split(" ")[0])}</td>${days(t).map(x=>`<td style="text-align:right">${fmt(t.history[x].est)}</td>`).join("")}</tr>`).join("")}</table></div></div>
+   <div class="card"><h3>📄 帖子（${d.posts.length}）</h3><ul class="src">${d.posts.slice().sort((a,b)=>b.views-a.views).map(p=>`<li><a href="${p.link}" target="_blank" rel="noopener">${esc(p.text.length>80?p.text.slice(0,80)+"…":p.text)} ↗</a><div class="t">${esc(p.topic)} · ${esc(p.author)} · ${p.time} · ${fmt(p.views)}</div></li>`).join("")}</ul></div>`;
   $("#foot").textContent=d.meta.note;
 }
 document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===b));
-  document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on",p.id==="p-"+b.dataset.p));
-  scrollTo(0,0);
-});
-function rows(){
-  const r=D.posts.map(p=>({时间_悉尼:p.time,作者:p.author,内容:p.text,链接:p.link,主题:p.topic,热度:"█".repeat(p.heat)+"░".repeat(10-p.heat),浏览量:p.views}));
-  D.radar.forEach(x=>x.sources.forEach(s=>{if(!D.posts.some(p=>p.link===s.url))r.push({时间_悉尼:"",作者:"",内容:s.label,链接:s.url,主题:x.title,热度:"",浏览量:""})}));
-  return r;
+  document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on",p.id==="p-"+b.dataset.p));scrollTo(0,0)});
+function sheets(){
+  const posts=D.posts.map(p=>({时间_悉尼:p.time,作者:p.author,内容:p.text,链接:p.link,主题:p.topic,热度:"█".repeat(p.heat)+"░".repeat(10-p.heat),浏览量:p.views}));
+  const seen=new Set(D.posts.map(p=>p.link));
+  D.topics.forEach(t=>t.sources.forEach(s=>{if(!seen.has(s.url)){seen.add(s.url);posts.push({时间_悉尼:"",作者:"",内容:s.label,链接:s.url,主题:t.name,热度:"",浏览量:""})}}));
+  const ds=[...new Set(D.topics.flatMap(t=>Object.keys(t.history)))].sort();
+  const heat=D.topics.slice().sort((a,b)=>b.heat-a.heat).map(t=>{const o={排名:t.rank??"",话题:t.name,状态:t.status,热度:t.heat,趋势:{up:"↑",down:"↓"}[t.trend]||"→",龙头:t.leader.sym,结论:t.verdict};ds.forEach(x=>o[x.slice(5)+"帖数"]=t.history[x]?.est??"");return o});
+  return {posts,heat};
 }
 $("#xl").onclick=()=>{
-  const r=rows(),name="alpha_posts_"+D.meta.updated.slice(0,10);
-  if(window.XLSX){const ws=XLSX.utils.json_to_sheet(r);ws["!cols"]=[{wch:12},{wch:16},{wch:70},{wch:50},{wch:14},{wch:12},{wch:12}];
-    const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"帖子与来源");XLSX.writeFile(wb,name+".xlsx");return;}
-  const k=Object.keys(r[0]),csv="\ufeff"+[k.join(",")].concat(r.map(o=>k.map(x=>'"'+String(o[x]).replace(/"/g,'""')+'"').join(","))).join("\n");
-  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download=name+".csv";a.click();
+  const {posts,heat}=sheets(),name="alpha_"+D.meta.updated.slice(0,10);
+  if(window.XLSX){const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(posts),"帖子与来源");XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(heat),"话题热度");XLSX.writeFile(wb,name+".xlsx");return}
+  const csv=rows=>{const k=Object.keys(rows[0]);return [k.join(",")].concat(rows.map(o=>k.map(x=>'"'+String(o[x]??"").replace(/"/g,'""')+'"').join(","))).join("\n")};
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+csv(posts)+"\n\n"+csv(heat)],{type:"text/csv"}));a.download=name+".csv";a.click();
 };
-const emb=JSON.parse($("#embedded").textContent);
-render(emb);
-fetch("data.json?t="+Date.now()).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.meta.updated!==emb.meta.updated)render(d)}).catch(()=>{});
+const emb=JSON.parse($("#embedded").textContent);render(emb);
+fetch("data.json?t="+Date.now()).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.version===2&&d.meta.updated>emb.meta.updated)render(d)}).catch(()=>{});
 </script>
 </body>
 </html>

@@ -1,71 +1,60 @@
-# Alpha 雷达 · 更新与发布说明
+# Alpha 雷达 v2 · 更新与发布手册
 
-目录：`/workspace/alpha-dashboard/`
+- 线上地址：https://kiddyakid.github.io/alpha-dashboard/ （GitHub Pages，`KiddyaKid/alpha-dashboard` 的 main 分支根目录；push 后约 1 分钟生效）
+- 目录：`/workspace/alpha-dashboard/`
+- Python：`PY=/workspace/.venv-xl/bin/python`（自带 openpyxl；丢失时：`python3 -m venv /workspace/.venv-xl && /workspace/.venv-xl/bin/pip install -q openpyxl`）
 
 | 文件 | 作用 |
 |---|---|
-| `data.json` | **唯一数据源**。每轮更新只改这里 |
-| `template.html` | 页面模板（样式/逻辑），一般不用动 |
-| `render.py` | 把 data.json 嵌入 → `index.html`，并生成 `posts.xlsx` |
-| `index.html` | 生成产物，手机打开的就是它（离线也能看：数据已内嵌；在线时优先读同目录 data.json） |
-| `posts.xlsx` | 生成产物，全部帖子+来源（时间/作者/内容/链接/主题/热度/浏览量） |
-| `build_posts.py` | 首轮用的帖子清单脚本（示例，可参考其字段格式） |
+| `data.json` | 唯一数据源（话题、每日热度历史、马斯克分析、推送历史、帖子） |
+| `update_heat.py` | 写入热度 → 计算排名 → 渲染 `index.html` + `posts.xlsx` → git push |
+| `template.html` | 页面模板（一般不用改） |
+| `index.html` / `posts.xlsx` | 生成产物（不要手改） |
 
-## 1. 每轮更新数据（编辑 data.json）
+## 热度模型（update_heat.py 自动算）
+- 数据：每个话题的 `query` 用 x 工具 `get_posts_counts_recent`（granularity=day，近 7 天）取每日帖数。按 **UTC 日** 记录（悉尼 11:00 换日）。
+- 未结束的当天：按 X 全站小时曲线外推成全天（`partial_hours`），再按已过时长与昨天加权混合，避免清晨噪声。页面上用虚线格 / 斜纹柱表示“估算”。
+- 每日格子分 `grid` = 0.625×讨论量分 + 0.375×动量分（讨论量：100 帖/天=0，10 万帖/天=100，取对数；动量：对比前 3 天的均值）。
+- 当前热度 `heat` = 0.8×今日 grid + 0.2×头部帖浏览分（`top_views`：1 千=0，约 3000 万=100）。
+- 趋势：近 2 天均值 vs 前 3 天均值，≥+15% 为 ▲升温，≤−13% 为 ▼降温（降温行会变灰、变淡并下沉）。
 
-- `meta.updated`（ISO，+11:00）和 `meta.updated_label`（如 `10/09 19:49 悉尼`）→ 必改
-- `headline.text` / `headline.level`（`watch` 黄 / `risk` 红）→ 顶部一句话弹窗
-- 热点：在 `radar` 数组**前面插入**新卡片（字段同现有卡片：title, tag[new|hot|pol|link], verdict, signal[up|risk|watch|info], story, heat[{k,v0-10}], attention[{k,v,note}], ignition, play[], risk, sources[{label,url}]）
-- 马斯克：替换 `musk.summary`（3 行）、`musk.topics`（每个 topic 的 `posts` 填帖子 id）、`musk.quantum_check`、`meta.musk_window`
-- 龙头：替换 `leaders.coins` / `leaders.status` / `leaders.beta_plan`
-- 历史：`history` 末尾 **append** `{time,title,verdict,signal}`（页面倒序显示）
-- 帖子：`posts` 追加 `{id,time(MM/DD HH:MM 悉尼),author("@x"),text,link,topic,views,heat(1-10)}`；只放真实帖子和真实 URL
-
-可用 Python 就地修改，例如：
+## 每小时例行（复制即用）
 ```bash
-cd /workspace/alpha-dashboard
-python3 - <<'PY'
-import json; d=json.load(open("data.json"))
-d["meta"]["updated"]="2026-10-09T19:49:00+11:00"; d["meta"]["updated_label"]="10/09 19:49 悉尼"
-d["history"].append({"time":"10/09 19:49","title":"马斯克第 2 轮","verdict":"…","signal":"info"})
-json.dump(d,open("data.json","w"),ensure_ascii=False,indent=1)
-PY
+cd /workspace/alpha-dashboard; PY=/workspace/.venv-xl/bin/python
+python3 -c "import json;[print(t['id'],'|',t['query']) for t in json.load(open('data.json'))['topics'] if t['status']=='active']"
 ```
+1. 对每个话题调用 x `get_posts_counts_recent`：`{"query": <topic.query>, "granularity": "day", "start_time": <7 天前的 UTC 00:00，如 2026-10-03T00:00:00Z>}`，把**原始 JSON 响应**存成 `/tmp/c_<id>.json`。
+2. 写入（可附带本轮找到的最高浏览帖）：
+   ```bash
+   $PY update_heat.py ingest quantum /tmp/c_quantum.json --views 764377 --post https://x.com/camolNFT/status/2107861120341942548
+   ```
+   （没有原始 JSON 时也可手填：`$PY update_heat.py set quantum 2026-10-10 5321 --partial-hours 7.5 --views 900000`）
+3. 有判断变化就直接改 `data.json` 里该话题的 `verdict / signal / leader / betas / attention / firsts / ignition / play / risk / sources`（只放真实帖子 URL）。马斯克分析改 `musk`，新帖子追加到 `posts`。
+4. 记一条推送历史（可选）：`$PY update_heat.py event "量子盘出现龙头" "QUANTUM 站稳 1M" up`
+5. 渲染 + 发布：
+   ```bash
+   $PY update_heat.py all "hourly 10/10 09:42"
+   ```
+6. 验证：`sleep 60; curl -s -o /dev/null -w "%{http_code}\n" https://kiddyakid.github.io/alpha-dashboard/ && curl -s https://kiddyakid.github.io/alpha-dashboard/data.json | python3 -c "import json,sys;print(json.load(sys.stdin)['meta']['updated_label'])"`
 
-## 2. 重新生成页面和 Excel
-
+## 新增 / 退役话题
+新增：写一个 JSON 文件（字段同现有话题），然后 ingest 计数：
+```json
+{"id":"newtopic","name":"话题名","emoji":"🔥","chains":["SOL"],
+ "query":"($TICKER OR \"关键词\") -is:retweet",
+ "verdict":"一句话结论","signal":"watch",
+ "leader":{"sym":"TICKER","chain":"SOL","note":"说明","ca":"","mcap":"~$1M"},
+ "betas":[{"sym":"B1","chain":"SOL","note":"说明","ca":"","mcap":""}],
+ "attention":{"big_names":5,"politics":2,"news":4,"novelty":8,"notes":["大人物说明","政治/慈善说明","新闻说明","🆕说明"]},
+ "firsts":["🆕 第一次……"],"ignition":"点火变量","play":["先等…","然后…"],"risk":"风险",
+ "top_views":0,"top_post":"","sources":[{"label":"来源","url":"https://x.com/..."}]}
+```
 ```bash
-cd /workspace/alpha-dashboard
-# 首次（或 venv 丢失时）:
-[ -x /workspace/.venv-xl/bin/python ] || (python3 -m venv /workspace/.venv-xl && /workspace/.venv-xl/bin/pip install -q openpyxl)
-/workspace/.venv-xl/bin/python render.py
+$PY update_heat.py add-topic /tmp/newtopic.json && $PY update_heat.py ingest newtopic /tmp/c_newtopic.json
 ```
-可选自检（手机宽度截图）：
-```bash
-google-chrome --headless=new --no-sandbox --hide-scrollbars --window-size=390,2400 --screenshot=/tmp/check.png file:///workspace/alpha-dashboard/index.html
-```
+退役（保留历史，移出排名）：`$PY update_heat.py retire laptop`；恢复：`$PY update_heat.py revive laptop`
 
-## 3. 发布（覆盖同一个公开地址）
-
-截至 2026-10-09 16:55 悉尼：box 上 `gh` 未登录，没有 `vercel` / `netlify` / `surge` CLI，也没有相关 token，所以**目前没有公开 URL**。用户登录任一平台后，按下面固定命令覆盖发布：
-
-**GitHub Pages（推荐，`gh auth login` 之后）**
-```bash
-cd /workspace/alpha-dashboard
-REPO=alpha-dashboard
-if [ ! -d .git ]; then
-  git init -b main && git add index.html data.json posts.xlsx && git commit -m "init"
-  gh repo create "$REPO" --public --source=. --push
-  gh api -X POST "repos/{owner}/$REPO/pages" -f "source[branch]=main" -f "source[path]=/"
-fi
-git add index.html data.json posts.xlsx && git commit -m "update $(date '+%m/%d %H:%M')" && git push
-# URL: https://<github用户名>.github.io/alpha-dashboard/
-```
-
-**Surge（`npx surge login` 之后）**：`npx surge /workspace/alpha-dashboard muheng-alpha.surge.sh`
-
-**Netlify（已登录且 link 过站点）**：`npx netlify deploy --prod --dir /workspace/alpha-dashboard`
-
-**Vercel（已登录）**：`npx vercel deploy /workspace/alpha-dashboard --prod --yes`
-
-未发布时：把 `index.html` 作为附件发给用户（数据已内嵌，手机直接打开即可；导出 Excel 需要联网加载 SheetJS，离线时自动降级为 CSV）。
+## 注意
+- 计数查询务必带括号：`(A OR B) -is:retweet`，否则 `-is:retweet` 只作用于最后一项。
+- `$SI` 这类短 cashtag 单独用会匹配海量无关帖（实测每小时 10 万），要配合 “super inu” 等限定词。
+- 只引用真实帖子/新闻 URL；mcap 写明时间和出处。
