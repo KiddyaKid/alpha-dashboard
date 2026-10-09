@@ -1,8 +1,8 @@
 {
  "version": 2,
  "meta": {
-  "updated": "2026-10-09T17:12:00+11:00",
-  "updated_label": "10/09 17:12 悉尼",
+  "updated": "2026-10-09T17:47+11:00",
+  "updated_label": "10/09 17:47 悉尼",
   "musk_window": "10/08 23:48 → 10/09 16:48 悉尼（约 75 条帖子/转发）",
   "note": "热度 = 讨论量(50%) + 动量(30%) + 头部帖浏览(20%)；当天按时段曲线外推（估算）。不构成投资建议",
   "day_basis": "UTC 日（悉尼 11:00 换日）"
@@ -145,16 +145,15 @@
      "grid": 16.8
     },
     "2026-10-08": {
-     "count": 694,
-     "est": 694,
+     "count": 693,
+     "est": 693,
      "grid": 17.5
     },
     "2026-10-09": {
-     "count": 149,
-     "partial_hours": 6.0,
-     "views": 3518417,
-     "est": 691,
-     "grid": 30.9
+     "count": 156,
+     "partial_hours": 6.79,
+     "est": 678,
+     "grid": 30.3
     }
    },
    "heat": 40,
@@ -293,20 +292,19 @@
      "grid": 61.4
     },
     "2026-10-08": {
-     "count": 6388,
-     "est": 6388,
+     "count": 6385,
+     "est": 6385,
      "grid": 73.5
     },
     "2026-10-09": {
-     "count": 1443,
-     "partial_hours": 6.0,
-     "views": 764377,
-     "est": 6442,
-     "grid": 65.7
+     "count": 1666,
+     "partial_hours": 6.79,
+     "est": 6508,
+     "grid": 66.0
     }
    },
-   "heat": 65,
-   "delta": 122,
+   "heat": 66,
+   "delta": 123,
    "trend": "up",
    "reach": 64,
    "rank": 3
@@ -410,20 +408,19 @@
      "grid": 77.1
     },
     "2026-10-08": {
-     "count": 20107,
-     "est": 20107,
+     "count": 20103,
+     "est": 20103,
      "grid": 85.4
     },
     "2026-10-09": {
-     "count": 3376,
-     "partial_hours": 6.0,
-     "views": 21817383,
-     "est": 18942,
-     "grid": 74.0
+     "count": 3682,
+     "partial_hours": 6.79,
+     "est": 18680,
+     "grid": 73.6
     }
    },
    "heat": 78,
-   "delta": 130,
+   "delta": 129,
    "trend": "up",
    "reach": 96,
    "rank": 2
@@ -518,20 +515,19 @@
      "grid": 77.4
     },
     "2026-10-08": {
-     "count": 28953,
-     "est": 28953,
+     "count": 28925,
+     "est": 28925,
      "grid": 88.8
     },
     "2026-10-09": {
-     "count": 6791,
-     "partial_hours": 6.0,
-     "views": 42832845,
-     "est": 29483,
-     "grid": 88.9
+     "count": 7842,
+     "partial_hours": 6.79,
+     "est": 29824,
+     "grid": 89.1
     }
    },
    "heat": 91,
-   "delta": 927,
+   "delta": 933,
    "trend": "up",
    "reach": 100,
    "rank": 1
