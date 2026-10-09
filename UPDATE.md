@@ -80,3 +80,21 @@ cd /workspace/alpha-dashboard && /workspace/.venv-xl/bin/python scripts/refresh_
 - **话题周期**：`horizon:"24h"`（需 `born`）显示在 ⚡24小时，按动量（币价 1h/6h/24h + X 发帖速度）排序；36 小时后若热度≥45 或有 ≥$1M 存活币 → 自动转 `cycle`（🌊大周期，7 日热度格），否则自动归档（retired）。新 24h 话题：add-topic JSON 里加 `"horizon":"24h","born":"2026-10-10T09:00+11:00","coins":[...],"discover":{"keywords":[...],"search":[...]}`。
 - 页面实时行情：浏览器每 60 秒从 `https://api.dexscreener.com/latest/dex/tokens/<CA,CA,...>`（无 key）取市值/1h/24h/流动性，顶部显示「实时 HH:MM:SS 悉尼」；失败时显示 GMGN 快照及快照时间。
 - 删掉的过时概念记在 `data.removed_concepts`（如 PNUT/Peanut）。不要再加回去。
+
+
+## mdxcn 图（报告里的 ASCII 框图）
+- 规范：`mdxcn-skill.md`（官方 https://mdxcn.dev/skill.md 的存档；完整 fence 目录见 https://mdxcn.dev/llms.txt，组件目录 https://mdxcn.dev/api/v1/components）。**不要自己画 ASCII**，只用官方 Knap 过滤器生成。
+- 生成：`update_heat.py render`（及 `all` / `refresh_tokens.py --publish`）会自动跑 `node scripts/figures.mjs data.json`，把图写进 `data.json`：
+  - `topics[].figures.trend` → GraphKpi `[ HEAT 7D ]`（7 日讨论量 + 近2日vs前3日 %）
+  - `topics[].figures.attention` → GraphScore `[ ATTENTION ]`（四项注意力评分 /10）
+  - `topics[].figures.coins` → GraphTable `[ LEAD VS BETA ]`（* 龙头；市值/1h/24h/流动性，GMGN 快照）
+  - `figures.momentum_rank` → GraphRank `[ MOMENTUM ]`（⚡24小时 页顶）；`figures.cycle_rank` → GraphRank `[ HEAT ]`（🌊大周期 页顶）
+- 页面把 fence 去掉 ``` 行后放进 `<pre class="fig">`（字号随屏宽缩放，超宽时框内横向滚动）。每个报告区块最多 2 张图，图前有一句中文说明。
+- 框宽按字符数算，中文会错位 → 图里只用 ASCII 标签（中文币名用 coin 的 `"ascii"` 字段，如 币安人生→`binance life`；新加中文名币时记得补）。
+- 官方过滤器打包在 `scripts/mdxcn/graph-knap.mjs`（未改动）。升级重打包：
+  ```bash
+  curl -sL https://mdxcn.dev/r/graph-knap.json -o /tmp/k.json && python3 -c "import json,os;[ (os.makedirs(os.path.dirname('/tmp/k/'+f['path']),exist_ok=True), open('/tmp/k/'+f['path'],'w').write(f['content'])) for f in json.load(open('/tmp/k.json'))['files']]"
+  npx -y esbuild@0.24 /tmp/k/registry/default/graph-knap/graph-knap.ts --bundle --format=esm --platform=neutral --alias:@/registry/default=/tmp/k/registry/default --outfile=scripts/mdxcn/graph-knap.mjs
+  ```
+  （重打包后把文件头 3 行注释加回去。需要 node ≥18。）
+- 手机截图自检：headless Chrome 最小窗口 500px，要用 390px 宽 iframe 包一层再截图。
