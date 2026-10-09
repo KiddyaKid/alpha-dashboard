@@ -79,6 +79,10 @@ def compute(d):
 
 def render(d):
     compute(d); save(d)
+    # mdxcn figures (official Knap filters → fenced ASCII), written into data.json
+    r = subprocess.run(["node", str(D / "scripts" / "figures.mjs"), str(DATA)], cwd=D, capture_output=True, text=True)
+    if r.returncode == 0: d = load()
+    else: print("figures.mjs failed (keeping previous figures):", (r.stderr or r.stdout)[-300:])
     raw = json.dumps(d, ensure_ascii=False).replace("</", "<\\/")
     (D / "index.html").write_text((D / "template.html").read_text().replace("/*DATA*/", raw))
     try:

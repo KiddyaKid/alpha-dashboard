@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111111">
 <title>Alpha 雷达 v3 · 沐珩</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f4f4f4;--card:#fff;--ink:#111;--sub:#666;--line:#e3e3e3;--bar:#e9e9e9;
 --blue:#2563eb;--red:#dc2626;--green:#16a34a;--yellow:#d4a106;--yellowbg:#fff7d6;--redbg:#fdecec;--greenbg:#e8f6ed;--bluebg:#eaf0fe}
@@ -88,6 +90,9 @@ ul.src li .t{color:var(--sub);font-size:12px}
 footer{text-align:center;font-size:12px;color:#999;margin-top:20px}
 .retired{opacity:.4}
 
+/* mdxcn figures: official fenced ASCII inside <pre>; frame is part of the text, so no extra border */
+.fig{font:clamp(9.5px,calc((100vw - 84px) / 31.4),12px)/1.32 "Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums;white-space:pre;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin:6px 0 8px;padding:0;color:#111;background:transparent}
+.figlead{font-size:13px;color:#333;margin:2px 0 0}
 /* v3 coin cards */
 .cc{border-top:1px solid var(--line);padding:10px 0}
 .cc:first-child{border-top:0}
@@ -160,6 +165,7 @@ const fmt=n=>n>=1e4?(n/1e4).toFixed(n>=1e5?0:1)+"万":String(n);
 let D;
 function days(t){return Object.keys(t.history).sort().slice(-7)}
 function gridHTML(t){return `<div class="grid">${days(t).map(d=>{const h=t.history[d];return `<i class="g${lvl(h.grid)}${h.partial_hours?" gp":""}" title="${d} 约${h.est}帖"></i>`}).join("")}</div>`}
+const figHTML=s=>s?`<pre class="fig">${esc(String(s).split("\n").filter(l=>!/^```/.test(l)).join("\n"))}</pre>`:"";
 // ---------- v3: coins, live prices ----------
 const LV={};let liveAt=null,liveOK=false;
 const money=v=>v==null||isNaN(v)?"—":v>=1e9?"$"+(v/1e9).toFixed(2)+"B":v>=1e6?"$"+(v/1e6).toFixed(v>=1e8?0:1)+"M":v>=1e3?"$"+(v/1e3).toFixed(0)+"K":"$"+Math.round(v);
@@ -234,12 +240,15 @@ function detail(id){
    <h3 style="margin:4px 0">${t.emoji} ${esc(t.name)}</h3>
    <div style="font-size:13px;color:var(--sub)">${t.horizon==="24h"?`⚡ 24h 话题 · 动量 <b style="color:var(--ink)">${t.momentum}</b> · `:""}热度 <b style="color:var(--ink)">${t.heat}</b> · 第 ${t.rank??"-"} 名 · ${arrow(t.trend)} ${t.delta>0?"+":""}${t.delta}%（近2日 vs 前3日）</div>
    <div class="verdict s-${t.signal}">${esc(t.verdict)}</div>
-   <div class="card"><div class="sec" style="margin-top:0">7 日讨论量（${esc(D.meta.day_basis)}，斜纹=今日估算）</div>
-    <div class="mini">${ds.map(d=>`<div class="${t.history[d].partial_hours?"p":""}" style="height:${Math.max(3,t.history[d].est/mx*100)}%" title="${t.history[d].est}"></div>`).join("")}</div>
-    <div class="minil">${ds.map(d=>`<span>${d.slice(8)}<br>${fmt(t.history[d].est)}</span>`).join("")}</div></div>
-   <div class="card"><div class="sec" style="margin-top:0">龙头 & Beta（GMGN 核验 CA）</div>${coinsHTML(t)}</div>
+   <div class="card"><div class="sec" style="margin-top:0">7 日热度走势</div>
+    <div class="figlead">X 上每日讨论量（${esc(D.meta.day_basis)}，最后一格为今日估算）；百分比＝近 2 日 vs 前 3 日，${t.delta>=0?"在升温":"在降温"}。</div>
+    ${figHTML((t.figures||{}).trend)}</div>
+   <div class="card"><div class="sec" style="margin-top:0">龙头 & Beta（GMGN 核验 CA）</div>
+    ${(t.figures||{}).coins?`<div class="figlead">* 为龙头；GMGN 快照 ${esc(D.meta.prices_label||"")}，下方卡片为实时价。</div>${figHTML((t.figures||{}).coins)}`:""}${coinsHTML(t)}</div>
    <div class="card"><div class="sec" style="margin-top:0">注意力定价</div>
-    ${[["大人物",a.big_names,"r"],["政治/慈善",a.politics,"y"],["新闻潜力",a.news,"b"],["🆕新鲜感",a.novelty,"y"]].map((r,i)=>`<div class="row"><span class="k">${r[0]}</span>${bar(r[1],r[1]>=8?r[2]:"")}<span class="note">${esc(a.notes[i]||"")}</span></div>`).join("")}
+    <div class="figlead">四项各 10 分：大人物 big names · 政治/慈善 politics · 新闻潜力 news · 🆕新鲜感 novelty；最高项为强调色。</div>
+    ${figHTML((t.figures||{}).attention)}
+    ${["大人物","政治/慈善","新闻潜力","🆕新鲜感"].map((k,i)=>a.notes[i]?`<div class="row"><span class="k">${k}</span><span style="font-size:13px">${esc(a.notes[i])}</span></div>`:"").join("")}
     ${t.firsts.map(f=>`<div class="first">${esc(f)}</div>`).join("")}
     <div class="ign">🔑 点火变量：${esc(t.ignition)}</div></div>
    <div class="card"><div class="sec" style="margin-top:0">打法</div><div class="steps">${t.play.map((p,i)=>`<div class="step ${i?"s-up":"s-watch"}">${esc(p)}</div>`).join("")}</div>
@@ -258,6 +267,7 @@ function render(d){
   const onR=new Set(radar.map(r=>r.ca));
   const fresh=act.flatMap(t=>(t.coins||[]).filter(c=>isNew(c)&&!onR.has(c.ca)).map(c=>({...c,_t:t})));
   $("#p-h24").innerHTML=`<div class="alert">⚡ ${esc(d.headline.text)}</div><div class="live" id="livebar"></div>
+   <div class="card" style="padding:10px 12px"><div class="figlead">24h 话题与雷达新币的短线动量（0–100：币价 1h/6h/24h + X 发帖速度；$ 开头为单币）。</div>${figHTML((d.figures||{}).momentum_rank)}</div>
    <div class="sec" style="margin-top:0">🔥 24 小时新话题 · 按动量排序</div>${t24.map(tcard24).join("")||'<div class="memo">暂无</div>'}
    <div class="sec">🆕 新币雷达 · 24h 内诞生或 1h 暴涨（最新在上）</div>${radar.map(radarCard).join("")}
    ${fresh.length?`<div class="sec">📌 看板内 24h 新币</div><div class="card">${fresh.map(c=>coinCard(c,"beta")).join("")}</div>`:""}
@@ -266,6 +276,7 @@ function render(d){
   $("#p-home").innerHTML=`<div class="alert">⚡ ${esc(d.headline.text)}</div>
    <div class="legend"><span>热度 0–100</span><span class="up">▲升温</span><span class="down">▼降温</span>
     <span>7日 <i style="display:inline-block;width:10px;height:10px;background:#c6e9cf;border-radius:2px"></i><i style="display:inline-block;width:10px;height:10px;background:#3fae5d;border-radius:2px;margin-left:2px"></i><i style="display:inline-block;width:10px;height:10px;background:#0f4d22;border-radius:2px;margin-left:2px"></i> 越深越热</span></div>
+   <div class="card" style="padding:10px 12px"><div class="figlead">大周期话题热度排行（0–100，X 讨论量 + 动量 + 头部帖浏览）。点下方任一行看详情。</div>${figHTML((d.figures||{}).cycle_rank)}</div>
    ${cyc.map(row).join("")}
    ${ret.length?`<div class="sec">已退役话题</div>${ret.map(t=>`<div class="trow retired" data-id="${t.id}"><div class="rk">–</div><div class="tname">${t.emoji} ${esc(t.name)}</div><div></div></div>`).join("")}`:""}
    <div class="note" style="margin-top:6px">点任一话题看详情 · 热度＝讨论量50%＋动量30%＋头部帖浏览20%</div>`;
@@ -311,7 +322,7 @@ $("#xl").onclick=()=>{
   const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+csv(posts)+"\n\n"+csv(heat)+"\n\n"+csv(coins)],{type:"text/csv"}));a.download=name+".csv";a.click();
 };
 const emb=JSON.parse($("#embedded").textContent);render(emb);
-{const h=location.hash.slice(1),b=h&&document.querySelector(`.tab[data-p="${h}"]`);if(b)b.click()}
+{const h=location.hash.slice(1),b=h&&document.querySelector(`.tab[data-p="${h}"]`);if(b)b.click();else if(h.startsWith("t=")&&D.topics.some(x=>x.id===h.slice(2)))detail(h.slice(2))}
 fetch("data.json?t="+Date.now()).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.version>=3&&((d.meta.prices_updated||"")>(emb.meta.prices_updated||"")||d.meta.updated>emb.meta.updated))render(d)}).catch(()=>{}).finally(()=>{live();setInterval(live,60000)});
 </script>
 </body>
