@@ -1471,11 +1471,11 @@
    "reach": 23,
    "rank": 4,
    "leader": {
-    "sym": "—",
-    "chain": "",
-    "note": "",
-    "ca": "",
-    "mcap": ""
+    "sym": "PQC",
+    "chain": "SOL",
+    "note": "pqc.market 首个抗量子发射台概念币（疑似非官方，金库可升级）",
+    "ca": "7K52aYQW9rWGjwZmQ7o2d1P6E7bji6hSMsqaLy5EcxLh",
+    "mcap": "~$1.2M"
    }
   }
  ],
