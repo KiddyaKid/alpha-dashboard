@@ -1,5 +1,10 @@
 # Alpha 雷达 v3 · 更新与发布手册
 
+> **雷达/例行刷新币价 + 发布，唯一推荐命令（任意目录可跑）：**
+> `bash /workspace/alpha-dashboard/refresh.sh "tokens $(date +%m/%d\ %H:%M)"`
+> = scripts/refresh_tokens.py → update_heat.py render → commit → git pull --rebase --autostash → push。额外参数（如 `--no-discover`）放在标签后面。
+> ⚠ 不要在仓库根目录直接跑 `refresh_tokens.py`——脚本在 `scripts/` 下，会 exit 2。
+
 - 线上地址：https://kiddyakid.github.io/alpha-dashboard/ （GitHub Pages，`KiddyaKid/alpha-dashboard` 的 main 分支根目录；push 后约 1 分钟生效）
 - 目录：`/workspace/alpha-dashboard/`
 - Python：`PY=/workspace/.venv-xl/bin/python`（自带 openpyxl；丢失时：`python3 -m venv /workspace/.venv-xl && /workspace/.venv-xl/bin/pip install -q openpyxl`）
