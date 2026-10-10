@@ -122,9 +122,73 @@ details summary{cursor:pointer;color:var(--lilac);font-size:12px}
 .toast.on{opacity:1}
 footer{display:flex;justify-content:center;gap:16px;font-size:12px;margin-top:4px}
 footer a,footer button{color:#1f1846;background:none;border:0;padding:4px;cursor:pointer;font-weight:600}
+
+/* ===== desktop terminal grid (>=1024px only; mobile untouched) ===== */
+#dk{display:none}
+@media (min-width:1024px){
+ html,body{background:#0b0b0c;height:100%;overflow:hidden}
+ body>header,body>main{display:none}
+ #dk{display:flex;flex-direction:column;height:100vh;font:12px/1.5 var(--mono);color:var(--ink)}
+ .dbar{display:flex;align-items:center;gap:14px;height:24px;padding:0 10px;background:#141415;border-bottom:1px solid #3a3416;font-size:11.5px;white-space:nowrap;flex:0 0 auto}
+ .dbar .dt{color:var(--sub);cursor:pointer;background:none;border:0;padding:0 2px;font-size:11.5px}
+ .dbar .dt b{color:var(--yellow);font-weight:600;margin-right:4px}
+ .dbar .dt.on{color:#111;background:var(--yellow)}.dbar .dt.on b{color:#111}
+ .dbar .sp{flex:1}.dbar .st{color:var(--sub)}.dbar .st .g{font-weight:600}
+ .dbar #dxl{border:1px solid var(--yellow);color:var(--yellow);background:none;padding:0 8px;font-size:11px;cursor:pointer}
+ .dg{flex:1;min-height:0;display:grid;gap:6px;padding:6px;grid-template-columns:1.3fr 1fr .95fr;grid-template-rows:auto 1fr .95fr;
+  grid-template-areas:"board tape view" "board tape coins" "topics wire rank"}
+ .dp{border:1px solid #6f6420;background:#121213;display:flex;flex-direction:column;min-height:0;min-width:0}
+ .dp.hi{border-color:var(--yellow)}
+ .dpb{flex:1;min-height:0;overflow:auto;overflow-x:hidden;padding:8px 10px;scrollbar-width:thin;scrollbar-color:#3a3a40 transparent}
+ .dpf{display:flex;align-items:center;gap:8px;height:20px;border-top:1px solid #2a2a2e;font-size:11px;color:var(--sub);flex:0 0 auto;white-space:nowrap}
+ .dpf .lb{height:100%;padding:0 7px;display:flex;align-items:center;font-weight:700;color:#111}
+ .dpf .ct{margin-left:auto;padding-right:8px}
+ .lb.BOARD{background:var(--yellow)}.lb.TAPE{background:var(--green)}.lb.VIEW{background:var(--lilacbg)}.lb.COINS{background:#e3a35a}.lb.RANK{background:#8fc7e8}.lb.TOPICS{background:var(--green)}.lb.WIRE{background:#e88fb0}
+ .dh{color:var(--yellow);font-weight:700;font-size:13px}
+ .dsub{color:var(--sub);font-size:11px}
+ .bh{text-align:center;border-bottom:1px solid var(--line);padding:2px 0 8px;margin-bottom:2px}
+ .bh h1{font-size:18px;color:var(--ink);margin:0;font-weight:700}
+ .bh .al{color:var(--yellow);font-size:12px;margin-top:4px;text-align:left}
+ .dpost{padding:8px 0;border-bottom:1px solid var(--line);cursor:pointer}
+ .dpost:hover{background:#18181a}
+ .dpost .h{font-weight:700;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .dpost .tk{font-size:13px}
+ .dpost .m{font-size:11px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .dpost .m b{color:var(--ink)}
+ .dpost .vf2{font-size:11px;margin:3px 0 2px;color:var(--sub)}
+ .dpost .gt{font-size:12px;margin:1px 0;-webkit-line-clamp:2}
+ .dpost .ca{font-size:11px;margin-top:3px}
+ .tp{display:grid;grid-template-columns:82px 44px 1fr auto;gap:0 8px;padding:3px 0 4px;border-bottom:1px solid #1f1f22;font-size:12px;align-items:baseline}
+ .tp .t{color:var(--dim);white-space:nowrap;font-variant-numeric:tabular-nums}
+ .tp .k{font-size:10.5px;font-weight:700;text-align:center;padding:0 3px}
+ .k.ALERT{background:var(--lilacbg);color:#111}.k.NEW{background:#2f4a1e;color:var(--green)}.k.MOVE{background:#3a3416;color:var(--yellow)}.k.DEL{background:#4a1e22;color:var(--red)}
+ .tp .x{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .tp .v{text-align:right;font-variant-numeric:tabular-nums}
+ .tp .n{grid-column:3/5;color:var(--sub);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .fv{cursor:pointer}.fv .big{color:var(--yellow);font-size:22px;font-weight:700;line-height:1.2}
+ .fv .row{display:flex;gap:16px;font-size:13px;margin-top:4px}.fv .row span{color:var(--sub)}.fv .row b{color:var(--ink)}
+ .fv .nar{color:var(--sub);font-size:11.5px;margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ table.dt2{width:100%;border-collapse:collapse;table-layout:fixed;font-size:12px}
+ .dt2 th{color:var(--sub);font-weight:400;text-align:left;font-size:11px;padding:0 4px 3px;border-bottom:1px solid var(--line)}
+ .dt2 td{padding:3px 4px;border-bottom:1px solid #1f1f22;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .dt2 .n{text-align:right;font-variant-numeric:tabular-nums}
+ .dt2 tr[data-open]{cursor:pointer}.dt2 tr[data-open]:hover td{background:#18181a}
+ .dt2 .lnk{font-size:11px}
+ .tr2{display:grid;grid-template-columns:18px 1fr auto auto;gap:8px;align-items:center;padding:4px 0;border-bottom:1px solid #1f1f22;cursor:pointer;font-size:12px}
+ .tr2 .grid i{width:11px;height:11px}
+ .wr{padding:5px 0;border-bottom:1px solid #1f1f22;font-size:12px}
+ .wr .a{color:var(--yellow);font-weight:600}.wr .t{color:var(--dim);margin-right:6px}
+ .wr .tx{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:var(--ink)}
+ .wr .s{color:var(--sub);font-size:11px}
+ .sheet{align-items:center}.panelx{border-radius:0;border:1px solid var(--yellow);max-height:86vh}
+}
 </style>
 </head>
 <body>
+<div id="dk"><div class="dbar"><span class="y" style="font-weight:700">$ALPHA</span>
+ <button class="dt on" data-f="board"><b>1</b>desk</button><button class="dt" data-f="tape"><b>2</b>tape</button><button class="dt" data-f="coins"><b>3</b>coins</button><button class="dt" data-f="topics"><b>4</b>topics</button><button class="dt" data-f="wire"><b>5</b>wire</button><button class="dt" data-f="rank"><b>6</b>rank</button>
+ <span class="sp"></span><span class="st" id="dst"></span><span class="st" id="dclk"></span><button id="dxl">export xlsx</button></div>
+ <div class="dg" id="dg"></div></div>
 <header>
   <div class="top"><div class="ticker">$ALPHA <i>—</i> 🍀</div><div class="upd" id="upd"></div></div>
   <nav class="tabs">
@@ -185,7 +249,7 @@ function ccard(c,t){
 function setLive(){document.querySelectorAll(".livebar").forEach(el=>{el.classList.toggle("on",liveOK);
   el.innerHTML=`<span class="ld"></span>${liveOK?`live ${liveAt.toLocaleTimeString("en-GB",{timeZone:"Australia/Sydney",hour12:false,hour:"2-digit",minute:"2-digit"})} 悉尼 · dexscreener 60s`:`快照 ${esc(D.meta.prices_label||D.meta.updated_label)} · 实时价加载中`}`})}
 function applyLive(){document.querySelectorAll("[data-lv]").forEach(e=>{const l=LV[e.dataset.ca];if(!l)return;const f=e.dataset.lv,v=l[f];if(v==null)return;
-  if(f==="mcap"||f==="liq"||f==="vol")e.textContent=money(v);else{e.textContent=pct(v);e.classList.remove("pos","neg");pc(v)&&e.classList.add(pc(v))}});setLive();liveMeter()}
+  if(f==="mcap"||f==="liq"||f==="vol")e.textContent=money(v);else{e.textContent=pct(v);e.classList.remove("pos","neg");pc(v)&&e.classList.add(pc(v))}});setLive();liveMeter();dkStatus()}
 async function live(){
   const cas=[...new Set([...D.topics.flatMap(t=>(t.coins||[]).map(c=>c.ca)),...(D.radar||[]).map(r=>r.ca)].filter(Boolean))];
   let got=0;
@@ -272,6 +336,62 @@ function muskPost(d){
   return `<div class="post"><div class="ph"><div style="min-width:0"><div class="hl">马斯克在关注</div><div class="meta">${esc(d.meta.musk_window||"")}</div></div></div>
    ${m.summary.slice(0,3).map(s=>`<div class="gt">&gt;${esc(s)}</div>`).join("")}
    ${top.map(p=>`<div class="rel"><a href="${p.link}" target="_blank" rel="noopener">↗ ${esc(p.text.length>34?p.text.slice(0,34)+"…":p.text)}</a> <span>${fmt(p.views)}</span></div>`).join("")}</div>`}
+
+// ---------- desktop grid ----------
+const E=x=>esc(noE(x));const noE=x=>String(x??"").replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{1F1E6}-\u{1F1FF}\u{FE0F}\u{200D}\u{2B00}-\u{2BFF}]/gu,"").replace(/\s{2,}/g," ").trim();
+const dpanel=(area,label,sub,count,body)=>`<section class="dp" id="dp-${area}" style="grid-area:${area}"><div class="dpb">${body}</div><div class="dpf"><span class="lb ${label}">${label}</span><span>${sub}</span><span class="ct">${count}</span></div></section>`;
+function dkPost(t,tag){
+  const c=(t.coins||[])[0],v=c?vals(c):{},rk=c?risky(c):[];
+  const bl=[t.verdict,...(t.play||[]).slice(0,1)].filter(Boolean);
+  const vf=c?`<span class="${c.snap?"g":"r"}">${c.snap?"GMGN 已核验":"GMGN 未核验"}</span> · 流动性 <span class="${(v.liq||0)>=20000?"g":"r"}" ${L(c,"liq")}>${money(v.liq)}</span>${rk.length?` · <span class="r">${E(rk.join(" "))}</span>`:""}`:'<span class="r">暂无链上龙头，只有梗</span>';
+  return `<div class="dpost" data-open="${t.id}"><div class="h">${c?`<span class="tk">$${E(c.sym)}</span> `:""}${E(tname(t))}</div>
+   <div class="m">${c?`<b ${L(c,"mcap")}>${money(v.mcap)}</b> · 1h <span class="${pc(v.h1)}" ${L(c,"h1")}>${pct(v.h1)}</span> · `:""}热度 <span class="y">${t.heat}</span> ${arrow(t.trend)} · ${tag}</div>
+   <div class="vf2">${vf}</div>${bl.map(p=>`<div class="gt">&gt;${E(p)}</div>`).join("")}${c?caRow(c):""}</div>`}
+function dkTape(d){
+  const o=[];
+  (d.history||[]).forEach(h=>o.push({t:h.time,k:/删除|归零|rug|跑路/.test(h.title)?"DEL":/新|升入/.test(h.title)?"NEW":"ALERT",x:E(h.title),n:h.verdict}));
+  (d.radar||[]).forEach(r=>o.push({t:tsyd(r.first_seen),k:"NEW",x:`<span class="y">$${E(r.sym)}</span> <span class="sub">${money(r.mcap)}</span>`,v:`<span class="${pc(r.chg1h)}">${pct(r.chg1h)}</span>`,n:"GMGN 热榜新币 · 叙事未核实"}));
+  d.topics.filter(t=>t.status==="active").forEach(t=>(t.coins||[]).forEach(c=>{if(c.snap&&c.snap.at){const v=vals(c);o.push({t:tsyd(c.snap.at),k:"MOVE",x:`<span class="y">$${E(c.sym)}</span> <span class="sub" ${L(c,"mcap")}>${money(v.mcap)}</span>`,v:`<span class="${pc(v.h1)}" ${L(c,"h1")}>${pct(v.h1)}</span>`,n:c.blurb||tname(t),id:t.id})}}));
+  (d.pruned||[]).forEach(p=>o.push({t:p.date,k:"DEL",x:`<span class="y">$${E(p.sym)}</span>`,n:p.reason}));
+  return o.filter(x=>x.t).sort((a,b)=>b.t.localeCompare(a.t));
+}
+function renderDesk(d,act,t24,cyc,rising){
+  const coins=act.flatMap(t=>(t.coins||[]).map((c,i)=>({c,t,i}))).filter(x=>x.c.ca);
+  const pool=coins.filter(x=>x.t.horizon==="24h"&&x.c.status!=="dead");
+  const fx=(pool.length?pool:coins).slice().sort((a,b)=>(vals(b.c).h1??-1e9)-(vals(a.c).h1??-1e9))[0];
+  const tape=dkTape(d).slice(0,80);
+  const posts=(d.posts||[]).slice().sort((a,b)=>b.time.localeCompare(a.time));
+  const byM=coins.slice().sort((a,b)=>(vals(b.c).mcap||0)-(vals(a.c).mcap||0));
+  const board=`<div class="bh"><h1>/alpha/ - 叙事 &amp; 链上</h1><div class="dsub">24h 叙事优先 · 每个币都经 GMGN 核验 · 点开看详情</div>${d.headline?.text?`<div class="al">${E(d.headline.text)}</div>`:""}</div>
+   ${t24.map(t=>dkPost(t,"24h")).join("")}${rising.map(t=>dkPost(t,"升温")).join("")}${cyc.filter(t=>!rising.includes(t)).map(t=>dkPost(t,"大周期")).join("")}`;
+  const tp=tape.map(x=>`<div class="tp"${x.id?` data-open="${x.id}" style="cursor:pointer"`:""}><span class="t">${E(x.t.replace(" ","\u00a0"))}</span><span class="k ${x.k}">${x.k}</span><span class="x">${x.x}</span><span class="v">${x.v||""}</span>${x.n?`<span class="n">${E(x.n)}</span>`:""}</div>`).join("");
+  let view='<div class="dsub">暂无 24h 币</div>';
+  if(fx){const c=fx.c,v=vals(c);view=`<div class="fv" data-open="${fx.t.id}"><div class="dsub">24h 动量最高 · ${E(tname(fx.t))}</div><div class="big">$${E(c.sym)}</div>
+   <div class="row"><span>mcap <b ${L(c,"mcap")}>${money(v.mcap)}</b></span><span>1h <b class="${pc(v.h1)}" ${L(c,"h1")}>${pct(v.h1)}</b></span><span>24h <b class="${pc(v.h24)}" ${L(c,"h24")}>${pct(v.h24)}</b></span></div>
+   <div class="nar">${E(c.blurb||c.name||"")}</div>${caRow(c)}</div>`}
+  const ctab=`<table class="dt2"><colgroup><col><col style="width:64px"><col style="width:62px"><col style="width:40px"><col style="width:44px"></colgroup>
+   <tr><th>coin</th><th class="n">mcap</th><th class="n">1h</th><th>CA</th><th></th></tr>
+   ${byM.map(x=>{const c=x.c,v=vals(c);return `<tr data-open="${x.t.id}"><td><span class="y">$${E(c.sym)}</span>${c.status&&c.status!=="alive"?' <span class="r">dead</span>':""} <span class="dim">${c.chain}</span></td><td class="n" ${L(c,"mcap")}>${money(v.mcap)}</td><td class="n ${pc(v.h1)}" ${L(c,"h1")}>${pct(v.h1)}</td><td><button class="lnk cpy" data-copy="${E(c.ca)}">copy</button></td><td><a class="lnk l" href="${gmLink(c)}" target="_blank" rel="noopener">gmgn</a></td></tr>`}).join("")}</table>`;
+  const tops=act.map((t,i)=>{const c=(t.coins||[])[0];return `<div class="tr2" data-open="${t.id}"><span class="dim">${i+1}</span><span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${E(tname(t))} ${c?`<span class="y">$${E(c.sym)}</span>`:""}</span>${gridHTML(t)}<span style="white-space:nowrap;width:44px;text-align:right"><span class="y" style="font-weight:700">${t.heat}</span> ${arrow(t.trend)}</span></div>`}).join("");
+  const wire=posts.slice(0,40).map(p=>`<div class="wr"><span class="t">${E(p.time)}</span><span class="a">${E(p.author)}</span> <span class="s">${fmt(p.views)} 浏览 · ${E(p.topic||"")}</span><div class="tx">${E(p.text)}</div><a class="s l" href="${E(p.link)}" target="_blank" rel="noopener">原帖</a></div>`).join("");
+  const rank=`<table class="dt2"><colgroup><col style="width:28px"><col><col style="width:36px"><col style="width:52px"><col style="width:48px"></colgroup>
+   <tr><th>#</th><th>topic</th><th class="n">heat</th><th class="n">7d</th><th>state</th></tr>
+   ${act.map((t,i)=>`<tr data-open="${t.id}"><td class="dim">${i+1}</td><td>${E(tname(t))}</td><td class="n y">${t.heat}</td><td class="n ${t.delta>0?"g":t.delta<0?"r":""}">${t.delta>0?"+":""}${t.delta}%</td><td class="sub">${t.horizon==="24h"?"24H":t.trend==="up"?"HOT":t.trend==="down"?"COOL":"IDLE"}</td></tr>`).join("")}</table>`;
+  $("#dg").innerHTML=dpanel("board","BOARD","/alpha/ 热点 + 核验",`${act.length} threads`,board)
+   +dpanel("tape","TAPE","雷达事件 + 币价变动",`${tape.length} events`,tp)
+   +dpanel("view","VIEW","24h 动量龙头",fx?"live":"—",view)
+   +dpanel("coins","COINS","龙头 & beta · 按市值",`${byM.length} coins`,ctab+'<div class="live livebar"></div>')
+   +dpanel("topics","TOPICS","按热度 · 7 日方块",`${act.length} topics`,tops)
+   +dpanel("wire","WIRE","KOL 最新帖",`${posts.length} posts`,wire)
+   +dpanel("rank","RANK","last 7 days",`${act.length} ranked`,rank);
+  dkStatus();
+}
+function dkStatus(){if(!D)return;const coins=D.topics.filter(t=>t.status==="active").flatMap(t=>t.coins||[]).filter(c=>c.ca);const n=coins.filter(c=>LV[key(c.ca)]).length;
+  $("#dst").innerHTML=liveOK?`<span class="g">LIVE</span> ${n}/${coins.length} 币 · dexscreener 60s`:`快照 ${E(D.meta.prices_label||D.meta.updated_label)}`}
+function dkClock(){$("#dclk").textContent=new Date().toLocaleString("en-GB",{timeZone:"Australia/Sydney",weekday:"short",day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false})+" 悉尼"}
+dkClock();setInterval(dkClock,1000);
+document.querySelectorAll(".dbar .dt").forEach(b=>b.onclick=()=>{document.querySelectorAll(".dbar .dt").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".dp").forEach(p=>p.classList.toggle("hi",p.id==="dp-"+b.dataset.f));const p=$("#dp-"+b.dataset.f);p&&p.querySelector(".dpb").scrollTo(0,0)});
+$("#dxl").onclick=()=>doExport();
 let coinSort="mcap";
 function render(d){
   D=d;$("#upd").textContent=d.meta.updated_label;
@@ -309,7 +429,7 @@ function render(d){
    <tr><th>#</th><th>topic</th><th class="n">heat</th><th class="n">7d</th><th>state</th></tr>
    ${act.map((t,i)=>`<tr data-open="${t.id}" style="cursor:pointer"><td class="sub">${i+1}</td><td>${esc(tname(t))}</td><td class="n y">${t.heat}</td><td class="n ${t.delta>0?"g":t.delta<0?"r":""}">${t.delta>0?"+":""}${t.delta}%</td><td class="sub">${t.horizon==="24h"?"24H":t.trend==="up"?"HOT":t.trend==="down"?"COOL":"IDLE"}</td></tr>`).join("")}</table>
    <div class="foot" style="margin:0"><b>RANK</b><span>last 7 days</span><em>${act.length} topics</em></div></div>`;
-  setLive();applyLive();
+  renderDesk(d,act,t24,cyc,rising);setLive();applyLive();
 }
 document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===b));
