@@ -2791,14 +2791,14 @@
     "SOL"
    ],
    "query": "(\"slop caesar\" OR EaqXJVr1aFPhMyTJbDCpwvTeiKc8x4gueFjFKKBvtcWY) -is:retweet",
-   "verdict": "10/12：a16z 创始人 Marc Andreessen（@pmarca）转发 AI 创作者 @Devon8zzh 的 AI 短片《Slop Caesar》（已核实）。19:00 后 Devon 连发十几条回应社区：引用“CAESAR 盘已为你攒了约 1.2 万美元手续费”的帖子说“比我一年存的还多”、“够做 8 支虾视频”，但仍说“等我搞明白怎么领”，截至 19:15 未见领取或明确认领某个 CA（1.2 万这个数字来自社区账号，未核实）。帖子浏览仅千级，热度没有新一轮放大 → 继续观望，等他真正领取手续费或点名 CA",
+   "verdict": "10/12：pmarca 转发 AI 创作者 @Devon8zzh 的《Slop Caesar》（已核实）。19:24 Devon 本人发帖贴出 EaqX… CA 并问“Is this right?”，19:26 问“108.07 SOL 算多吗”，截图显示“I found the button”（自称已领手续费，X 原帖已核实）；GMGN 显示 EaqX 盘 100% 创作者分成指向 GitHub 账号 devonmvfisher 且已领取（GitHub 号与 X 号是否同一人未核实，但该号有 passage 仓库）。截图同时显示有人在私信教他喊单、“先别领其他盘”。讨论量在降（14 点档 244 帖 → 15 点档 148 → 19:00–19:30 约 51），19:30 盘子约 $164K、1h -3%，市场暂未反应",
    "signal": "watch",
    "leader": {
     "sym": "CAESAR",
     "chain": "SOL",
     "ca": "EaqXJVr1aFPhMyTJbDCpwvTeiKc8x4gueFjFKKBvtcWY",
     "mcap": "$165K",
-    "note": "pmarca 转发的 AI 短片《Slop Caesar》社区盘（转发已核实，pmarca 没提币）。开发者已清仓、批量发币地址；机器人约 66%；创作者 Devon 未认领手续费。"
+    "note": "pmarca 转发的《Slop Caesar》社区盘。19:24 Devon 本人贴出此 CA，自称已领约 108 SOL 手续费（GMGN：分成 100% 给 devonmvfisher，已领取）。原开发者已清仓；机器人约 62%。"
    },
    "betas": [],
    "attention": {
@@ -2852,6 +2852,18 @@
     {
      "label": "社区帖：CAESAR 手续费约 1.2 万美元待领（未核实）",
      "url": "https://x.com/TheRealM0nkii/status/2109555562946150806"
+    },
+    {
+     "label": "Devon 贴出 CA（19:24）",
+     "url": "https://x.com/Devon8zzh/status/2109560849610522736"
+    },
+    {
+     "label": "Devon：108.07 SOL（19:26）",
+     "url": "https://x.com/Devon8zzh/status/2109561327723458614"
+    },
+    {
+     "label": "Devon 截图 I found the button",
+     "url": "https://x.com/Devon8zzh/status/2109561610268553597"
     }
    ],
    "horizon": "24h",
@@ -2917,7 +2929,7 @@
      "ca": "EaqXJVr1aFPhMyTJbDCpwvTeiKc8x4gueFjFKKBvtcWY",
      "role": "leader",
      "name": "Slop Caesar",
-     "blurb": "pmarca 转发的 AI 短片《Slop Caesar》社区盘（转发已核实，pmarca 没提币）。开发者已清仓、批量发币地址；机器人约 66%；创作者 Devon 未认领手续费。",
+     "blurb": "pmarca 转发的《Slop Caesar》社区盘。19:24 Devon 本人贴出此 CA，自称已领约 108 SOL 手续费（GMGN：分成 100% 给 devonmvfisher，已领取）。原开发者已清仓、批量发币地址；机器人约 62%。",
      "snap": {
       "symbol": "CAESAR",
       "name": "Slop Caesar",
@@ -4368,7 +4380,7 @@
  "figures": {
   "cycle_rank": "```\n+-------------------- [ HEAT ] --------------------+\n|                                                  |\n| starlink india  [====================]  91       |\n| quantum         [===============-----]  66       |\n| grokbot         [==============------]  65       |\n| stonk           [=========-----------]  42       |\n| reflection      [=========-----------]  40       |\n| ansem           [=========-----------]  40       |\n| si              [=========-----------]  39       |\n| bsc             [========------------]  38       |\n| eth             [======--------------]  27       |\n| laptop          [=====---------------]  25       |\n|                                                  |\n+--------------------------------------------------+\n```",
   "momentum_rank": "```\n+------------------ [ MOMENTUM ] ------------------+\n|                                                  |\n| $gemini      [====================]  100         |\n| $mcdonald's  [====================]  100         |\n| $fomo        [====================]  100         |\n| $dopebat     [====================]  100         |\n| $knightdog   [====================]  100         |\n| $rea         [=================---]   84         |\n| slopcaesar   [==============------]   70         |\n| solamian     [==============------]   68         |\n|                                                  |\n+--------------------------------------------------+\n```",
-  "generated": "2026-10-12T08:27:13.336Z",
+  "generated": "2026-10-12T08:30:41.079Z",
   "source": "mdxcn Knap filters (https://mdxcn.dev/llms.txt ## Knap)"
  }
 }
