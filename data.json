@@ -1,8 +1,8 @@
 {
  "version": 3,
  "meta": {
-  "updated": "2026-10-12T16:15+11:00",
-  "updated_label": "10/12 16:15 悉尼",
+  "updated": "2026-10-12T17:50+11:00",
+  "updated_label": "10/12 17:50 悉尼",
   "musk_window": "10/09 16:48 → 10/09 18:00 悉尼（4 条回复）",
   "note": "热度 = 讨论量(50%) + 动量(30%) + 头部帖浏览(20%)；当天按时段曲线外推（估算）。不构成投资建议",
   "day_basis": "UTC 日（悉尼 11:00 换日）",
@@ -112,7 +112,7 @@
  },
  "headline": {
   "level": "watch",
-  "text": "大周期热度第一：🇮🇳 Starlink（91）"
+  "text": "24h 动量第一： Solamians · Solana 官方插画里的“国籍”（51） · 大周期热度第一：🇮🇳 Starlink（91）"
  },
  "topics": [
   {
@@ -234,7 +234,7 @@
    "delta": -60,
    "trend": "down",
    "reach": 79,
-   "rank": 7,
+   "rank": 8,
    "coins": [
     {
      "sym": "SI",
@@ -1150,7 +1150,7 @@
    "delta": -25,
    "trend": "down",
    "reach": 8,
-   "rank": 4,
+   "rank": 5,
    "coins": [
     {
      "sym": "STONK",
@@ -1466,7 +1466,7 @@
    "delta": 31,
    "trend": "up",
    "reach": 0,
-   "rank": 5,
+   "rank": 6,
    "coins": [
     {
      "sym": "ZCAT",
@@ -1708,7 +1708,7 @@
    "delta": -7,
    "trend": "flat",
    "reach": 21,
-   "rank": 6,
+   "rank": 7,
    "coins": [
     {
      "sym": "ANSEM",
@@ -1860,7 +1860,7 @@
    "delta": -24,
    "trend": "down",
    "reach": 0,
-   "rank": 9,
+   "rank": 10,
    "coins": [
     {
      "sym": "SPX",
@@ -2000,7 +2000,7 @@
    "delta": 2,
    "trend": "flat",
    "reach": 19,
-   "rank": 8,
+   "rank": 9,
    "coins": [
     {
      "sym": "币安人生",
@@ -2239,7 +2239,7 @@
    "delta": 80,
    "trend": "up",
    "reach": 0,
-   "rank": 10,
+   "rank": 11,
    "coins": [
     {
      "sym": "LAPTOP",
@@ -2489,7 +2489,7 @@
    "delta": -53,
    "trend": "down",
    "reach": 23,
-   "rank": 11,
+   "rank": 12,
    "leader": {
     "sym": "PQC",
     "chain": "SOL",
@@ -2502,6 +2502,159 @@
     "trend": "```\n+------------------ [ HEAT 7D ] -------------------+\n|                                                  |\n| 590                                              |\n| posts today (est)  -53.0%                        |\n| ▂▃█▇▄▄▄                                          |\n|                                                  |\n+--------------------------------------------------+\n```",
     "attention": "```\n+----------------- [ ATTENTION ] ------------------+\n|                                                  |\n| big names  ●●●●●○○○○○  5/10                      |\n| politics   ●○○○○○○○○○  1/10                      |\n| news       ●●●●●●○○○○  6/10                      |\n| novelty    ●●●●●●●●●●  10/10                     |\n|                                                  |\n+--------------------------------------------------+\n```",
     "coins": "```\n+---------------- [ LEAD VS BETA ] ----------------+\n|                                                  |\n| coin   |  mcap |    1h |    24h |  liq           |\n| -------+-------+-------+--------+-----           |\n| *PQC   | $335K | -7.0% | -22.4% | $69K           |\n| BUNKER | $216K | -2.9% |  +110% | $41K           |\n|                                                  |\n+--------------------------------------------------+\n```"
+   }
+  },
+  {
+   "id": "solamian",
+   "name": "Solamians · Solana 官方插画里的“国籍”",
+   "emoji": "",
+   "chains": [
+    "SOL"
+   ],
+   "query": "(solamian OR solamians OR \"republic of solami\") -is:retweet",
+   "verdict": "10/12 新梗：Solana 官方 Breakpoint 指南插画护照上写着 Republic of Solami / Sola / Nationality: Solamian（已核实原图）。但这是 9/29 就发布的旧插画被重新挖出，不是新消息；官方和大号未下场，龙头已从高点回撤约 3 成 → 观望不追",
+   "signal": "watch",
+   "leader": {
+    "sym": "Solamians",
+    "chain": "SOL",
+    "note": "pump.fun，10/12 13:09 创建，最早喊出该 CA 的是 @river100x；ATH ~$910K，机器人成交占比约 57%",
+    "ca": "8ZP5CzbPL1fmP8dn1GEmLd8xw1JdudUF5Dk7EpLxpump",
+    "mcap": "~$646K（GMGN 10/12 17:50）"
+   },
+   "betas": [
+    {
+     "sym": "Sola",
+     "chain": "SOL",
+     "note": "“The Solamian Girl”，9/30 就发的老盘（护照上的角色名），持有人仅 ~133",
+     "ca": "72WTP6f1k2dLpgW576Wkt3ZQY793sbLTxshZwrctpump",
+     "mcap": "~$12K（GMGN 10/12 17:50）"
+    }
+   ],
+   "attention": {
+    "big_names": 2,
+    "politics": 0,
+    "news": 3,
+    "novelty": 5,
+    "notes": [
+     "Solana 官方插画出处（已核实），但 @solana/@SolanaEvents/toly 均未提到这个币或这个词",
+     "无政治或慈善角度",
+     "X 已生成趋势新闻卡（Grok 汇总，不是媒体报道）",
+     "“链的国籍/身份”对标 Binancians，有画面感，但插画是 13 天前的旧内容"
+    ]
+   },
+   "firsts": [
+    "Solana 官方素材第一次给社区一个“国籍”名字 Solamian（插画彩蛋，不是官方命名公告）"
+   ],
+   "ignition": "Solana 官方账号或 toly/mert 用 Solamian 自称、或 Breakpoint 官方采用这个角色",
+   "play": [
+    "不追当前龙头，等官方或大号是否接梗",
+    "同名盘至少 6 个（多个非 pump 地址成交额远大于市值，疑似刷量），只认 8ZP5 这一个"
+   ],
+   "risk": "旧内容炒作，官方未背书；机器人成交高；同名盘多，容易买错",
+   "top_views": 19883,
+   "top_post": "https://x.com/TakakoBeilo4ky/status/2109465807960871067",
+   "sources": [
+    {
+     "label": "Solana 官网指南 Part 2（护照插画）",
+     "url": "https://solana.com/news/breakpoint-guide-part2"
+    },
+    {
+     "label": "@SolanaEvents 9/29 首发原帖",
+     "url": "https://x.com/SolanaEvents/status/2104997362653638798"
+    },
+    {
+     "label": "10/12 重新挖出的首帖",
+     "url": "https://x.com/TakakoBeilo4ky/status/2109465807960871067"
+    },
+    {
+     "label": "@river100x 喊出 CA",
+     "url": "https://x.com/river100x/status/2109469298070892878"
+    },
+    {
+     "label": "X 趋势新闻卡",
+     "url": "https://x.com/i/trending/2109535488168071330"
+    }
+   ],
+   "horizon": "24h",
+   "born": "2026-10-12T17:52+11:00",
+   "discover": {
+    "keywords": [
+     "solamian",
+     "solamians",
+     "solami",
+     "solville"
+    ],
+    "search": [
+     "solamian"
+    ]
+   },
+   "coins": [
+    {
+     "sym": "Solamians",
+     "chain": "sol",
+     "ca": "8ZP5CzbPL1fmP8dn1GEmLd8xw1JdudUF5Dk7EpLxpump",
+     "role": "leader",
+     "name": "Solamians",
+     "blurb": "Solana 官方 Breakpoint 指南护照插画写着 Nationality: Solamian（已核实原图）。10/12 13:09 创建，ATH ~$910K，机器人成交约 57%。"
+    },
+    {
+     "sym": "Sola",
+     "chain": "sol",
+     "ca": "72WTP6f1k2dLpgW576Wkt3ZQY793sbLTxshZwrctpump",
+     "role": "beta",
+     "name": "The Solamian Girl",
+     "blurb": "护照上的角色名 Sola，9/30 就发的老盘，持有人约 133，流动性很薄。"
+    }
+   ],
+   "memes": [],
+   "history": {
+    "2026-10-11": {
+     "count": 0,
+     "est": 1,
+     "grid": 18.8
+    },
+    "2026-10-12": {
+     "count": 737,
+     "partial_hours": 6.83,
+     "views": 19883,
+     "est": 854,
+     "grid": 56.9
+    },
+    "2026-10-06": {
+     "count": 0,
+     "est": 1,
+     "grid": 18.8
+    },
+    "2026-10-07": {
+     "count": 1,
+     "est": 1,
+     "grid": 18.8
+    },
+    "2026-10-08": {
+     "count": 1,
+     "est": 1,
+     "grid": 18.8
+    },
+    "2026-10-09": {
+     "count": 1,
+     "est": 1,
+     "grid": 18.8
+    },
+    "2026-10-10": {
+     "count": 1,
+     "est": 1,
+     "grid": 18.8
+    }
+   },
+   "status": "active",
+   "heat": 51,
+   "delta": 42605,
+   "trend": "up",
+   "reach": 29,
+   "rank": 4,
+   "figures": {
+    "trend": "```\n+------------------ [ HEAT 7D ] -------------------+\n|                                                  |\n| 854                                              |\n| posts today (est)  +42605%                       |\n| ▁▁▁▁▁▁█                                          |\n|                                                  |\n+--------------------------------------------------+\n```",
+    "attention": "```\n+----------------- [ ATTENTION ] ------------------+\n|                                                  |\n| big names  ●●○○○○○○○○  2/10                      |\n| politics   ○○○○○○○○○○  0/10                      |\n| news       ●●●○○○○○○○  3/10                      |\n| novelty    ●●●●●○○○○○  5/10                      |\n|                                                  |\n+--------------------------------------------------+\n```"
    }
   }
  ],
@@ -2684,6 +2837,12 @@
    "title": "Anthropic 披露 AI 代理擅自访问美国政府网站（已核实：Anthropic 官方博客+NYT/Bloomberg/WaPo/Axios）",
    "verdict": "暂无对应 ticker",
    "signal": "up"
+  },
+  {
+   "time": "10/12 17:50",
+   "title": "Solamians：Solana 官方插画里的“国籍”梗",
+   "verdict": "插画出处已核实，但是 9/29 旧图被重新挖出，官方未下场 → 观望",
+   "signal": "watch"
   }
  ],
  "posts": [
@@ -3865,8 +4024,8 @@
  ],
  "figures": {
   "cycle_rank": "```\n+-------------------- [ HEAT ] --------------------+\n|                                                  |\n| starlink india  [====================]  91       |\n| quantum         [===============-----]  66       |\n| grokbot         [==============------]  65       |\n| stonk           [=========-----------]  42       |\n| reflection      [=========-----------]  40       |\n| ansem           [=========-----------]  40       |\n| si              [=========-----------]  39       |\n| bsc             [========------------]  38       |\n| eth             [======--------------]  27       |\n| laptop          [=====---------------]  25       |\n|                                                  |\n+--------------------------------------------------+\n```",
-  "momentum_rank": "```\n+------------------ [ MOMENTUM ] ------------------+\n|                                                  |\n| $caesar     [====================]  100          |\n| $fomo       [====================]  100          |\n| $barron     [====================]  100          |\n| $gta6 coin  [====================]  100          |\n| $chilldia   [====================]  100          |\n| $wr.dog     [====================]  100          |\n| $w          [=================---]   85          |\n| $solamians  [==============------]   71          |\n|                                                  |\n+--------------------------------------------------+\n```",
-  "generated": "2026-10-12T06:48:52.361Z",
+  "momentum_rank": "```\n+------------------ [ MOMENTUM ] ------------------+\n|                                                  |\n| $caesar     [====================]  100          |\n| $fomo       [====================]  100          |\n| $barron     [====================]  100          |\n| $gta6 coin  [====================]  100          |\n| $chilldia   [====================]  100          |\n| $wr.dog     [====================]  100          |\n| $w          [=================---]   85          |\n| solamian    [==========----------]   51          |\n|                                                  |\n+--------------------------------------------------+\n```",
+  "generated": "2026-10-12T06:50:47.176Z",
   "source": "mdxcn Knap filters (https://mdxcn.dev/llms.txt ## Knap)"
  }
 }
