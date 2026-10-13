@@ -1,8 +1,8 @@
 {
  "version": 3,
  "meta": {
-  "updated": "2026-10-14T04:24+11:00",
-  "updated_label": "10/14 04:24 悉尼",
+  "updated": "2026-10-14T07:00+11:00",
+  "updated_label": "10/14 07:00 悉尼",
   "musk_window": "10/09 16:48 → 10/09 18:00 悉尼（4 条回复）",
   "note": "热度 = 讨论量(50%) + 动量(30%) + 头部帖浏览(20%)；当天按时段曲线外推（估算）。不构成投资建议",
   "day_basis": "UTC 日（悉尼 11:00 换日）",
@@ -282,7 +282,7 @@
     "Robinhood"
    ],
    "query": "(\"super inu\" OR \"superintelligence owl\" OR $OWL OR (superintelligence (memecoin OR solana OR pump OR CA OR ticker))) -is:retweet",
-   "verdict": "10/10 新增：Salesforce CEO Benioff 官宣 AIForce 改名 SIForce（原帖 35 万浏览，已核实），SI 叙事再获大公司背书；但龙头 Super Inu 6h 仍 -11%、约 $22M，市场暂未反应 → 等二次点火",
+   "verdict": "10/14 新增：白宫把 ai.gov 正式跳转到 si.gov（标题“SI.gov | America's Super Intelligence Initiatives”，已核实：官网跳转 + Business Insider + The Verge）；但龙头 Super Inu 24h -27%，跟风盘 $SIGOV 1 小时内 -98.6% 归零 → 市场不买账，继续等二次点火",
    "signal": "watch",
    "leader": {
     "sym": "SI",
@@ -316,6 +316,18 @@
    "top_views": 3518417,
    "top_post": "https://x.com/elonmusk/status/2108321181602353333",
    "sources": [
+    {
+     "label": "The Verge：政府上线 Super Intelligence 网站",
+     "url": "https://www.theverge.com/policy/1010503/the-government-launched-a-super-intelligence-website"
+    },
+    {
+     "label": "Business Insider：White House in its SI era",
+     "url": "https://www.businessinsider.com/white-house-ai-si-era-new-website-domain-url-2026-10"
+    },
+    {
+     "label": "si.gov 官网（ai.gov 已跳转）",
+     "url": "https://www.si.gov/"
+    },
     {
      "label": "Robinhood CEO Vlad Tenev 10/12 14:12 悉尼：AI 研究员开始抽烟，superintelligence is near（约 30 万浏览，已核实原帖；讨论量低，每小时不到 10 帖）",
      "url": "https://x.com/vladtenev/status/2109482209858167175"
@@ -3528,6 +3540,12 @@
    "title": "升入大周期：Solamians · Solana 官方插画里的“国籍”",
    "verdict": "Solamians · Solana 官方插画里的“国籍” 24h 后仍有热度/龙头≥$1M，转入大周期跟踪",
    "signal": "watch"
+  },
+  {
+   "time": "10/14 07:00",
+   "title": "白宫 ai.gov 改为 si.gov（已核实：官网+BI+Verge）",
+   "verdict": "SI 龙头未反应、SIGOV 跟风盘归零，不推",
+   "signal": "watch"
   }
  ],
  "posts": [
@@ -4720,7 +4738,7 @@
  "figures": {
   "cycle_rank": "```\n+-------------------- [ HEAT ] --------------------+\n|                                                  |\n| starlink india  [====================]  91       |\n| quantum         [===============-----]  66       |\n| grokbot         [==============------]  65       |\n| solamian        [===========---------]  51       |\n| stonk           [=========-----------]  42       |\n| reflection      [=========-----------]  40       |\n| ansem           [=========-----------]  40       |\n| si              [=========-----------]  39       |\n| bsc             [========------------]  38       |\n| eth             [======--------------]  27       |\n|                                                  |\n+--------------------------------------------------+\n```",
   "momentum_rank": "```\n+------------------ [ MOMENTUM ] ------------------+\n|                                                  |\n| $panda coin     [====================]  100      |\n| $pepecat        [====================]  100      |\n| $loulou         [====================]  100      |\n| $gta6 coin      [====================]  100      |\n| $nauto          [====================]  100      |\n| gta6 cyberleek  [===========---------]   57      |\n| slopcaesar      [==========----------]   51      |\n| binancians      [=========-----------]   44      |\n|                                                  |\n+--------------------------------------------------+\n```",
-  "generated": "2026-10-13T19:59:51.840Z",
+  "generated": "2026-10-13T20:00:19.471Z",
   "source": "mdxcn Knap filters (https://mdxcn.dev/llms.txt ## Knap)"
  }
 }
