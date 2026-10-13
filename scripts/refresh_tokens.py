@@ -105,7 +105,8 @@ def norm_search(x):
 
 def suspicious(c):
     """wash-trading tells: pool bigger than the mcap, or hourly volume > 20x mcap"""
-    return c["liq"] > c["mcap"] * 0.9 or (c.get("vol") or 0) > 20 * max(c["mcap"], 1)
+    return c["liq"] > c["mcap"] * 0.9 or (c.get("vol") or 0) > 20 * max(c["mcap"], 1) \
+        or (c["mcap"] > 20_000_000 and c["liq"] > 0 and c["mcap"] > 150 * c["liq"] and c.get("holders", 0) < 5000)
 
 def matches(cand, kws):
     hay = (cand["sym"] + " " + cand["name"]).lower()

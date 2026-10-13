@@ -102,6 +102,7 @@ def prune_reason(s):
     if "honeypot" in s.get("flags", []): return "貔貅/蜜罐"
     if mc < PRUNE_MCAP: return f"市值<${PRUNE_MCAP//1000}K"
     if liq < 2_000: return "池子枯竭"
+    if mc > 20_000_000 and liq and mc > 150 * liq and (s.get("top10") or 0) >= 0.5: return "疑似虚高市值(集中持仓+薄池)"
     if ath and mc < ath * 0.10 and (s.get("vol24h") or 0) < 20_000: return "较ATH跌>90%且无量"
     return None
 
