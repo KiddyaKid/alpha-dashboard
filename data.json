@@ -3257,7 +3257,7 @@
     "SOL"
    ],
    "query": "(\"Embryo Corp\" OR \"Embryo Corporation\" OR josiezayner OR \"Josie Zayner\") -is:retweet",
-   "verdict": "10/14 14:33 悉尼：Josie 已核实确认收款钱包 9D99UtHw3FjFXwURJgGrXVs4HWNC1qj3HMuYz8BTBr3h 是她的（回复 OnchainPeasant「yes」https://x.com/josiezayner/status/2110207730 类回复，同线程）；此前已核实「I don't support either of the tokens」（https://x.com/josiezayner/status/2110202201939288261）。对「Unicorn will only be sent at a billion dollar mcap」仅回「fr」，未点名 CA。持币人互撕升温（4dLx…repump vs DuxVrk…pump），属内斗非外部新注意力。龙头未确认，回避追盘。",
+   "verdict": "10/14 14:33 悉尼：Josie 已核实在回复里确认收款钱包 9D99UtHw3FjFXwURJgGrXVs4HWNC1qj3HMuYz8BTBr3h 是她的（回复 @OnchainPeasant「is this your wallet?」；本轮扫描未另存该回复 status id）。此前已核实「I don't support either of the tokens」（https://x.com/josiezayner/status/2110202201939288261）。对「Unicorn will only be sent at a billion dollar mcap」仅回「fr」，未点名 CA。持币人互撕升温（4dLx…repump vs DuxVrk…pump），属内斗非外部新注意力。龙头未确认，回避追盘。",
    "signal": "risk",
    "leader": {
     "sym": "UNICORN",
@@ -5311,7 +5311,7 @@
  "figures": {
   "cycle_rank": "```\n+-------------------- [ HEAT ] --------------------+\n|                                                  |\n| starlink india  [====================]  91       |\n| quantum         [===============-----]  66       |\n| grokbot         [==============------]  65       |\n| gta6 cyberleek  [============--------]  56       |\n| solamian        [===========---------]  51       |\n| slopcaesar      [===========---------]  48       |\n| stonk           [=========-----------]  42       |\n| reflection      [=========-----------]  40       |\n| ansem           [=========-----------]  40       |\n| si              [=========-----------]  39       |\n|                                                  |\n+--------------------------------------------------+\n```",
   "momentum_rank": "```\n+------------------ [ MOMENTUM ] ------------------+\n|                                                  |\n| $spacex         [====================]  100      |\n| $rot            [====================]  100      |\n| $claude ai      [====================]  100      |\n| $dragonball     [====================]  100      |\n| $asml ai        [====================]  100      |\n| embryo unicorn  [============--------]   59      |\n| floyd fomo sah  [===========---------]   57      |\n| binancians      [==========----------]   51      |\n|                                                  |\n+--------------------------------------------------+\n```",
-  "generated": "2026-10-14T03:35:48.559Z",
+  "generated": "2026-10-14T03:36:01.052Z",
   "source": "mdxcn Knap filters (https://mdxcn.dev/llms.txt ## Knap)"
  }
 }
