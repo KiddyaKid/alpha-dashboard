@@ -186,7 +186,10 @@ def lifecycle(d):
         grid = hist[max(hist)]["grid"] if hist and "grid" in hist[max(hist)] else t.get("heat", 0)
         t["momentum"] = round(0.6 * (moms[0] if moms else 40) + 0.4 * grid)
         if t.get("horizon") == "24h" and t.get("status") == "active" and t.get("born"):
-            age = (NOW - datetime.fromisoformat(t["born"])).total_seconds() / 3600
+            born = datetime.fromisoformat(t["born"])
+            if born.tzinfo is None:
+                born = born.replace(tzinfo=SYD)
+            age = (NOW - born).total_seconds() / 3600
             if age > 36:
                 big = any((c["snap"].get("mcap") or 0) >= 1_000_000 for c in alive)
                 if t.get("heat", 0) >= 45 or big:

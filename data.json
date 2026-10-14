@@ -3291,8 +3291,8 @@
     "SOL"
    ],
    "query": "(\"Embryo Corp\" OR \"Embryo Corporation\" OR josiezayner OR \"Josie Zayner\") -is:retweet",
-   "verdict": "事件已核实（官网 building.life + People 独家，创始人本人转发）；创始人 10/14 12:06 悉尼发帖“币圈的人一直在给我打 SOL”但未点名任何 CA，币与她的关联未核实",
-   "signal": "watch",
+   "verdict": "10/14 14:06 悉尼：Josie 已核实声明「I don't support either of the tokens」（https://x.com/josiezayner/status/2110202201939288261 ~1k浏览）；同时仍感谢打 SOL。未点名任何 CA，多盘竞争。SOL 帖 2110175418565238969 ~12.6k浏览。热度约 0→13→31/hr（相对低）。龙头未确认，回避追盘。",
+   "signal": "risk",
    "leader": {
     "sym": "UNICORN",
     "chain": "SOL",
@@ -3333,10 +3333,10 @@
    ],
    "ignition": "Josie 点名某个 CA、或大号/媒体报道“币圈众筹造独角兽”",
    "play": [
-    "先等 Josie 确认哪个币在给她分成",
-    "没确认前同名盘 PvP，追高风险大"
+    "等她点名 CA 或 UsePaid 官方关联再动",
+    "当前多盘竞争 + 本人明确不支持 → 不做"
    ],
-   "risk": "同名盘 10+ 个、1 小时内又批量开了多个；龙头机器人成交 66%，已从 ATH 腰斩；创始人说“不知道发生了什么”",
+   "risk": "创始人已公开不支持任一 token；同名盘多；UsePaid 认领叙事未核实到她本人发 CA",
    "top_views": 6818,
    "top_post": "https://x.com/josiezayner/status/2110175418565238969",
    "sources": [
@@ -3355,6 +3355,10 @@
     {
      "label": "公司官网",
      "url": "https://building.life/"
+    },
+    {
+     "label": "Josie 不支持任一 token",
+     "url": "https://x.com/josiezayner/status/2110202201939288261"
     }
    ],
    "history": {
@@ -3529,7 +3533,7 @@
    "status": "active",
    "signal": "risk",
    "query": "(FloydMayweather OR $FLOYD OR villainmonkey OR \"next crime\") (fomo OR Mayweather OR sahil) -is:retweet",
-   "verdict": "10/14 13:23 悉尼：原 CA 帖已删（已核实 Not Found）；Floyd 现帖「What's next @villainmonkey?」已核实；sahil 预告 next crime @fomo 10/15 05:00 悉尼。本人/买推/被盗未核实。高风险名人连发盘。",
+   "verdict": "10/14 14:06 悉尼：热度回落 178→62→32/hr；无 Floyd/villainmonkey/fomo 新帖。原 CA 帖仍删；盘面 FLOYD/FWOYD 各约 $63K 1h 约 -16~-23%。不重复推。",
    "leader": {
     "sym": "FLOYD",
     "chain": "SOL",
@@ -5289,7 +5293,7 @@
  "figures": {
   "cycle_rank": "```\n+-------------------- [ HEAT ] --------------------+\n|                                                  |\n| starlink india  [====================]  91       |\n| quantum         [===============-----]  66       |\n| grokbot         [==============------]  65       |\n| gta6 cyberleek  [============--------]  56       |\n| solamian        [===========---------]  51       |\n| slopcaesar      [===========---------]  48       |\n| stonk           [=========-----------]  42       |\n| reflection      [=========-----------]  40       |\n| ansem           [=========-----------]  40       |\n| si              [=========-----------]  39       |\n|                                                  |\n+--------------------------------------------------+\n```",
   "momentum_rank": "```\n+------------------ [ MOMENTUM ] ------------------+\n|                                                  |\n| $si             [====================]  100      |\n| $tesla si       [====================]  100      |\n| $sag ai         [====================]  100      |\n| $elonman        [====================]  100      |\n| $reptile        [================----]   82      |\n| embryo unicorn  [============--------]   61      |\n| floyd fomo sah  [============--------]   58      |\n| binancians      [==========----------]   50      |\n|                                                  |\n+--------------------------------------------------+\n```",
-  "generated": "2026-10-14T03:01:19.294Z",
+  "generated": "2026-10-14T03:06:25.826Z",
   "source": "mdxcn Knap filters (https://mdxcn.dev/llms.txt ## Knap)"
  }
 }
